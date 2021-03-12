@@ -1,0 +1,47 @@
+<div class="add_review common_width">
+  <div class="review-heading-edit">Edit Review</div>
+  <p class="review-description">Your email address will not be published. Required Field is marked
+    <span class="mandatory">*</span>
+  </p>
+  <form [formGroup]=formAddProductReview (ngSubmit)="onUpdateReview()" class="product-edit-form">
+  <div class="product-edit-main">
+      <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-sm-12 col-xs-12 star_right">
+              <div class="form-group-new">
+                  <div class="your_rating col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                    <label for="inputPassword" class="col-form-label">Ratings <span class="mandatory">*</span></label>
+                  </div>
+                  <div class="star_right col-lg-7 col-md-7 col-sm-7 col-xs-12 rating-stars">
+                      <app-rating [rate]='rating' [edit]='true' (rated)="onRated($event)"></app-rating>
+                      <!-- [ngClass]="{'checked':star<=val}" (click)="changeStarCount(star)" -->
+                  </div>
+              </div>
+              <div class="form-group-new">
+                <div class="your_rating col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                <label for="inputPassword" class="col-form-label">Title</label>
+                </div>
+               <div class="star_right col-lg-7 col-md-7 col-sm-7 col-xs-12 rating-stars">
+                  <input type="text" class="form-control" formControlName="rTitle" id="inputPassword" placeholder="Review Headline">
+                </div>
+              </div>
+  
+              <div class="form-group-new">
+                <div class="your_rating col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                  <label class="col-form-label">Review</label>
+                </div>
+                  <div class="star_right col-lg-7 col-md-7 col-sm-7 col-xs-12 rating-stars">
+                    <textarea class="form-control" rows="3" formControlName="rDescription"></textarea>
+                  </div>
+                </div>
+  
+              <div class="form-group-new">
+                <label for="inputPassword" class="col-lg-5 col-md-5 col-sm-5 col-xs-12 col-form-label"></label>
+                <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                  <button class="common-btn reviewsubmit" type="submit">Submit</button>
+                </div>
+              </div>
+          </div>
+      </div>
+     </div>
+    </form>
+  </div>

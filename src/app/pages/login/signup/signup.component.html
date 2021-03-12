@@ -1,0 +1,42 @@
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 signup-margin-main">
+    <div class="login-heading-main">
+      <div class="login-heading"><span class="border">CREATE</span><span> NEW ACCOUNT</span></div>
+    </div>
+    <!-- <h6 class="padding_top">Create your own bottlecapps account</h6> -->
+    <div class="create-account-div">
+    <form [formGroup]=formSignUp (ngSubmit)="onSignUp()" class="signup-form">
+        <div class="form-group">
+            <label for="email" class="email">EMAIL ADDRESS
+                <span class="mandatory">*</span>
+            </label>
+            <input aria-label="Search" type="email" autocomplete="off" class="form-control form-control-custom" formControlName="semail" placeholder="Your email">
+            <div *ngIf="submitted && f.semail.errors" class="alert alert-danger">
+                <div *ngIf="f.semail.errors.required">E-Mail is required.</div>
+                <div *ngIf="f.semail.errors.email">E-Mail must be a valid email address</div>
+              </div>
+        </div>
+        <div class="form-group">
+            <label for="pwd" class="password">PASSWORD
+                <span class="mandatory">*</span>
+            </label>
+            <input type="password" aria-label="Search" autocomplete="new-password" class="form-control form-control-custom" formControlName="spassword" placeholder="Password">
+            <div *ngIf="submitted && f.spassword.errors" class="alert alert-danger">
+                <div *ngIf="f.spassword.errors.required">Password is required.</div>
+                <div *ngIf="f.spassword.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+        </div>
+        <button type="submit" class="common-btn submit">SIGN UP</button>
+    </form>
+   </div>
+   <div class="signup-benefits">
+    <div class="signup-benefits-heading">
+        <span class="border">SIGN</span> <span> UP TODAY AND YOU'LL BE ABLE TO </span>
+    </div>
+    <ul class="signup-benefits-list">
+     <li class="color_text">Speed your way through the checkout</li>
+     <li class="color_text">Track your orders easily</li>
+     <li class="color_text">Keep a record of all purchases</li>
+     </ul>
+    </div>
+
+</div>

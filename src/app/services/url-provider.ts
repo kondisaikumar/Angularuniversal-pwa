@@ -31,6 +31,7 @@ export enum UrlNames {
   CustomerProfileUpdate = 'Customer/CustomerProfileUpdate',
   UploadImage = 'Customer/UploadImage',
   CustomerPaymentMethodGetList = 'Customer/CustomerGetPayMethods',
+  // CustomerPaymentMethodGetList = 'Customer/CustomerPaymentMethodGetList',
   CustomerPaymentInsert = 'Customer/CustomerPaymentInsert',
   CouponGetList = 'Coupon/CouponGetList',
   ReOrderCart = 'Cart/ReOrderCart',
@@ -45,17 +46,10 @@ export enum UrlNames {
   StoreContactUs = 'Store/StoreContactUs',
   ElasticSearch = 'values/SerchTextValue',
   Authorize = 'Authorize/CreateCustomerProfile',
-  // product-flow-url's
-  ProductFlowGetList = 'Product/MasterProductGetList',
-  ProductFlowGetDetails = 'Product/MasterProductGetDetail',
-  ProductFlowStoreList = 'Product/GetStoresListByProductid',
-  ProductElasticSearch = 'values/SearchMasterProductTextValue',
-  CreditUtilize = 'cart/CartStoreCreditAccess',
-  RelatedProductList = 'Product/RelatedProductGetList',
-   ValidateCaptchaAuth = 'Store/ValidateCaptcha',
+  BannerGetDetail = 'banner/GetBanner',
+  CreditUtilize = "cart/CartStoreCreditAccess",
+ ValidateCaptchaAuth = 'Store/ValidateCaptcha',
   ValidateCaptcha = 'Customer/PaymentSetupTransactionIdByCaptcha',
-  MasterFilters = 'Product/MasterFilters',
-    TopPicksList = "TopPicks/TopPicksList",
-  StoreMarketPromotionViewStates = "Store/StoreMarketPromotionViewStates",
-  RoverDonation="Store/DonationPayment"
+  TopPicksList = "TopPicks/TopPicksList",
+  StoreMarketPromotionViewStates = "Store/StoreMarketPromotionViewStates"
 }

@@ -1,0 +1,111 @@
+@import "src/variable.scss";
+
+form .mandatory{
+    color: $lukas-color;
+}
+ form .form-group .border_radius{
+     border-radius: 0px !important;
+ }
+
+span.border{
+    border-bottom: 1px solid $lukas-color;
+    padding-bottom: 3px;
+}
+.form-group label{
+ margin-bottom: 15px;
+}
+h4.font_size span,form .form-group label.email,form .form-group label.password{
+    font-family: $poppins-regular;
+    font-size: 14.5px;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: #2b2b2b;
+}
+h4.font_size{
+    padding: 20px 0 20px;   
+}
+h6.padding_top{
+    font-family: $poppins-regular;
+    font-size: 12.7px;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    text-align: left;
+    color: #666666;
+    padding: 10px 0 10px;
+}
+h6.color_text{
+    font-family: $poppins-regular;
+    font-size: 14.5px;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: left;
+    padding-bottom: 15px;
+    color: #666666;
+}
+h5.color{
+    font-family: $poppins-regular;
+    font-size: 14.5px;
+    font-stretch: normal;
+    line-height: 1.88;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: $lukas-color;
+    cursor: pointer;
+  }
+  h5.color:focus{
+      outline: none;
+  }
+  .checkbox label{
+    font-family: $poppins-regular;
+    font-size: 14.5px;
+    font-stretch: normal;
+    line-height: 1.88;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: #666666;
+  }
+  button.submit{
+    background-color: $lukas-color;
+    font-family: $poppins-regular;
+    font-size: 12.7px;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    text-align: left;
+    color: #ffffff;
+    padding: 15px 20px 15px 20px;
+    border-radius: 0px;
+    width:128px;
+    text-align: center;
+    border: $lukas-color;
+    box-shadow: none;
+ 
+  }
+  button.submit:focus{
+      border:$lukas-color;
+      outline: none;
+  }
+
+.login-main-top {width: 100%; float: left;}
+.login-container {width: 1400px; display: block; margin: 0 auto; padding: 0;}
+
+@media screen and (max-width: 1440px) and (min-width: 1200px) { 
+    .login-container {width: 1150px;}
+}
+
+@media screen and (max-width: 1199px) and (min-width: 992px) { 
+    .login-container {width: 950px;}
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) { 
+    .login-container {width: 100%; padding: 10px 40px;}
+}
+
+@media screen and (max-width: 767px) and (min-width: 481px) { 
+    .login-container {width: 100%; padding: 0px 20px;}
+}
+
+@media screen and (max-width: 480px) { 
+    .login-container {width: 100%; padding: 0 20px;}
+}

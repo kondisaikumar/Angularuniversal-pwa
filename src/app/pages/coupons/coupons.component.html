@@ -1,0 +1,41 @@
+<div class="common-margin-top">
+  <div class="page-margin-alt">
+   <div class="container-new container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="Searchrelated_noborder Searchrelated_noborder_new">
+          <h4 class="align-center">Coupons</h4>
+           </div>         
+      </div>
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+        <li class="breadcrumb-item">Coupons</li>
+      </ol>
+      </div>
+      <div *ngIf="couponsList?.length > 0" class="coupon-tile-main">
+        <div class="coupon-tile" *ngFor="let coupon of couponsList">
+            <div class="thumbnail">
+              <div class="img-container"><img class="img-container img-responsive" [src]="coupon?.CouponImage"></div>
+                <div class="coupon-table">
+                    <div class="coupon-table-sub">
+                      <div class="coupon-heading">{{coupon?.CouponCode}}</div>
+                      <div class="coupon-date">Expires on <span class="highlight">{{coupon?.CouponEndDtDisplay}}</span></div>
+                    </div>
+                    <div class="coupon-table-sub">
+                        <div class="coupon-offer">{{coupon?.CouponTitle}}</div>
+                        <p class="coupon-description">{{coupon?.CouponDescription}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      <div *ngIf="couponsList?.length === 0" class="no-coupons-container-main">
+        <div class="no-coupons-container">
+        <img class="img-responsive" src="../../../assets/Images/no-coupons-v2.png">
+        </div>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>

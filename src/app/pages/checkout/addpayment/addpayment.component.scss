@@ -1,0 +1,196 @@
+@import "src/variable.scss";
+.btn-add{
+    margin: 0 auto;
+}
+.modal-dialog {
+    width: 400px;
+    margin: 15px auto 15px 20px;
+}
+.modal-footer{
+    border:none;
+    text-align: center;
+}
+.modal-title{
+    font-family: $gotham-bold;
+    color: $common-font-color;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.new-payment-method-section {width: 100%; float: left;}
+.new-payment-method-section .modal-title {margin-bottom: 15px;}
+
+.modal-content{
+    border-radius: 0;
+    width: 100%;
+    float: left;
+    padding: 15px;
+    margin-bottom: 50px;
+}
+.cart-review .modal-header {padding: 0; width: 100%; float: left;}
+.cart-review .modal-body {padding: 0; width: 100%; float: left; margin-top: 0; padding: 0 6px;}
+.form-control.cvc-input {padding: 2px 7px;}
+
+.modal-header{
+    border-bottom: none;
+}
+.modal-header .close{
+    color: $lukas-color;
+    margin: 0;
+    font-size: 40px;
+    line-height: 23px;
+    margin-right: 0;
+    opacity: 1;
+}
+.close:focus, .close:hover {
+    color: $lukas-color;
+}
+.modal-body{
+    padding: 15px 0;
+    font-family: $gotham-bold;
+    color: $common-font-color;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.container{
+    width: 100%;
+}
+.addpayment-input-div {width: 100%; float: left; padding-left: 4px;}
+.form-group.form-group-payment {width: 100%; float: left; margin-bottom: 8px;}
+
+.popup{
+    width: calc(100% - 70px);
+    position: relative;
+}
+.popup label.addpayment-label {width: 100%; float: left; margin-bottom: 2px; text-transform: uppercase; font-size: 13px;}
+
+.modal-body h4{
+    font-family: $gotham-bold;
+    font-weight: bold;
+    font-size: 18px;
+}
+select.selectsize{
+    padding: 0 0 0 5px;
+    height: 26px;
+    width: 100%;
+}
+.col-xs-6.month-input {padding-right: 4px;}
+.col-xs-6.year-input {padding-left: 4px;}
+
+.form-control{
+    border-radius: 0;
+    background-color: #fff;
+    border-color: #979797;
+    margin-bottom: 5px;
+    height: 28px;
+    font-size: 12px;
+    border-width: 1.5px;
+    font-family: $montserrat-regular;
+}
+.form-group label{
+    width: 100%;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+.form-group{
+    margin-bottom: 0;
+}
+.form-group img{
+    margin-right: 2px;
+    width: 23px;
+    height: 21px;
+    margin-top: -5px;
+}
+.close-btn {
+    background-color: $lukas-color;
+    color: #fff;
+    font-family: $poppins-regular;
+    font-size: 24px;
+    padding: 3px 17px 5px 17px;
+}
+.alert-danger {
+    color: $active-danger;
+    background-color: transparent;
+    border: none;
+    text-transform: capitalize;
+    font-weight: normal;
+    font-family: $montserrat-regular;
+    font-size: 12px;
+    float: right;
+    padding: 0;
+    margin: 0;
+}
+
+//sai developed css
+
+  
+select.classic {
+    background-image:
+      linear-gradient(45deg, transparent 50%, white 50%),
+      linear-gradient(135deg, white 50%, transparent 50%),
+      linear-gradient(to right, $lukas-color, $lukas-color);
+    background-position:calc(100% - 10px) calc(1em + -2px), calc(100% - 5.5px) calc(1em + -2px), 100% 0;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1.7em 3.5em;
+    background-repeat: no-repeat;
+  }
+  select.form-control {
+    -webkit-appearance: unset !important;
+  }
+  
+  select.classic:focus {
+    background-image: linear-gradient(45deg, white 50%, transparent 50%), linear-gradient(135deg, transparent 50%, white 50%), linear-gradient(to right, $lukas-color, $lukas-color) !important;
+    background-position: calc(100% - 5.5px) 0.8em, calc(100% - 10px) 0.8em, 100% 0 !important;
+    background-size: 5px 5px, 5px 5px, 1.7em 3.5em !important;
+    background-repeat: no-repeat !important;
+    border-color: grey !important;
+    outline: 0 !important;
+  }
+
+
+@media screen and (max-width: 1440px) and (min-width: 1200px) {
+    .modal-dialog {
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+    .modal-dialog {
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    .modal-dialog {
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (max-width: 767px) and (min-width: 481px) {
+    .modal-dialog {
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}
+
+
+@media screen and (max-width: 480px) and (min-width: 320px) {
+    .modal-dialog {
+        width: 100%;
+        margin: 0;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}

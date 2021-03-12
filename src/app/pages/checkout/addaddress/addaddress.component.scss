@@ -1,0 +1,170 @@
+@import "src/variable.scss";
+// .star {
+//     visibility:hidden;
+//     font-size:30px;
+//     cursor:pointer;
+// }
+// .star:before {
+//    content: "\2605";
+//    position: absolute;
+//    visibility:visible;
+//    top: -11px;
+//    left: 15px;
+// }
+.btn-add{
+    margin: 0 auto;
+}
+.txt-fav{
+    padding-left: 13px;
+}
+// .star:checked:before {
+//    content: "\2606";
+//    position: absolute;
+// }
+.modal-dialog {
+    width: 400px;
+    margin: 15px auto 15px 20px;
+}
+.modal-footer {
+    border:none;
+    text-align: center;
+}
+.modal-title {
+    font-family: $gotham-bold;
+    color: #56565a;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.modal-content{
+    border-radius: 0;
+    width: 100%;
+    float: left;
+    padding: 12px;
+}
+.modal-header{
+    border-bottom: none;
+    width: 100%;
+    float: left;
+    padding: 0;
+}
+.modal-header .close {
+    color: $lukas-color;
+    margin: 0;
+    font-size: 40px;
+    line-height: 23px;
+    opacity: 1;
+}
+.close:focus, .close:hover {
+    color: $lukas-color;
+}
+.modal-body{
+    padding: 0 6px;
+    font-family: $gotham-bold;
+    color: $common-font-color;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    float: left;
+}
+
+.addnewaddress-div {font-size: 18px;}
+.container{
+    width: 100%;
+}
+.popup{
+    width: 85% !important;
+    position: relative;
+    margin-top: 12px;
+}
+.form-control{
+    border-radius: 0;
+    background-color: #fff;
+    border-color: #979797;
+    margin-bottom: 5px;
+    height: 28px;
+    font-size: 12px;
+    border-width: 1.5px;
+    font-family: $montserrat-regular;
+}
+.form-group label {
+    width: 100%;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+.addaddress-label {text-transform: uppercase;}
+.form-group{
+    margin-bottom: 0;
+}
+.form-group img{
+    margin-right: 2px;
+    width: 23px;
+    height: 21px;
+    margin-top: -5px;
+}
+.close-btn {
+    background-color: $lukas-color;
+    color: #fff;
+    font-family: $poppins-regular;
+    font-size: 24px;
+    padding: 3px 17px 5px 17px;
+}
+.alert-danger{
+    color: $active-danger;
+    background-color: transparent;
+    border: none;
+    text-transform: capitalize;
+    font-weight: normal;
+    font-family: $montserrat-regular;
+    font-size: 12px;
+    float: right;
+    padding: 0;
+    margin: 0;
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1200px) {
+    .modal-dialog {
+        width: 400px;
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+    .modal-dialog {
+        width: 400px;
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    .modal-dialog {
+        width: 400px;
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 481px) {
+    .modal-dialog {
+        width: 400px;
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .modal-dialog {
+        width: 100%;
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}

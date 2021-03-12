@@ -1,0 +1,215 @@
+<div class="order-details-panel">
+  <!-- <table class="first-table" *ngFor="let cartItem of cartDetails?.ListCartItem">
+    <tbody>
+      <tr>
+        <td width="16%" class="img-block">
+          <div class="checkout-product-details">
+            <img class="prod-img img-responsive" src="{{cartItem?.ProductImage}}">
+          </div>
+        </td>
+        <td width="70%">
+          <div class="checkout-product-details checkout-info">
+            <h4>{{cartItem?.ProductName | uppercase}}</h4>
+            <h6>{{cartItem?.PriceDisplay}}</h6>
+            <p>Quantity: {{cartItem?.QuantityOrdered}} | {{cartItem?.UnitSize}}</p>
+            <p>SKU: {{cartItem?.SKU}}
+               | UPC: {{cartItem?.UPC}} 
+              </p>
+          </div>
+        </td>
+        <td width="16%" class="text-right totalprice-right">
+          <div class="checkout-product-details"><h5>{{cartItem?.ItemTotalDisplay}}</h5></div>
+        </td>
+      </tr>
+    </tbody>
+  </table> -->
+  <table class="summary-container">
+    <tbody>
+      <tr>
+        <!-- <td class="summary-block">
+          <h5>Summary</h5>
+        </td> -->
+        <td>
+          <table>
+            <tr>
+              <td>
+                <h5>Sub Total</h5>
+              </td>
+              <td class="text-right">
+                <h4>{{cartDetails?.SubTotalDisplay}}</h4>
+              </td>
+            </tr>
+            <tr *ngFor="let charge of listCharges">
+              <td>
+                <h5>{{charge?.ChargeTitle}}</h5>
+              </td>
+              <td class="text-right">
+                <h4>{{charge?.ChargeAmountDisplay}}</h4>
+              </td>
+            </tr>  
+            <tr class="tip" *ngIf="cartDetails?.TotalSavingsDisplay !== '-$0.00'" (click)="isExpand = !isExpand">
+                <!-- <a *ngIf="cartDetails?.ListDiscount?.length > 0" class="exapand-icon" (click)="isExpand = !isExpand"> <span class="fa" [ngClass]="isExpand ? 'fa-minus-circle' : 'fa-plus-circle'"></span> </a>  -->
+              <td>
+                <h5 class="savings">Savings <i class="fa fa-plus-circle"></i></h5>
+              </td>
+              <td class="text-right">
+                <h4>{{cartDetails?.TotalSavingsDisplay}}</h4>
+              </td>
+            </tr>
+            
+            <tr *ngIf="cartDetails?.ListDiscount?.length > 0" >
+              <!-- <td></td> -->
+              <td colspan="3"  *ngIf="isExpand">
+                <table class="exapnded-table">
+                  <tr *ngFor="let discount of cartDetails?.ListDiscount">
+                    <td><small class="text-muted">{{discount?.DiscountTitle}}</small></td>
+                    <td class="text-right"><small class="text-muted">{{discount?.DiscountAmountDisplay}}</small></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+                      
+            <tr *ngIf="cartDetails?.OrderTypeId !== 1 && cartDetails?.ListTipForDriver?.length > 0" class="tip">
+              <td>
+                <h5>Tip 
+                  <!-- <a class="exapand-icon" (click)="isTipExpand = !isTipExpand"><span class="fa" [ngClass]="isTipExpand ? 'fa-minus-circle' : 'fa-plus-circle'"></span></a> -->
+                </h5>
+              </td>
+              <td class="text-right">
+                <h4>{{tipAmount}}</h4>
+              </td>
+            </tr>
+            <tr *ngIf="creditevent" class="tip">
+              <td>
+                <h5>Rewards Credit Applied 
+                  <!-- <a class="exapand-icon" (click)="isTipExpand = !isTipExpand"><span class="fa" [ngClass]="isTipExpand ? 'fa-minus-circle' : 'fa-plus-circle'"></span></a> -->
+                </h5>
+              </td>
+              <td class="text-right">
+                <h4>{{cartDetails?.OrderRewardCreditDisplay}}</h4>
+              </td>
+            </tr>
+            <!-- <tr *ngIf="cartDetails?.ListTipForDriver.length > 0">
+              <td></td>
+              <td colspan="2" *ngIf="isTipExpand" class="tipdown" colspan="3">
+                <table class="exapnded-table">
+                  <tr *ngFor="let tip of cartDetails?.ListTipForDriver">
+                    <td>
+                      <div class="radiobox m-radio">
+                          <small class="text-muted">
+                                <input type="radio" name="tip" (change)="onTipSelected($event, tip)" [checked]="tip?.IsDeafault === true"> {{tip?.Percentage !== 0 ? tip?.TipAmountDisplay + '(' + tip?.Percentage + ')%' : 'custom'}}
+                                <span class="checkmark"></span>
+                          </small>
+                      </div>
+                      <div class="tip-container" *ngIf="tip?.Percentage === 0 && tip?.IsDeafault === true">
+                        <input type="text" [(ngModel)]="tip.TipAmount">
+                        <i (click)="onTipSelected($event, tip)" class="icon icon-selected"></i>
+                      </div>
+                    </td>
+                    <td class="text-right"><small class="text-muted"> </small></td>
+                  </tr>
+                </table>
+              </td>
+            </tr> -->
+<tr *ngIf="cartDetails?.ListTipForDriver?.length > 0">
+<td colspan="3">
+  <div class="table-responsive-tip">
+   <div class="table-responsive">
+    <table class="tip-details">
+     <tr>
+      <td [ngClass]="(tip?.IsDeafault === true) ? 'custom':''" style="cursor: pointer;" *ngFor="let tip of cartDetails?.ListTipForDriver"(click)="onTipSelected($event, tip)"> {{tip?.Percentage !== 0 ? tip?.Percentage + '%' : 'custom'}}</td>
+      <!-- <td>20%</td>
+      <td>25%</td> -->
+      <!-- <td class="custom">Custom</td> -->
+    </tr>
+   </table>
+  </div>
+ </div>
+<ng-container *ngFor="let tip of cartDetails?.ListTipForDriver">
+<div class="custom-tip-sub" *ngIf="tip?.Percentage === 0 && tip?.IsDeafault === true">
+  <div class="tip-custom-div">
+  <table class="custom-check">
+    <tr>
+      <td width="10%" class="text-right">$</td>
+      <td width="80%"><input type="text" [(ngModel)]="tip.TipAmount"></td>
+      <td width="10%"><button class="btn btn-default ok" (click)="onTipSelected($event, tip)">Ok</button></td>
+    </tr>
+  </table>
+</div>
+</div>
+</ng-container>
+</td>
+</tr>
+            <tr class="checkout-total">
+              <td class="text-left text-uppercase">
+                <h3>Total</h3>
+              </td>
+              <td class="text-right">
+                <h3>{{creditevent ? cartDetails?.OrderTotalWithCreditDisplay : cartDetails?.TotalValueDisplay}}</h3>
+              </td>
+            </tr>           
+          </table>
+        </td>
+      </tr> 
+    </tbody>
+  </table>
+</div>
+<div *ngIf="cartDetails?.IsStoreReward" class="storereward-div">
+  <input class="storereward-input" type="checkbox" id="credit" name="credit" (change)="eventCheck($event)">
+    <label class="storereward-label" for="credit" *ngIf="!creditevent">Use Rewards Credit({{OrderRewardCreditDisplay}})</label>
+    <label class="storereward-label storereward-label-alt" for="credit" *ngIf="creditevent">{{OrderRewardCreditDisplay}} Store Credit Used</label>
+  </div>
+  <div *ngIf="cartDetails?.OrderTypeId === 2 && storeGetHomeData?.IsCheckOutGiftEnable" class="storereward-div">
+    <input class="storereward-input" type="checkbox" id="gift" name="gift" (change)="eventGiftCheck($event)">
+    <label class="storereward-label" for="gift">IsGift</label>
+   </div>
+<div class="coupon-panel text-center" *ngIf="!isCouponApplied">
+  <div class="add-coupon">
+   <!-- <img src="../assets/Images/coupon.png"> -->
+    <button type="text" name="coupun" [disabled]="isCouponApplied" (click)="applyCoupon()" (keydown.Enter)="applyCoupon()"  class="form-control coupon" readonly> 
+      <div class="coupun-sub-div">
+        <i class="icon icon-coupon"></i> <div class="coupon-code-btn">Find & Apply Coupon Code</div>
+      </div>
+    </button>
+    <!-- <i (click)="applyCoupon()" class="icon icon-selected"></i> <i (click)="clearCoupon()" class="icon icon-cancel2"></i> -->
+</div>
+</div>
+<div class="coupon-success text-center" *ngIf="isCouponApplied">
+  <img src="../../../../assets/Images/icon-couponapplied.png">
+  <span>{{couponCode}}</span>
+  <i (click)="clearCoupon()" class="icon icon-cancel2"></i>
+      </div>
+<div class="coupon-panel text-center">
+  
+  <table>
+    <tbody>
+      <tr *ngIf="cartDetails?.Remark">
+        <td>
+          <p class="bottles-brand">{{cartDetails?.Remark}}</p>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+<div class="checkout-btns" >
+  <div *ngIf="cartDetails?.OrderTypeId === 3">
+    <button type="checkout" [disabled]="(cartDetails?.OrderTypeId === 3 && cartDetails?.DeliveryAddress?.Remark !== '')||!checkoutButtonEnable"  class="btn btn-default btn-checkout-new" 
+    [ngClass]= "(cartDetails?.OrderTypeId === 3 && cartDetails?.DeliveryAddress?.Remark !== '') ? 'novalue' : 'close'" (click)="onCheckout()">Checkout</button>
+  </div>
+  <div *ngIf="cartDetails?.OrderTypeId !== 3">
+  <button type="checkout" [disabled]="(cartDetails?.OrderTypeId === 2 && cartDetails?.DeliveryAddress?.Remark !== '' ) || (cartDetails?.IsDeliverySolution === true && cartDetails?.CartDeliverySolution?.DeliverySolutionRemark !== '') || isCheckoutSubmitted || (cartDetails?.OrderTypeId === 1 && this.cartDetails.DoPDate === '' || this.cartDetails.DoPTimeSlot === '') || (cartDetails?.OrderTypeId === 3 && cartDetails?.DeliveryAddress?.Remark !== '')|| !checkoutButtonEnable"  class="btn btn-default btn-checkout-new" 
+   [ngClass]= "(cartDetails?.OrderTypeId === 3 && cartDetails?.DeliveryAddress?.Remark !== '') || (cartDetails?.OrderTypeId === 2 && cartDetails?.DeliveryAddress?.Remark !== '') || (cartDetails?.IsDeliverySolution === true && cartDetails?.CartDeliverySolution?.DeliverySolutionRemark !== '')|| (cartDetails?.OrderTypeId === 1 && this.cartDetails.DoPDate === '' || this.cartDetails.DoPTimeSlot === '') ? 'novalue' : 'close'" (click)="onCheckout()">Checkout</button></div>
+      
+  </div>
+      <div class="checkout-btns">
+      <a (click)="onCancelOrder()">Cancel</a>
+      </div>
+<button id="openCartReviewModal" #openCartReviewModal [hidden]="true" data-toggle="modal" data-target="#gridSystemModal">Review
+ Cart</button>
+<app-cart-review [cartItems]="reviewItems" (close)="onPopupClose()"></app-cart-review>
+
+<button id="openPriceModal" #openPriceModal [hidden]="true" data-toggle="modal" data-target="#gridSystempriceModal">Change in price</button>
+<app-checkout-price-change [cartPrice]="reviewPrice" (closeprice)="onPricePopupClose()"></app-checkout-price-change>
+  
+<ng4-loading-spinner> </ng4-loading-spinner>   

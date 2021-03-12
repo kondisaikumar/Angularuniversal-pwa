@@ -1,0 +1,14 @@
+
+<span class="rating-icon" *ngIf="edit === true; else showRating">
+  <a *ngFor="let item of starList; let i=index " (click)="setStar(i+1)">
+    <i class="fa" [ngClass]="{'fa-star-o':item === 0, 'fa-star-half-o': item === 0.5, 'fa-star': item === 1}"></i>
+  </a>
+</span>
+<ng-template #showRating>
+    <span class="star-rating" *ngIf="rate === 0"style="visibility: hidden; ">
+        <i class="fa fa-star" ></i><span> 0</span>
+      </span> 
+  <span class="star-rating" *ngIf="rate > 0">
+    <i class="fa fa-star"></i><span> {{rate}}</span>
+  </span>
+</ng-template>

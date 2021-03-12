@@ -1,0 +1,119 @@
+@import "src/variable.scss";
+.holds-the-iframe {
+    background:url(../../../../assets/Images/loader.gif) center center no-repeat;
+  }
+iframe{
+    overflow-x:hidden;
+    border: none;
+    overflow-y:scroll;
+}
+.modal-dialog {
+    width: 402px;
+    margin: 15px auto 15px 85px;
+}
+.modal-footer{
+    border:none;
+    text-align: center;
+}
+.modal-title{
+    font-family: $gotham-bold;
+    color: #56565a;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.modal-content{
+    border-radius: 0;
+    width: 100%;
+    float: left;
+    padding: 12px;
+}
+.modal-header{
+    border-bottom: none;
+    width: 100%;
+    float: left;
+    padding: 0;
+}
+.modal-header .close{
+    color: #ea1c2d;
+    margin:-11px 0 0 0;
+    font-size: 40px;
+    opacity: 1;
+}
+.close:focus, .close:hover{
+    color: #ea1c2d;
+}
+.modal-body{
+    padding: 0 6px;
+    font-family: $gotham-bold;
+    font-weight: bold;
+    color: #56565a;
+    text-transform: uppercase;
+    width: 100%;
+    float: left;
+}
+.container{
+    width: 100%;
+}
+form{
+    width: 85% !important;
+}
+.modal-body h4{
+    font-family: $gotham-bold;
+    font-weight: bold;
+    font-size: 15px;
+}
+.close-btn {
+    background-color: #ea1c2d;
+    color: #fff;
+    font-family: $poppins-regular;
+    font-size: 24px;
+    padding: 3px 17px 5px 17px;
+}
+
+@media screen and (max-width: 1440px) and (min-width: 1200px) {
+    .modal-dialog {
+        width: 402px;
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+    .modal-dialog {
+        width: 402px;
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    .modal-dialog {
+        width: 402px;
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 481px) {
+    .modal-dialog {
+        width: 402px;
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .modal-dialog {
+        width: 100%;
+        margin: 0px 0 30px 0px;
+    }
+    .modal-title{
+        font-size: 15px;
+    }
+}

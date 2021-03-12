@@ -1,0 +1,96 @@
+@import "~src/variable.scss";
+
+form .mandatory{
+    color: $lukas-color;
+}
+
+form .form-group .border_radius {
+     border-radius: 0px;
+     background-color: f1f1f1;
+}
+.create-account-div {width: 100%; float: left; margin-top: 27px;}
+.signup-benefits {width: 100%; float: left; margin-top: 26px;}
+.signup-benefits-heading {width: 100%; float: left; font-family: $montserrat-regular; font-size: $common-font-size; text-align: left;
+ color: $common-font-color; font-weight: 700; margin-top: 0px;}
+.signup-benefits-list {list-style: none; width: 100%; float: left; margin-top: 10px; margin-bottom: 0; padding: 0;}
+.signup-benefits-list li {width: 100%; float: left; margin-bottom: 4px; color: $common-font-color; font-size: $common-font-size;}
+.signup-form {width: 100%; float: left;}
+button.facebook{
+    background-color: #4363a1;
+    font-family: $poppins-regular;
+    font-size: 10.9px;
+    line-height: 2.5;
+    letter-spacing: 0.3px;
+    text-align: left;
+    color: #ffffff;
+    padding: 3px 15px 3px 15px;
+    border-radius: 0px;
+    margin: 5px 0 20px 0;
+}
+button.facebook i{
+    font-size: 13px;
+    padding-right: 5px;
+}
+span.border{
+    border-bottom: 1px solid $lukas-color;
+    padding-bottom: 3px;
+}
+
+h4.font_size span,form .form-group label.email,form .form-group label.password{
+    font-family: $montserrat-regular;
+    font-size: 12px;
+    text-align: left;
+    color: $common-font-color;
+    margin-bottom: 4px;
+}
+h4.font_size{
+    padding: 20px 0 20px;   
+}
+h6.padding_top{
+    font-family: $poppins-regular;
+    font-size: 12.7px;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    text-align: left;
+    color: $common-font-color;
+    padding: 10px 0 10px;
+}
+h6.color_text{
+    font-family: $poppins-regular;
+    font-size: 14.5px;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: left;
+    padding-bottom: 15px;
+    color: $common-font-color;
+}
+h5.color{
+    font-family: $poppins-regular;
+    font-size: 14.5px;
+    font-stretch: normal;
+    line-height: 1.88;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: $lukas-color;
+    cursor: pointer;
+  }
+  h5.color:focus{
+      outline: none;
+  }
+  .checkbox label{
+    font-family: $poppins-regular;
+    font-size: 14.5px;
+    font-stretch: normal;
+    line-height: 1.88;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: $common-font-color;
+  }
+section.padding_top{
+    padding-top: 15px;
+}
+
+@media screen and (max-width: 767px) { 
+    .create-account-div {margin-top: 0;}
+    .signup-margin-main {margin-top: 20px;}
+}

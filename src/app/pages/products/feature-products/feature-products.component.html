@@ -1,0 +1,48 @@
+
+<div [ngClass]="isHome ? 'common-nomargin-top' : 'common-margin-top'">
+
+<div class="page-padding-bg" *ngIf="!isHome; else HomePage">
+<div class="bg-fp">
+ <div class="container-new container">
+    <div class="featured-products-list" *ngIf="productsList?.length > 0">
+        <div class="Searchrelated_noborder slideInUP wow delay-05s animated">
+          <h5>Featured Products</h5>
+        </div>
+      <div class="row fpimg-row">
+        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 fpimg" *ngFor="let product of productsList">
+          <div class="product-single-div">
+        <app-product [item]="product"></app-product>
+      </div>
+      </div>
+
+    </div>
+    </div>
+    <div class="bg-fp-bottom" *ngIf="readMore">
+      <div class="loadmore-main">
+      <button class="loadmore" (click)="showMoreProducts()">Load More</button>
+    </div>
+    </div>
+    <div *ngIf="productsList?.length === 0 && isFeatureProductsPage" class="no-products-available">
+      <img class="no_products img-responsive" src='../../../../assets/Images/no-productss.png'>
+    </div>
+  </div>
+ </div>
+</div>
+
+<ng-template #HomePage>
+      <div class="featured-products-list" >
+        <div class="featured-products-list-sub" *ngIf="productsList?.length > 0">
+          <div class="featured-products-heading-main">
+            <h5 class="featured-products-list-heading">Featured Products</h5>
+            <div class="view-all-div" routerLink="/feature-products">View All</div>
+          </div>
+<div class="carosel-common">
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let product of productsList"><app-product [item]="product"></app-product></ng-template> 
+  </owl-carousel-o>
+</div>
+</div>
+
+   </div>
+</ng-template>
+</div>

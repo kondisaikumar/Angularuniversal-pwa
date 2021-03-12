@@ -1,0 +1,206 @@
+<div class="common-margin-top">
+  <div *ngIf="isLoading && this.cartDetails" class="loader loader-cart">Loading...</div>
+  <div class="page-margin"  [ngClass]="{'page-margin-opacity' :isLoading}">
+    <div class="cart-container">
+      <div class="cart-sub-div">
+        <ng-container *ngIf="storeGetHomeData?.IsDelivery === false && storeGetHomeData?.IsPickUp === false">
+         <div class="empty-cart">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 class="sorry-text-center">Sorry</h1>
+            <p class="sorry-orders">We are currently uanble to accept orders at this location at this time.<br> Please check back later.</p>
+          </div>
+        </div>
+        </ng-container>
+      <div [ngClass]="(cartDetails?.ListCartItem && cartDetails?.ListCartItem?.length > 0) ? 'items-cart' : 'empty-cart'">
+        <ng-container *ngIf="storeGetHomeData?.IsDelivery || storeGetHomeData?.IsPickUp">
+        <section *ngIf="this.cartDetails">          
+           <div class="order-type">
+             <h6>Cart</h6>             
+           </div>
+        <div class="items-cart-details">
+         <div class="row" *ngIf="cartDetails?.ListCartItem && cartDetails?.ListCartItem?.length > 0; else emptyCart">
+           <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12 slideInUP wow delay-05s  animated">
+     <!-- Destok Cart -->
+             <div class="table-responsive table-cart">
+               <table class="table cart-table">
+                 <thead>
+                   <tr>
+                     <th scope="col"></th>
+                     <th scope="col" class="cart-product-name">Product Name<small>SKU | UPC</small></th>
+                     <th scope="col">Size</th>
+                     <th scope="col">Price</th>
+                     <th scope="col">Qty</th>
+                     <th scope="col">Total</th>
+                     <th scope="col"></th>
+                   </tr>
+                 </thead>
+                 <tbody *ngFor="let cartItem of cartDetails?.ListCartItem">
+                   <tr>
+                     <td scope="row"><div class="img-div" routerLink="/product-details/{{cartItem.PID}}">
+                       <img class="second_img" src='{{cartItem?.ProductImage}}' alt="ProductImage" />
+                     </div></td>
+                     <td class="cart-product-name"><div class="Product_name">
+                       <h5 class="text-left">{{cartItem?.ProductName | uppercase}}</h5>
+     
+                      <span class="font_size">{{cartItem?.SKU}} | {{cartItem?.UPC}}
+                         <!-- | UPC: {{cartItem?.UPC}} -->
+                        </span>
+                      <p class="limit-per-user" *ngIf="cartItem?.DealInventoryMessage">{{cartItem?.DealInventoryMessage}}</p>
+                    </div></td>
+                     <td><div class="Product_name">
+                       <span class="font_size">{{cartItem?.UnitSize}}</span>
+                     </div></td>
+                     <td><div class="Product_name">
+                      <span class="price-strike-through-main" *ngIf="cartItem?.OfferPriceDisplay !== cartItem?.PriceDisplay">
+                        <span class="price-strike-through">{{cartItem?.PriceDisplay}}</span>
+                      </span>
+                       <span class="font_size">{{cartItem?.OfferPriceDisplay}}</span>   
+                      </div>                    
+                     </td>
+                     <td><div class="margin_top Product_name">
+                       <select class="select-quant form-control font_size classic" [(ngModel)]="cartItem.QuantityOrdered" (change)="onQtyChange(cartItem)">
+                         <option *ngFor="let qty of getQty(cartItem)">{{qty}}</option>
+                       </select>
+                     </div></td>
+                     <td><div class="text-left totalprice Product_name">
+                       <span class="font_size">{{cartItem?.FinalItemTotalDisplay}} </span>
+                       
+                     </div></td>
+                     <td><button class="bg_black" (click)="removeFromCart(cartItem)" aria-label="UPbutton">
+                       <i class="icon icon-cancel2"></i>
+                     </button></td>
+                   </tr>
+                 </tbody>
+               </table>
+             </div>
+     
+             
+     <!-- Destok Cart -->
+             <div class="sub-total">
+              <table class="continue-shop-btn-main">
+                <tr><td><button class="common-btn continue-shop-btn" [routerLink]="['/home']">Continue Shopping</button></td></tr>
+              </table>
+             <table class="summary-container hidden-xs hidden-sm visible-lg visible-md">
+               <tbody>
+                  <tr>
+                      <td class="subtotal-div">
+                           <div>Sub-Total</div>
+                         </td>
+                         <td class="subtotal-amount-div">
+                           <div>{{cartDetails?.SubTotalDisplay}}</div>
+                         </td>
+                       </tr>
+               </tbody>
+             </table>
+            </div>
+           </div>
+         </div>
+        </div>
+         <ng-template #emptyCart>
+           <div class="empty-cart-div">
+            <div class="empty-cart-sub">
+               <div class="cart-m">
+                   <div class="icon-float">
+                     <span class="notification-circle">0</span>
+                     <span class="fa fa-shopping-cart cart-view-icon"></span>
+                   </div>
+               </div>
+
+                 <div class="cart-m-details">
+                   <h3>No Items !</h3>
+                     <div class="cart-m-details-sub">
+                       <p>You have not added any items. Add an item to place order.</p>
+                     </div>
+                   <div class="btn-botcaps-main">
+                   <button class="btn btn-botcaps" [routerLink]="['/home']">Continue Shopping</button>
+                 </div>
+                 </div>
+                 </div>
+           </div>
+         </ng-template>
+     </section>
+    </ng-container>
+     </div>
+     <ng-container *ngIf="storeGetHomeData?.IsDelivery || storeGetHomeData?.IsPickUp">
+     <div class="cart-total" *ngIf="cartDetails?.ListCartItem && cartDetails?.ListCartItem?.length > 0">
+      <!-- <app-checkout-products ></app-checkout-products> -->
+       <div class="cart-total-heading">
+          <h6>Total</h6>
+        </div>
+          <div class="store-address">
+              <div class="logo-store"><img [src]="storeGetHomeData?.StoreImage" alt="StoreImage"></div>
+                      <div class="address-cart">
+                          <div class="locname">{{storeGetHomeData?.StoreName}}</div>
+                          <div class="locname-sub-div">{{storeGetHomeData?.Address1}},<br>
+                          {{storeGetHomeData?.City}}, {{storeGetHomeData?.State}}</div>
+                      </div>
+          </div>
+          <div class="order-details-panel">
+      
+            <table class="total-container">
+              <tbody>
+                <tr>
+                  <td class="label">
+                   Sub-Total
+                  </td>
+                  <td class="text-right">
+                      {{cartDetails?.SubTotalDisplay}}
+                  </td>
+                </tr>
+                <tr *ngFor="let charge of cartDetails?.ListCharge">
+                  <ng-container *ngIf="charge?.ChargeId !==3">
+                  <td class="label" *ngIf="!appConfig.canada && charge?.ChargeId===1">
+                    {{charge?.ChargeTitle}}
+                  </td>
+                  <td class="text-right" *ngIf="!appConfig.canada && charge?.ChargeId===1">
+                    {{charge?.ChargeAmountDisplay}}
+                  </td>
+                  <td class="label" *ngIf="appConfig.canada">
+                    {{charge?.ChargeTitle}}
+                  </td>
+                  <td class="text-right" *ngIf="appConfig.canada">
+                    {{charge?.ChargeAmountDisplay}}
+                  </td>
+                </ng-container>
+                </tr>
+              <tr>
+                  <td class="label red">
+                   Savings
+                  </td>
+                  <td class="text-right red">
+                      {{cartDetails?.TotalSavingsDisplay}}
+                  </td>
+                </tr>
+                <tr>
+                  <td class="total-left">
+                   Total
+                  </td>
+                  <td class="total-right">
+                      {{cartDetails?.TotalValueDisplay}}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+   <div class="buttons-cart-div">
+   <div class="row buttons-cart-div-row">
+    <div class="col-lg-4 col-xs-4 col-sm-4 col-md-4 buttons-cart-div-sub" *ngIf="storeGetHomeData?.IsPickUp">
+      <button class="common-btn btn1"  (click)="onPickup()">Pickup</button>
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 buttons-cart-div-sub"*ngIf="storeGetHomeData?.IsDelivery">
+      <button class="common-btn btn1" (click)="onDelivery()">Delivery</button>
+     </div>
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 buttons-cart-div-sub" *ngIf="storeGetHomeData?.IsShipping">
+     <button class="common-btn btn1" (click)="onShipping()">Shipping</button>
+    </div>
+    </div>
+   </div> 
+  </div>
+  </ng-container>
+    </div>
+    </div>
+  </div>
+</div>
+<button id="openCartReviewModal" #openCartReviewModal [hidden]="true" data-toggle="modal" data-target="#gridSystemModal">Review
+  Cart</button>
+<app-cart-review [cartItems]="reviewItems" (close)="onPopupClose()"></app-cart-review>

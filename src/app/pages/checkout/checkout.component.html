@@ -1,0 +1,42 @@
+<div class="common-margin-top">
+  <div class="page-margin">
+    <div class="checkout-orderplaced" *ngIf="!isOrderPlaced">
+      <div class="cart-container">    
+      <!-- <div class="Searchrelated_div col-lg-12 col-md-12 col-sm-12 col-xs-12">        
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+          <li class="breadcrumb-item"><a [routerLink]="['/cart']">Cart</a></li>
+          <li class="breadcrumb-item active"><a>Checkout</a></li>
+        </ol>
+      </div> -->
+
+      <div class="items-cart">
+        <h6>Checkout</h6>
+        <app-checkout-pickup *ngIf="cartDetails?.OrderTypeId === 1; else delivery"></app-checkout-pickup>
+        <ng-template #delivery>
+          <app-checkout-delivery></app-checkout-delivery>
+        </ng-template>
+        <div class="checkout-common-div checkout-common-margin-div">
+        <app-checkout-payment-method></app-checkout-payment-method>
+        </div>
+      </div>
+      <div class="cart-total">
+        <div class="cart-total-sub">
+          <div class="cart-total-heading-div">
+          <h6>Total</h6>
+          </div>        
+        <a class="back-to-cart-btn" [routerLink]="['/cart']">Back to Cart</a>
+        </div>
+        <app-checkout-products (orderplace)="onOrderPlace($event)"></app-checkout-products>        
+      </div>
+    </div>
+    </div>
+    <div class="place-order-result-main" *ngIf="isOrderPlaced">
+      <app-place-order-result [orderNumber]="orderNumber"[orderDetails]="orderDetails" [myOrdersList]="myOrdersList"></app-place-order-result>
+    </div>
+    <!-- <div *ngIf="orderInProgress">
+      <app-preloader></app-preloader>
+    </div> -->
+   
+ </div>
+</div>

@@ -1,0 +1,59 @@
+@import "~src/variable.scss";
+
+label {
+    color: $common-font-color;
+    font-weight: normal;
+    margin-left: 8px;
+}
+.type{ 
+	overflow: hidden; 
+}
+.category { 
+	overflow-y: auto;
+	max-height: 200px;
+	height: auto;
+}
+
+.category::-webkit-scrollbar {width: 8px;}
+.category::-webkit-scrollbar-track {background: #f1f1f1;}
+.category::-webkit-scrollbar-thumb {background: #54575b;}
+.category::-webkit-scrollbar-thumb:hover {background: #56565A;}
+
+.active {
+	background: $second-color;
+	color: white !important;
+}
+.btn_right button.btn {
+	margin-right: 10px;
+}
+
+.btn_right button.clear, .btn_right button.filer_go {
+	padding: 10px;
+	width: auto;
+	height: 35px;
+    line-height: normal;
+}
+
+ul.nav.flex-column {
+	display: table;
+	width: 100%;
+	span.text-white {
+		margin-bottom: 5px;
+	}
+}
+
+ul.nav.flex-column li.nav-item label {font-size: 14px; margin: 0; font-family: $montserrat-regular; font-weight: 400; cursor: pointer;}
+
+.wid2 {
+	width: 200px;
+	margin: 0;
+    padding: 0;
+    float: left;
+}
+
+.wid4 {
+	width: 400px;
+}
+// sai implementation
+
+

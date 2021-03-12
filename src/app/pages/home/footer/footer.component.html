@@ -1,0 +1,334 @@
+<footer> 
+    <div class="container-new container">
+        <div class="footer-container-mobile">
+            <ul id="accordion" class="accordion">
+                <li [class.active]="isAccordionStoreActive">
+                  <div class="menu" *ngIf="storeDetails" (click)="toggleFooterAccordion('store')">
+                    <div class="footer-heading">
+                        <span class="footer-store-name">{{storeDetails?.StoreName}}</span>
+                        <span class="footer-change-store" *ngIf="storeList?.length > 1"><a  (click)="openMultiLocationDialog()" class="change-store">change store</a></span>
+                    </div>
+                    <i class="xyz"><img style="width: 20px;" src="../../../../assets/Images/arrow-toggle.png" alt="arrowToggle"></i>
+                  </div>
+                  <ul class="submenu" #submenu [style.height]="isAccordionStoreActive ? 'auto' : 0">
+                    <li>
+                        <div class="footer-component-main-location footer-component-sub item_img footer_image">
+                            <address class="storelocation" *ngIf="storeDetails">
+                                <div class="storelocation-sub">
+                                <div class="address-sub-details">                                 
+                                        <div class="f-image">
+                                            <!-- <img class="location" src="assets/Images/location.png"> -->
+                                            <i class="icon icon-distance location"></i>
+                                        </div>
+                                        <div class="address-captions">
+                                            <a href="https://www.google.com/maps/place/{{storeDetails?.Latitude}},{{storeDetails?.Longitude}}"
+                                                target="_blank">
+                                                {{storeDetails?.Address1}},
+                                                <span *ngIf="storeDetails?.Address2"> {{storeDetails?.Address2}}, </span>
+                                                <span> {{storeDetails?.City}}, {{storeDetails?.State}} {{storeDetails?.Zip}}
+                                                </span>
+                                            </a>
+                                        </div>                                    
+                              </div>
+                              <div class="address-sub-details">                                
+                                        <div class="f-image">
+                                            <!-- <img class="img-responsive" src="assets/Images/contact.png"> -->
+                                            <i class="icon icon-footer-contact"></i>
+                                        </div>
+                                        <div class="address-captions">
+                                            <span> <a href="tel:{{storeDetails?.ContactNo}}">{{storeDetails?.ContactNo}}</a></span>
+                                        </div>                                    
+                                 </div>
+                             <div class="address-sub-details">                               
+                                        <div class="f-image">
+                                            <!-- <img class="img-responsive" src="assets/Images/email.png"> -->
+                                            <i class="icon icon-footer-email"></i>
+                                        </div>
+                                        <div class="address-captions">
+                                            <span><a href="mailto:{{storeDetails?.StoreEmail}}">{{storeDetails?.StoreEmail}}</a></span>
+                                        </div>                                   
+                                 </div>
+                             </div>
+                            </address>
+                    </div>
+                     <div class="footer-component-main-hours footer-component-sub item_img hours">
+                        <h4 class="footer-heading">Store Hours</h4>
+                        <ul class="footer-lists-div hours-div">
+                            <li *ngFor="let time of storeDetails?.ListStoreTime">
+                                <span class="days-div">{{time.DayID}}</span> 
+                                <span class="time-div">{{time.StoreOpenTime}} - {{time.StoreCloseTime}}</span>
+                            </li>
+                        </ul>
+                    </div>
+        
+                    <div class="footer-component-main-hours footer-component-sub item_img hours" *ngIf="storeDetails?.IsDelivery">
+                        <h4 class="footer-heading">Delivery Hours</h4>
+                        <ul class="footer-lists-div hours-div">
+                            <li *ngFor="let time of storeDetails?.ListStoreTimeDelivery">
+                                <span class="days-div">{{time.DayID}}</span> 
+                                <span class="time-div">{{time.StoreOpenTime}} - {{time.StoreCloseTime}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                    </li>
+
+                  </ul>
+                </li>
+
+                <li [class.active]="isAccordionLinksActive">
+                    <div class="menu" (click)="toggleFooterAccordion('links')">
+                      <div class="footer-heading"><span class="footer-store-name">Links</span>
+                      </div>
+                      <i class="xyz"><img src="../../../../assets/Images/arrow-toggle.png" alt="arrowToggle"></i>
+                    </div>
+                    <ul class="submenu" #submenu [style.height]="isAccordionLinksActive ? 'auto' : 0">
+                      <li>
+                        <div class="footer-component-main-about footer-component-sub item_img aboutus">
+                            <h4 class="footer-heading">About</h4>
+                            <ul class="footer-lists-div">
+                                <li>
+                                    <a [routerLink]="['/aboutus']">About Us</a>
+                                </li>
+                                <li *ngIf="couponAvailable === true">
+                                    <a  [routerLink]="['/coupons']">Coupons</a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="['/privacy-policy']">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="['/terms-conditions']">T&C</a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="['/faq']">FAQs</a>
+                                </li>
+                                <li>
+                                    <a [routerLink]="['/contactus']">Contact Us</a>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                        <div class="footer-component-main-payment footer-component-sub item_img payments">
+                            <h4 class="footer-heading Subscribe">We Accept</h4>
+                            <div class="cards">
+                                <ul class="pull-left">
+                                    <li>
+                                        <img alt="Discover" title="Discover" src="../assets/Images/payment-discover.png" border="0" />
+                                    </li>
+                                    <li>
+                                        <img alt="Master" title="Master" src="../assets/Images/payment-mastercard.png"  border="0" />
+                                    </li>
+                                    <li>
+                                        <img alt="Visa" title="Visa" src="../assets/Images/payment-visa.png"  border="0" />
+                                    </li>
+                                    <li>
+                                        <img alt="Amex" title="Amex" src="../assets/Images/payment-americanExpress.png" border="0" />
+                                    </li>
+                                </ul>            
+                            </div>
+                        </div>
+                      </li>
+                    </ul>
+                </li>
+                </ul>
+            </div>
+
+
+      <div class="footer-container-desktop">
+        <div class="footer-container-sub" *ngIf="storeDetails">
+        <div [ngClass]="storeDetails?.IsDelivery ? 'footer-component-main' : 'footer-component-main-alt'">
+
+
+            <div class="footer-component-main-location footer-component-sub item_img footer_image">
+                    <address class="storelocation" *ngIf="storeDetails">
+                        <div class="footer-heading"><span class="footer-store-name">{{storeDetails?.StoreName}}</span>
+                          <span class="footer-change-store" *ngIf="storeList?.length > 1"><a (click)="openMultiLocationDialog()" class="change-store-div">Change store</a>
+                          </span>
+                        </div>
+                        <div class="storelocation-sub">
+                        <div class="address-sub-details">                         
+                                <div class="f-image">
+                                    <!-- <img class="location" src="assets/Images/location.png"> -->
+                                    <i class="icon icon-distance location"></i>
+                                </div>
+                                <div class="address-captions">
+                                    <a href="https://www.google.com/maps/place/{{storeDetails?.Latitude}},{{storeDetails?.Longitude}}"
+                                        target="_blank">
+                                        {{storeDetails?.Address1}},
+                                        <span *ngIf="storeDetails?.Address2"> {{storeDetails?.Address2}}, </span>
+                                        <span> {{storeDetails?.City}}, {{storeDetails?.State}} {{storeDetails?.Zip}}
+                                        </span>
+                                    </a>
+                                </div>                            
+                          </div>
+                      <div class="address-sub-details">                       
+                                <div class="f-image">
+                                    <!-- <img class="img-responsive" src="assets/Images/contact.png"> -->
+                                    <i class="icon icon-footer-contact"></i>
+                                </div>
+                                <div class="address-captions">
+                                    <span> <a href="tel:{{storeDetails?.ContactNo}}">{{storeDetails?.ContactNo}}</a></span>
+                                </div>                            
+                         </div>
+                     <div class="address-sub-details">                        
+                                <div class="f-image">
+                                    <!-- <img class="img-responsive" src="assets/Images/email.png"> -->
+                                    <i class="icon icon-footer-email"></i>
+                                </div>
+                                <div class="address-captions">
+                                    <span><a href="mailto:{{storeDetails?.StoreEmail}}">{{storeDetails?.StoreEmail}}</a></span>
+                                </div>                            
+                          </div>
+                     </div>
+                    </address>
+            </div>
+
+            <div class="footer-component-main-about footer-component-sub item_img aboutus">
+                <div class="footer-heading">About</div>
+                <ul class="footer-lists-div">
+                    <li>
+                        <a [routerLink]="['/aboutus']">About Us</a>
+                    </li>
+                    <li *ngIf="couponAvailable === true">
+                        <a  [routerLink]="['/coupons']">Coupons</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/privacy-policy']">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/terms-conditions']">T&C</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/faq']">FAQs</a>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/contactus']">Contact Us</a>
+                    </li>
+                   
+                </ul>
+            </div>
+
+             <div class="footer-component-main-hours footer-component-sub item_img hours">
+                <div class="footer-heading">Store Hours</div>
+                <ul class="footer-lists-div hours-div">
+                    <li *ngFor="let time of storeDetails?.ListStoreTime">
+                        <span class="days-div">{{time.DayID}}</span> 
+                        <span class="time-div">{{time.StoreOpenTime}} - {{time.StoreCloseTime}}</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-component-main-hours footer-component-sub item_img hours" *ngIf="storeDetails?.IsDelivery">
+                <div class="footer-heading">Delivery Hours</div>
+                <ul class="footer-lists-div hours-div">
+                    <li *ngFor="let time of storeDetails?.ListStoreTimeDelivery">
+                        <span class="days-div">{{time.DayID}}</span> 
+                        <span class="time-div">{{time.StoreOpenTime}} - {{time.StoreCloseTime}}</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="footer-component-main-payment footer-component-sub item_img payments">
+                
+                <div class="payments-sub-div">
+              <div class="footer-icons-div">
+               <div class="footer-heading-sub-div">Follow Us</div>
+                <ul class="icons-footer">
+                  <li><div class="icons-sub-footer"><a href="https://www.facebook.com/bottlecappsapp/" target="_blank" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></div></li>
+                  <li><div class="icons-sub-footer"><a href="https://twitter.com/bottlecapps1" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a></div></li>
+                  <li><div class="icons-sub-footer"><a href="https://www.instagram.com/bottlecapps1/" target="_blank" title="Instagram"><i class="fa fa-instagram"></i></a></div></li>
+                  <li><div class="icons-sub-footer"><i class="fa fa-yelp"></i></div></li>
+                  <li><div class="icons-sub-footer"><i class="fa fa-youtube-play"></i></div></li>
+                  <li><div class="icons-sub-footer"><i class="fa fa-linkedin"></i></div></li>
+                </ul>
+              </div>
+              <div class="footer-icons-div"  *ngIf="storeGetHomeData?.DownloadLink !== ''">
+                <div class="footer-heading-sub-div">Download our App</div>
+                <ul class="icons-footer">
+                    
+                  <li><div class="icons-sub-footer"><a href="{{storeGetHomeData?.DownloadLink}}" target="_blank" aria-label="faApple"><i class="fa fa-apple" aria-hidden="true"></i></a></div></li>
+                  <li><div class="icons-sub-footer"> <a href="{{storeGetHomeData?.DownloadLink}}" target="_blank" aria-label="faAndroid"><i class="fa fa-android"></i></a></div></li>
+                </ul>
+                 </div>
+            
+              <div class="cards">
+                <div class="footer-heading Subscribe">We Accept</div>
+                <ul class="payment-options">
+                    <li>
+                        <img alt="Discover" title="Discover" src="../assets/Images/payment-discover.png" border="0" />
+                    </li>
+                    <li>
+                        <img alt="Master" title="Master" src="../assets/Images/payment-mastercard.png"  border="0" />
+                    </li>
+                    <li>
+                        <img alt="Visa" title="Visa" src="../assets/Images/payment-visa.png"  border="0" />
+                    </li>
+                    <li>
+                        <img alt="Amex" title="Amex" src="../assets/Images/payment-americanExpress.png" border="0" />
+                    </li>
+                </ul>
+            </div>
+             </div>
+            </div>
+        </div>
+        <!-- <div class="row hidden-md hidden-lg visible-xs visible-sm">
+            <div class="col-xs-12 col-sm-6 item_img payments item_img payments-m">
+                <h4 class="font_size Subscribe">We Accept</h4>
+                <div class="cards">
+                    <ul class="pull-left">
+                        <li>
+                            <img alt="Discover" title="Discover" src="../assets/Images/discover-card.jpg" width="57" height="36" border="0" />
+                        </li>
+                        <li>
+                            <img alt="Master" title="Master" src="../assets/Images/mastercard_logo_.gif" width="57" height="36" border="0" />
+                        </li>
+                        <li>
+                            <img style="padding-top: 5px;" alt="Visa" title="Visa" src="../assets/Images/new_visa_.gif" width="57" height="26" border="0" />
+                        </li>
+                        <li>
+                            <img alt="Amex" title="Amex" src="../assets/Images/american_express_logo_.gif" width="43" height="36" border="0" />
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div> -->
+        
+    </div>
+  </div>
+</div>
+    <div class="pull-right hidden">
+        <a href="" id="return-to-top" class="scrollTop">
+            <i><img src="../assets/Images/goto-top-png.svg" width="50" height="50" alt="gotoTop"></i>
+        </a>
+    </div>
+</footer>
+<div class="footer-bottom">
+    <div class="container-new container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
+                <div class="design" [ngClass]="getClasses()" >
+                    <span>Powered By </span> 
+                    <a href="http://www.bottlecapps.com/" target="_blank"><img src="assets/Images/headerlogo.png" alt="Battlecapse" class="first_imge"> </a>
+                </div>
+                <div class="copyright">
+                    <p><span class="allrights">2018-{{date| date:'yyyy'}}. All rights reserved</span></p>
+                    <!-- <p class="made_with">Made With
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                        &                        
+                        <i class="icon icon-drink beer"></i>
+                        <span class="allrights"> 2018-{{date| date:'yyyy'}}. All rights reserved</span>
+                    </p> -->
+                </div>
+            </div>
+        </div>
+       </div> 
+</div>
+<div class="disclaimer">
+ <div class="disclaimer-sub">
+ <span>Disclaimer:</span> {{storeDetails?.StoreName}} makes reasonable efforts to ensure all information on the website is accurate, however mistakes may happen. {{storeDetails?.StoreName}} shall have the right to refuse or cancel any orders placed 
+ for products and/or services listed at an incorrect price, rebate or refund, or containing any other incorrect
+ information or typographical errors. {{storeDetails?.StoreName}} shall have the right to refuse or cancel any such orders whether or not the order 
+ has been confirmed.
+</div>
+</div>
+<button id="openMultiLocationModal" #openMultiLocationModal [hidden]="true" data-toggle="modal" data-target="#multiLocationDialog" aria-label="MultiLocationModal"></button>

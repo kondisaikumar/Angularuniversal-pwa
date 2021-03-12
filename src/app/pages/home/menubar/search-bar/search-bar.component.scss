@@ -1,0 +1,156 @@
+@import "~src/variable.scss";
+
+.searchby { width: 891px !important;}
+.search-block.search-block-new {float: right; width: 100% !important;}
+.searchby.searchby-new {width: 100% !important; padding-top: 0; padding-bottom: 0;}
+.searchby.searchby-new.input-group {margin-top: 0;}
+.navbar-nav.search-block>li {width: 100% !important; float: right;}
+.product-search-title-div {width: 100%; float: left; line-height: 16px; margin-bottom: 4px; font-size: 12px;}
+.sz {width: 100%; float: left; font-size: 12px; line-height: 15px;}
+.titlebrk {font-weight: bold;}
+.brand-price-div {width: 100%; float: left;}
+.brand-price-div .catg {width: calc(100% - 60px); float: left; font-size: 12px; line-height: 16px; margin-top: 4px;}
+.brand-price-div .price-right-div {width: 60px; float: right;}
+.searchbar-new-sub-div {width: 100%; float: left;}
+.searchbar-new-sub-div input {width: 100%; float: left; cursor: auto; padding: 6px 10px 6px 35px; border: 1px solid #d0d0d1; height: 28px; font-weight: bold; font-size: 16px;}
+.fa-search-new {position: absolute; left: 8px; top: 6px; font-size: 17px; color: $lukas-color;}
+.fa-search-new:before {content: "\f002";}
+input.search-drink {
+    width: 100%;
+    background-color: #fff;
+    // background-image: url('/assets/Images/icon-search.png');
+    // background-position: 2px 4px;
+    background-repeat: no-repeat;
+    padding: 8px 0 8px 32px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    border:none;
+    background-size: 30px;
+    font-family: $montserrat-regular;
+    color: $lukas-color;
+    font-size: 1.1em;
+    border-radius: 0;
+    pointer-events: all;
+    cursor: pointer;
+}
+  
+input.search-drink:focus {
+    float: left;
+    border: solid 1px $lukas-color;
+    box-shadow: none;
+    width: 100%;
+    outline: none;
+    background-size: 24px; 
+    background-position: 4px;
+    padding: 8px 0 8px 35px;
+}
+  
+input {
+    // margin-left:100px;
+    float: right !important;
+}
+
+.navbar.user-profile-block {min-height: inherit;}
+.search-block {
+  float: right;
+  width: 100% !important;
+    pointer-events:none;
+    .searchby {
+    // width: 814px;
+    z-index: 100;
+    .search-btn {
+      .btn {
+        width: 35px;
+        height: 35px;
+        position: relative;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+        line-height: 20px;
+        top: -4px !important;
+        text-align: center;
+          .icon {
+            color: #fff;
+            width: 20px;
+            margin-left: -5px;
+          }
+          input {
+            width: 400px!important;
+            left:0px;
+            margin-right: 40px;
+            color: #000;
+          }
+      }
+      
+      position: absolute;
+      right: 0;
+      z-index: 9;
+    }
+
+  }
+}
+
+
+.mat-option {
+   line-height: 20px;
+   padding: 0;
+   border-bottom: solid 1px #ccc;
+   //  font-family: poppinsregular, poppinsbold, montserratregular, montserratbold;
+   font-family: $gotham-book;
+   font-size: 1em;
+   margin-bottom: 1px;
+   white-space: inherit; 
+   height: auto; 
+   overflow: inherit;
+   height: auto;
+}
+// .mat-option{background-color: #efefef !important;}
+img{
+height: auto;
+width: 100%;
+max-width: 26%;
+}
+table tr{padding: 0 0 10px 0 !important; margin: 0;}
+table{width:100%;}
+table td {padding: 10px;}
+.text-center{ text-align: center;}
+.red{ color:red;}
+.text-right{ text-align: right; float: right;}
+.searchbar-new-sub-div input.hidden-input {height: 0; padding: 0;}
+// .fa-2 {position: absolute; right: 6px; top: 4px; font-size: 26px; color: $lukas-color; -webkit-transition: .5s ease-in-out;
+//   transition: 0.5s ease-in-out;}
+
+@media screen and (max-width: 1440px) and (min-width: 1200px) {
+  input.search-drink {background-size: 28px; padding: 6px 0 6px 30px;}
+  input.search-drink:focus {background-size: 20px; background-position: 4px; padding: 8px 0 8px 35px;}
+}
+
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+  input.search-drink:focus {background-size: 18px; background-position: 4px;}
+  .menubar-search {padding-top: 20px; margin-right: 8px;}
+  .navbar li.droparrow:hover .arrowup {top: 21px;}
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  .search-block.search-block-new {float: right; width: 100% !important;}
+  .search-block .searchby.searchby-new {width: 100% !important; padding-top: 0; padding-bottom: 0;}
+  .fa-search-new {font-size: 16px;}
+  .searchbar-new-sub-div input {padding: 6px 10px 6px 32px; font-size: 13px;}
+  .product-search-title-div {line-height: 14px; margin-bottom: 2px; font-size: 12px;}
+  // input.search-drink {background-size: 25px; padding: 3px 0 3px 28px;}
+  // input.search-drink:focus {background-size: 16px; padding: 4px 0 4px 15px; background-position: 4px;}
+  // .fa-2.fa-2-alt {font-size: 16px; top: 6px; right: 6px;}
+}
+
+@media only screen and (max-width: 767px) {
+  .search-block.search-block-new {float: right; width: 100% !important; margin-top: 0px;}
+  .product-search-title-div {line-height: 14px; margin-bottom: 3px; font-size: 12px;}
+  .search-block .searchby.searchby-new {width: 100% !important; padding: 0;} 
+  input.search-drink {background-size: 23px; padding: 3px 0 3px 28px; font-size: 13px;}
+  input.search-drink:focus {background-size: 14px; padding: 3px 0 3px 15px; background-position: 4px;}
+  .searchbar-new-sub-div {font-size: 12px;}
+  .searchbar-new-sub-div input {padding: 6px 10px 6px 32px; font-size: 13px;}
+  .brand-price-div .catg {width: 100%; margin-top: 3px; font-size: 12px;}
+  table td {padding: 7px 5px;}
+  .fa-search-new {font-size: 16px;}
+  .sz {font-size: 11px;}
+}

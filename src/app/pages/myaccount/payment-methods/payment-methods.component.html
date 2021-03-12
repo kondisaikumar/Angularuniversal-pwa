@@ -1,0 +1,37 @@
+<div class="add-new-address">
+        <a routerLink="../add-new-payment-method" class="bottles-brand">
+            <h4 class="address-heading">Add New Payment Method</h4>
+        </a>
+        <div class="address-table-tile" *ngFor="let paymentProfile of paymentProfiles;let i=index">
+            <table class="table table-responsive">
+                <tbody>
+                    <tr>
+                        <td>
+                            <span class="text-muted text-uppercase">
+                            </span>
+                        </td>
+                        <td class="text-right">
+                            <div id="delButton" (click)="onDeletClick(i)" class="dropdown dropdown-favorite">
+                                <a  class="text-muted" id="dLabel" type="button" aria-haspopup="true">
+                                    <span id="delButton" class="fa fa-ellipsis-v more-icon"></span><span id="delButton" class="icon icon-ellipsis-vert more-icon"></span></a>
+                                <ul id="delButton" *ngIf=" i === selectedCardId" class="dropdown-click-div-new">
+                                    <li><a (click)="deletePaymentMethod(paymentProfile)">Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="address-container-section">
+                            <img *ngIf="paymentProfile?.payment?.creditCard?.cardType === 'Discover'" alt="Discover" title="Discover" src="../../assets/Images/discover_logo_.gif" width="57" height="36" border="0" />
+                            <img *ngIf="paymentProfile?.payment?.creditCard?.cardType === 'MasterCard'" alt="Master" title="Master" src="../../assets/Images/mastercard_logo_.gif" width="57" height="36" border="0" />
+                            <img *ngIf="paymentProfile?.payment?.creditCard?.cardType === 'Visa'" style="padding-top: 5px;" alt="Visa" title="Visa" src="../../assets/Images/new_visa_.gif" width="57" height="26" border="0" />
+                            <img *ngIf="paymentProfile?.payment?.creditCard?.cardType === 'AmericanExpress'" alt="Amex" title="Amex" src="../../assets/Images/american_express_logo_.gif" width="43" height="36" border="0" />
+                        </td>
+                        <td class="address-container-section">
+                            <h6>{{paymentProfile?.payment?.creditCard?.cardNumber}}</h6>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>

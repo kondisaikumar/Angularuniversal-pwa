@@ -1,0 +1,181 @@
+<div class="checkout-section">  
+  <div class="delivery-tile">
+          <div class="delivery-store-details">
+            <div class="delivery-store-details-left">
+                      <div class="checkout-heading">DELIVERY FROM STORE</div>
+                      <div class="address">
+                      <div class="address-text-name">{{storeDetails?.StoreName}}</div>
+                      <p class="address-details-checkout">{{storeDetails?.Address1}}</p>
+                        <p class="address-details-checkout" *ngIf="storeDetails?.Address2" > {{storeDetails?.Address2}}, </p>
+                      </div>
+                </div>
+          
+                    <div class="delivery-store-details-right">
+                      <div class="delivery-options">
+                        <div class="checkout-heading" *ngIf="cartDetails?.OrderTypeId === 2">Delivery Date & Time</div>
+                        <div class="checkout-heading" *ngIf="cartDetails?.OrderTypeId === 3">SHIPPING SERVICE</div>
+                        <div class="checkout-delivery-details" *ngIf="cartDetails?.OrderTypeId === 3"> 
+                          <div class="input-container">
+                            <div class="checkout-delivery-details-select-shipping">
+                            <select id="dateList" name="dateList" class="form-control classic dateinput" [(ngModel)]="ShippingServices" (ngModelChange)="getShipping()">
+                                     <option [selected]="shippingCharges.ServiceCode === cartDetails?.ShippingServiceCode" [value]="shippingCharges.ShippingServices" *ngFor="let shippingCharges of cartDetails?.ListShippingCharges">
+                              {{shippingCharges.ShippingServices}}
+                             </option>
+                             </select>    
+                            </div>                    
+                           </div></div>
+                        <div class="checkout-delivery-details" *ngIf="cartDetails?.OrderTypeId === 2"> 
+                        <div class="input-container">
+                          <img src="../../../../assets/Images/icon-calendar.png" alt="iconcalender">
+                          <div class="checkout-delivery-details-select">
+                          <select id="dateList" name="dateList" class="form-control classic dateinput" [(ngModel)]="selectedDeliveryDate" (ngModelChange)="getDeliveryTimings(true)">
+                           <option value="" disabled selected>Select Date</option>
+                           <option [value]="ddate" *ngFor="let ddate of deliveryDatesList">
+                            {{ddate}}
+                           </option>
+                           </select>    
+                          </div>                    
+                         </div>
+
+                          <div class="input-container">
+                            <img src="../../../../assets/Images/icon-time.png" alt="icontime">
+                             <div class="checkout-delivery-details-select">
+                               <select id="timeList" name="timeList" class="form-control classic dateinput" [(ngModel)]="selectedDeliveryTime" (ngModelChange)="updateDeliveryTime()">
+                                <option value="" disabled selected>Select time</option>  
+                                <option [value]="dtime" *ngFor="let dtime of deliveryTimingsList">
+                                    {{dtime}}
+                                  </option>
+                                </select>
+                              </div>                            
+                           </div>
+
+                           <div class="col-md-12" *ngIf="cartDetails?.IsDeliverySolution === true">
+                            <p class="bottles-brand" *ngIf="cartDetails?.CartDeliverySolution?.DeliverySolutionRemark !== ''">Remarks: {{cartDetails?.CartDeliverySolution?.DeliverySolutionRemark}}</p>
+                          </div>
+                          </div>
+                      </div>
+                    </div>                  
+                 </div>
+         <!-- <div class="delivery-address-details">
+          <div class="col-md-12">
+            <div class="row">
+              <div>Address</div>
+              <div class="checkout-tile" *ngFor="let address of addressList" (click)="onSelectAddress(address)">
+                <div class="dropdown dropdown-favorite">
+                  <a class="text-muted" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fa fa-ellipsis-v more-icon"></span>
+                  </a>
+                
+                  <ul class="dropdown-menu dropdown-favorite-open" aria-labelledby="dLabel">
+                    <li><a (click)="onEditAddress(address.AddressId)">Edit</a></li>
+                  </ul>
+                </div>
+                <div class="checkout-icon-style">
+                  <span [ngClass]="{'fa fa-check-circle' : cartService?.cartdetails?.AddressId===address.AddressId}"></span>
+                </div>
+                <div class="checkout-content">
+                  <small class="text-uppercase" *ngIf="address?.IsDefault">Favorite</small>
+                  <div>{{address?.AddressName}}</div>
+                  <p class="text-muted">{{address?.Address1}} {{address?.Address2}} {{address?.City}}, {{address?.State}} {{address?.Zip}}</p>
+                  <p class="bottles-brand" *ngIf="cartService?.cartdetails?.AddressId===address.AddressId && cartDetails?.DeliveryAddress?.Remark !== ''">Remarks: {{cartDetails?.DeliveryAddress?.Remark}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+        <div class="delivery-address-details">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="checkout-heading">Address</div>
+              <!-- <div class="checkout-tile" *ngFor="let address of addressList" (click)="onSelectAddress(address)">
+                <div class="dropdown dropdown-favorite">
+                  <a class="text-muted" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fa fa-ellipsis-v more-icon"></span>
+                  </a>
+
+                  <ul class="dropdown-menu dropdown-favorite-open" aria-labelledby="dLabel">
+                    <li>
+                      <a (click)="onEditAddress(address.AddressId)">Edit</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="checkout-icon-style">
+                  <span [ngClass]="{'fa fa-check-circle' : cartService?.cartdetails?.AddressId===address.AddressId}"></span>
+                </div>
+                <div class="checkout-content">
+                  <small class="text-uppercase" *ngIf="address?.IsDefault">Favorite</small>
+                  <h4>{{address?.AddressName}}</h4>
+                  <p class="text-muted">{{address?.Address1}} {{address?.Address2}} {{address?.City}}, {{address?.State}} {{address?.Zip}}</p>
+                  <p class="bottles-brand" *ngIf="cartService?.cartdetails?.AddressId===address.AddressId && cartDetails?.DeliveryAddress?.Remark !== ''">Remarks: {{cartDetails?.DeliveryAddress?.Remark}}</p>
+                </div>
+              </div> -->
+             
+              <div class="table-responsive table-responsive-y-overflow">
+                <div class="checkout-tile">
+                <table class="checkout-tile-table">
+                  <tbody *ngFor="let address of addressList;let i=index" (click)="onSelectAddress(address)">
+                  <tr class="fav" *ngIf="address?.IsDefault">
+                      <td colspan="7" class="fav-td">
+                        <small class="text-uppercase" *ngIf="address?.IsDefault">Favorite</small>
+                      </td>
+                    </tr>
+                  <tr [ngClass]="(cartService?.cartdetails?.AddressId===address.AddressId) ? 'unselected-address' : 'selected-address'">                    
+                    <td width=""><i [ngClass]="(cartService?.cartdetails?.AddressId===address.AddressId) ? 'fas fa-check-circle': 'fa fa-circle' "></i></td>
+                    <td width="">{{address?.AddressName}}</td>
+                    <td width="">{{address?.Address1}} {{address?.Address2}}</td>
+                    <td width="">{{address?.City}}</td>
+                    <td width="">{{address?.State}}</td>
+                    <td width="">{{address?.Zip}}</td>
+                    <td width="">
+                      <div id="delButton" (click)="onDropdownClick(i)" class="dropdown dropdown-favorite">
+                        <a class="text-muted" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span id="delButton" class="fa fa-ellipsis-v more-icon"></span>
+                        </a>
+      
+                        <ul id="delButton"  *ngIf="i === clickedAddressId"  class="dropdown-click-div-new dropdown-click-div-new-alt">
+                          <li>
+                            <a  (click)="onEditAddress(address.AddressId)">Edit</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr class="remark"  *ngIf="cartService?.cartdetails?.AddressId===address.AddressId && cartDetails?.DeliveryAddress?.Remark !== ''">
+                    <td colspan="7">
+                      <p class="bottles-brand" *ngIf="cartService?.cartdetails?.AddressId===address.AddressId && cartDetails?.DeliveryAddress?.Remark !== ''">Remarks: {{cartDetails?.DeliveryAddress?.Remark}}</p>
+                    </td>
+                  </tr>
+                  <!-- <tr>
+                    <td><i class="fa fa-circle-o"></i></td>
+                    <td>{{address?.AddressName}}</td>
+                    <td>{{address?.Address1}} {{address?.Address2}}</td>
+                    <td>{{address?.City}}</td>
+                    <td>{{address?.State}}</td>
+                    <td>{{address?.Zip}}</td>
+                    <td>
+                      <div class="dropdown dropdown-favorite">
+                        <a class="text-muted" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          <span class="fa fa-ellipsis-v more-icon"></span>
+                        </a>
+      
+                        <ul class="dropdown-menu dropdown-favorite-open" aria-labelledby="dLabel">
+                          <li>
+                            <a (click)="onEditAddress(address.AddressId)">Edit</a>
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr> -->
+                </tbody>
+                </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+              <div class="new-payment-mode-main">
+                <a id="openAddressModal" #openAddressModal data-toggle="modal" data-target="#gridAddressModal" class="new-payment-mode"><i class="fa fa-plus mright10"></i>Add New Address</a>
+                <app-addaddress (close)="onPopupClose($event)"></app-addaddress>
+              </div>          
+        </div>
+</div>

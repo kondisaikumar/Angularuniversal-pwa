@@ -1,0 +1,313 @@
+<div class="border_bottom">
+  <div class="delivery-head-section">
+    <div class="delivery-head-section-left">
+        <span>
+          <img class="status" src="{{order?.OrderStatusImage}}">
+        </span>
+
+        <ng-container *ngIf="order?.OrderStatus=='Pending'">
+          <span class="delevary_color" style="color:#f11b2e;">{{order?.OrderStatus}}</span>
+        </ng-container>
+        <ng-container *ngIf="order?.OrderStatus=='Canceled'">
+          <span class="delevary_color" style="color:#f11b2e;">{{order?.OrderStatus}}</span>
+        </ng-container>
+        <ng-container *ngIf="order?.OrderStatus=='Scheduled for delivery'">
+          <span class="delevary_color" style="color:#ff8a00;">{{order?.OrderStatus}}</span>
+        </ng-container>
+        <ng-container *ngIf="order?.OrderStatus=='Completed'">
+          <span class="delevary_color" style="color:#4dbb3c;">{{order?.OrderStatus}}</span>
+        </ng-container>
+    </div>
+
+    <div class="delivery-head-section-right hidden-xs hidden-sm visible-md visible-lg">
+      <ol class="breadcrumb myorder-details-sub">
+        <li *ngIf="order?.OrderStatus=='Canceled'||order?.OrderStatus=='Completed'" class="breadcrumb-item code myorder-status"
+          (click)="reOrder(order.OrderId)"><a>
+            <!-- <div class="repeat-circle"><span class="fa fa-repeat"></span></div> --> <img
+                src="../assets/Images/Reorder.png" class="status-img" alt="Reorder"><span class="status-text">Reorder</span>
+          </a></li>
+        <!-- Cancel -->
+        <li *ngIf="order?.OrderStatus=='Pending'" class="breadcrumb-item code myorder-status"
+           (click)="cancelOrder(order.OrderId)"><a>
+            <!-- <div class="repeat-circle"><span class="fa fa-close"></span></div> -->
+              <!-- <img src="../assets/Images/cancel.png" class="status-img" alt="Cancel"> --> <i
+                class="icon icon-cancel"></i> <span class="status-text">Cancel</span>
+          </a></li>
+        <li class="breadcrumb-item code myorder-status">#{{order?.OrderNo}}</li>
+      </ol>
+    </div>
+    <!-- Order Summary Mobile UI Header-->
+    <div class="delivery-head-section-right hidden-lg hidden-md visible-xs visible-sm">
+      <ol class="breadcrumb myorder-details-sub">
+        <li  *ngIf="order?.OrderStatus=='Canceled'||order?.OrderStatus=='Completed'" class="breadcrumb-item code myorder-status"><a (click)="reOrder(order.OrderId)">
+            <!-- <div class="repeat-circle"><span class="fa fa-repeat"></span></div> --> <img
+                src="../assets/Images/Reorder.png" class="status-img" alt="Reorder"><span class="status-text">Reorder</span>
+          </a></li>
+        <!-- Cancel -->
+        <li *ngIf="order?.OrderStatus=='Pending'" class="breadcrumb-item code myorder-status" (click)="cancelOrder(order.OrderId)"><a>
+            <!-- <div class="repeat-circle"><span class="fa fa-close"></span></div> -->
+              <!-- <img src="../assets/Images/cancel.png" class="status-img" alt="Cancel"> --> <i
+                class="icon icon-cancel"></i> <span class="status-text">Cancel</span>
+          </a></li>
+        <li class="breadcrumb-item code myorder-status">#{{order?.OrderNo}}</li>
+      </ol>
+    </div>
+    <!-- Order Summary Mobile UI Header End-->
+  </div>
+  <div class="myorder-details" *ngFor="let item of order?.ListOrderItem">
+    <table class="table table-condensed myorder-table hidden-xs hidden-sm visible-md visible-lg">
+      <tbody>
+        <tr>
+          <td width="10%">
+              <img class="second_img img-responsive" src='{{item?.ProductImage}}' alt="ProductImage"/>
+          </td>
+          <td width="35%">
+            <div class="Product_name">
+              <div> {{item?.ProductName | uppercase}} </div>
+              <app-rating [rate]='item?.Rating'></app-rating>
+              <!--[ngClass]="{'checked':star+0.5 <= process.Rating, 'fa-star-half-o':star+0.5 == process.Rating}"-->
+              <span class="font_size">{{item?.UnitSize}}</span>
+            </div>
+          </td>
+          <td width="15%">
+            <div>
+              <div class="Product_price">{{item?.PriceDisplay}}</div>
+              <h6 class="you_save" *ngIf="item?.ItemTotalSaving !== 0"> {{item?.ItemTotalSaving}}</h6>
+            </div>
+          </td>
+          <td width="20%">
+            <div>
+              <div class="Product_price"> {{item?.Quantity}}</div>
+              <h6 class="you_save">Quantity </h6>
+            </div>
+          </td>
+          <td width="20%">
+            <div>
+              <s class="text-muted item-totaldisplay" *ngIf="item?.ItemTotalDisplay !== item?.FinalPriceDisplay">
+                {{item?.ItemTotalDisplay}}
+              </s>
+              <span class="total_price">
+                {{item?.FinalItemTotalDisplay}}
+              </span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Mobile UI Order details -->
+    <div class="table table-condensed myorder-table hidden-lg hidden-md visible-xs visible-sm">
+      <div class="row row-alt">
+        <div class="col-xs-2 col-sm-2 myorder-table-sub">
+          <div class="product-image">
+            <img class="second_img img-responsive" src='{{item?.ProductImage}}' alt="ProductImage"/>
+          </div>
+        </div>
+        <div class="col-xs-4 col-sm-4 myorder-table-sub">
+          <div class="Product_name">
+            <div> {{item?.ProductName | uppercase}} </div>
+            <app-rating [rate]='item?.Rating'></app-rating>
+            <!--[ngClass]="{'checked':star+0.5 <= process.Rating, 'fa-star-half-o':star+0.5 == process.Rating}"-->
+            <span class="font_size">{{item?.UnitSize}}</span>
+          </div>
+        </div>
+     
+        <div class="col-xs-2 col-sm-2 myorder-table-sub">
+          <div>
+            <div class="Product_price">{{item?.PriceDisplay}}</div>
+            <h6 class="you_save" *ngIf="item?.ItemTotalSaving !== 0"> {{item?.ItemTotalSaving}}</h6>
+          </div>
+        </div>
+        <div class="col-xs-2 col-sm-2 myorder-table-sub">
+          <div>
+            <div class="Product_price qty-xs"> {{item?.Quantity}}</div>
+            <h6 class="you_save ">Quantity </h6>
+          </div>
+        </div>
+        <div class="col-xs-2 col-sm-2 myorder-table-sub">
+          <table>
+            <tr>
+              <td>
+                <s class="text-muted" *ngIf="item?.ItemTotalDisplay !== item?.FinalPriceDisplay">
+                  {{item?.ItemTotalDisplay}}
+                </s>
+              </td>
+            </tr>
+            <table>
+              <tr>
+                <td>
+                  <span class="total_price">
+                    {{item?.FinalItemTotalDisplay}}
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!-- Mobile UI Order details End -->
+  </div>
+  <div class="tfoot-order-summary hidden-xs hidden-sm visible-lg visible-md">
+    <table class="tfoot-order-summary-sub">
+      <tbody>
+        <tr>
+          <td class="width_30">
+            <div class="tfoot-order-summary-sub-left">
+                <span class="receipt-icon">
+                  <i class="icon icon-recipt-date"></i>
+                </span>
+                <span class="date_time">{{order?.OrderedDate}}</span>
+            </div>
+          </td>
+          <td>
+            <table>
+              <tbody>
+                <tr>
+                  <td colspan="2">
+                    <div class="order_total" id="order_total">
+                        <span class="order_total_text">Order Total</span>
+                        <span class="order_total_value">{{order?.TotalValueDisplay}}</span>
+
+                        <button class="dec_circle toggle" *ngIf="!isVisible" (click)="isVisible = !isVisible">
+                          <!-- <img class="plus" src="assets/Images/expand.png"> --> <i class="icon icon-expand"></i>
+                        </button>
+                        <button class="dec_circle toggle" *ngIf="isVisible" (click)="isVisible = !isVisible">
+                          <!-- <img class="plus" src="assets/Images/collapse.png"> --> <i
+                            class="icon icon-collapse"></i>
+                        </button>                      
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr *ngIf="isVisible">
+          <td class="store-notes">
+            <div class="order-border" *ngIf="order?.UserNote">
+              <div class="summary">Special Instructions</div>
+              <p>{{order?.UserNote}}</p>
+            </div>
+            <div class="order-border" *ngIf="order?.StoreNote">
+              <div class="summary">Store Notes</div>
+              <p>{{order?.StoreNote}}</p>
+            </div>
+            <div class="order-border" *ngIf="order?.PaymentInfo?.TransactionId">
+              <div class="summary">Payment Confirmation</div>
+              <p>{{order?.PaymentInfo?.TransactionId}}</p>
+            </div>
+          </td>
+          <td class="width50" valign="top">
+            <div class="bill_summary inner">
+              <table class="">
+                <tbody>
+                  <tr>
+                    <td valign="top">
+                      <div class="summary text-right">Summary</div>
+                    </td>
+                    <td>
+                      <table class="order-summary-expand pull-right">
+                        <tbody>
+                          <tr>
+                            <td class="text-left">Sub Total</td>
+                            <td class="text-right">{{order?.SubTotalDisplay}}</td>
+                          </tr>
+                          <tr *ngFor="let charge of order?.ListCharge">
+                            <td class="text-left">{{charge.ChargeTitle}}</td>
+                            <td class="text-right">
+                              {{charge.ChargeAmountDisplay}}
+                            </td>
+                          </tr>
+                          <tr *ngFor="let discount of order?.ListDiscount">
+                            <td class="text-left">{{discount.DiscountTitle}}</td>
+                            <td class="text-right">
+                              - {{discount.DiscountAmountDisplay}}
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- Order summary Footer Mobile UI-->
+  <div class="tfoot-order-summary hidden-lg hidden-md visible-xs visible-sm">
+      <div class="tfoot-order-summary-left">
+          <span>
+            <!-- <img src="assets/Images/recipt-date.png"> --> <i class="icon icon-recipt-date"></i>
+          </span>
+          <span class="date_time">{{order?.OrderedDate}}</span>
+      </div>
+
+      <div class="tfoot-order-summary-right order_total" id="order_total">
+          <span class="order_total_text">Order Total</span>
+          <span class="order_total_value">{{order?.TotalValueDisplay}}</span>
+
+          <button class="dec_circle toggle" *ngIf="!isVisible" (click)="isVisible = !isVisible">
+            <!-- <img class="plus" src="assets/Images/expand.png"> --> <i class="icon icon-expand"></i>
+          </button>
+          <button class="dec_circle toggle" *ngIf="isVisible" (click)="isVisible = !isVisible">
+            <!-- <img class="plus" src="assets/Images/collapse.png"> --> <i class="icon icon-collapse"></i>
+          </button>
+      </div>
+
+    <div class="storenotes" *ngIf="isVisible">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="bottom-border" *ngIf="order?.UserNote">
+            <div class="summary">Special Instructions</div>
+            <p>{{order?.UserNote}}</p>>
+          </div>
+          <div class="bottom-border" *ngIf="order?.StoreNote">
+            <div class="summary">Store Notes</div>
+            <p>{{order?.StoreNote}}</p>
+          </div>
+          <div class="bottom-border" *ngIf="order?.PaymentInfo?.TransactionId">
+            <div class="summary">Payment Confirmation</div>
+            <p>{{order?.PaymentInfo?.TransactionId}}</p>
+          </div>
+        </div>
+      </div>
+      <div class="bill_summary inner">
+        <table class="text_left">
+          <tbody>
+            <tr>
+              <td valign="top">
+                <div class="summary text-left">Summary</div>
+              </td>
+              <td style="padding-right: 0px;">
+                <table class="order-summary-expand pull-right">
+                  <tbody>
+                    <tr>
+                      <td class="text-left">Sub Total</td>
+                      <td class="text-right">{{order?.SubTotalDisplay}}</td>
+                    </tr>
+                    <tr *ngFor="let charge of order?.ListCharge">
+                      <td class="text-left">{{charge.ChargeTitle}}</td>
+                      <td class="text-right">
+                        {{charge.ChargeAmountDisplay}}
+                      </td>
+                    </tr>
+                    <tr *ngFor="let discount of order?.ListDiscount">
+                      <td class="text-left">{{discount.DiscountTitle}}</td>
+                      <td class="text-right">
+                        - {{discount.DiscountAmountDisplay}}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- Order summary Footer Mobile UI End -->
+</div>

@@ -1,0 +1,185 @@
+<div class="add-payment-main-div">
+  <div class="row">
+   <div class="col-lg-10 col-md-11 col-sm-12 col-xs-12">
+    <div class="new-payment-method-section">
+      <div class="newpayment-div">
+        <h6>Add New Payment Method</h6>
+         </div>
+         <div class="newpayment-sub">
+          <form [formGroup]=formAddNewPayment (ngSubmit)="onSaveCard()">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="cards">
+                  <ul class="pull-left">
+                    <li>
+                      <img [ngClass]="{'img-disabled' : cardType !== 'Discover'}" alt="Discover" title="Discover" src="../assets/Images/discover-card.jpg"
+                        width="57" height="36" border="0" />
+                    </li>
+                    <li>
+                      <img [ngClass]="{'img-disabled' : cardType !== 'MasterCard'}" alt="Master" title="Master" src="../assets/Images/mastercard_logo_.gif"
+                        width="57" height="36" border="0" />
+                    </li>
+                    <li>
+                      <img [ngClass]="{'img-disabled' : cardType !== 'Visa'}" style="padding-top: 5px;" alt="Visa"
+                        title="Visa" src="../assets/Images/new_visa_.gif" width="57" height="26" border="0" />
+                    </li>
+                    <li>
+                      <img [ngClass]="{'img-disabled' : cardType !== 'AmericanExpress'}" alt="Amex" title="Amex" src="../assets/Images/american_express_logo_.gif"
+                        width="43" height="36" border="0" />
+                    </li>
+                  </ul>
+
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="payment-label">Card Number <span>*</span></label>
+                        <input type="text" formControlName="sixteenDigitNumber" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" (keyup)="showCardType(formAddNewPayment.controls['sixteenDigitNumber'].valid)"
+                          class="form-control" placeholder="" (keypress)="numericOnly($event)">
+                        <div *ngIf="submitted && f.sixteenDigitNumber.errors" class="alert alert-danger">
+                          <div *ngIf="f.sixteenDigitNumber.errors.required">Card Number is required.</div>
+                          <div *ngIf="f.sixteenDigitNumber.errors.maxlength">Card Number should not be more than 16 digits</div>
+                          <div *ngIf="f.sixteenDigitNumber.errors.minlength">Invalid Card Number</div>
+                        </div>                      
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="payment-label">Expiry Date <span>*</span></label>
+                        <div class="row">
+                          <div class="col-xs-6">
+                            <select class="selectsize form-control" formControlName="expiryMonth">
+                                <option value="" disabled selected>Month</option>
+                              <option *ngFor="let month of months">{{month}}</option>
+                            </select>
+                            <div *ngIf="submitted && f.expiryMonth.errors" class="alert alert-danger">
+                              <div *ngIf="f.expiryMonth.errors.required">Expiry Month is required.</div>
+                            </div>
+                          </div>
+                          <div class="col-xs-6">
+                            <select class="selectsize form-control" formControlName="expiryYear">
+                                <option value="" disabled selected>Year</option>
+                              <option *ngFor="let year of years">{{year}}</option>
+                            </select>
+                            <div *ngIf="submitted && f.expiryYear.errors" class="alert alert-danger">
+                              <div *ngIf="f.expiryYear.errors.required">Expiry Year is required.</div>
+                            </div>
+                          </div>
+                        </div>                      
+                    </div>
+                  </div>
+                  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group form-group-payment">
+                      <label class="addpayment-label">CVV <span>*</span></label>
+                        <input type="text" formControlName="cardCode"class="form-control cvc-input" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" maxlength="4">                              
+                        <div *ngIf="submitted && f.cardCode.errors" class="alert alert-danger">
+                          <div *ngIf="f.cardCode.errors.required">CVV is required.</div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            <div class="billing-div">
+              <div class="col-md-12">
+                <h6>Billing Address</h6>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="payment-label">First Name <span>*</span></label>
+                        <input type="text" formControlName="firstName" class="form-control" placeholder="">
+                        <div *ngIf="submitted && f.firstName.errors" class="alert alert-danger">
+                          <div *ngIf="f.firstName.errors.required">First Name is required.</div>
+                          <div *ngIf="f.firstName.errors.minlength">First Name should be at least 2 characters</div>
+                        </div>                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="payment-label">Last Name<span>*</span></label>
+                        <input type="text" formControlName="lastName" class="form-control" placeholder="">
+                        <div *ngIf="submitted && f.lastName.errors" class="alert alert-danger">
+                          <div *ngIf="f.lastName.errors.required">Last Name is required.</div>
+                          <div *ngIf="f.lastName.errors.minlength">Last Name should be at least 2 characters</div>
+                        </div>                      
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="payment-label">Address<span>*</span></label>
+                        <input type="text" formControlName="address" class="form-control" placeholder="" class="form-control" placeholder="" autocorrect="off" autocapitalize="off" spellcheck="off" #search >
+                        <div *ngIf="submitted && f.address.errors" class="alert alert-danger">
+                          <div *ngIf="f.address.errors.required">Address is required.</div>
+                        </div>                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="payment-label">City <span>*</span></label>
+                        <input type="text" formControlName="city" class="form-control" placeholder="">
+                        <div *ngIf="submitted && f.city.errors" class="alert alert-danger">
+                          <div *ngIf="f.city.errors.required">City is required.</div>
+                        </div>                      
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="payment-label country">State <span>*</span></label>
+                        <select formControlName="state" class="form-control">
+                          <option value="" disabled selected>Select State</option>
+                          <option [value]="statelist.StateCode"*ngFor="let statelist of stateList">{{statelist.StateName}}</option>
+                        </select>
+                         <div *ngIf="submitted && f.state.errors" class="alert alert-danger">
+                          <div *ngIf="f.state.errors.required">State is required.</div>
+                        </div>                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="payment-label">Zip Code <span>*</span></label>
+                        <input type="text" formControlName="zipCode" class="form-control" placeholder="">
+                        <div *ngIf="submitted && f.zipCode.errors" class="alert alert-danger">
+                          <div *ngIf="f.zipCode.errors.required">Zip Code is required.</div>
+                        </div>                      
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="payment-label">Phone Number <span>*</span></label>
+                        <input type="text" formControlName="phoneNumber" class="form-control" placeholder="">
+                        <div *ngIf="submitted && f.phoneNumber.errors" class="alert alert-danger">
+                          <div *ngIf="f.phoneNumber.errors.required">Phone Number is required.</div>
+                        </div>                      
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <!-- <label class="payment-label saveaddress"></label> -->
+                        <input type="checkbox" name="" (change)="saveFlag()" uncheck=""> Save to Addresses                      
+                    </div>
+                  </div>
+                </div>
+
+                    <div class="form-group">
+                      <div class="btn_right buttons-container">
+                        <button type="submit" class="common-btn">Save</button>
+                        <button type="cancel" routerLink="../payment-methods"  class="common-btn-grey">Cancel</button>                        
+                      </div>
+                    </div>                 
+              </div>
+             </div>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+ </div>
+</div>

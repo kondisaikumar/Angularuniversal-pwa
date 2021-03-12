@@ -1,0 +1,777 @@
+@import "~src/variable.scss";
+h4.partners{ 
+    font-family: poppinsbold;
+      font-size: 15.6px;
+      font-stretch: normal;
+      letter-spacing: normal;
+      text-transform: uppercase;
+      text-align: left;
+      color: rgba(51, 51, 51, 0.5);
+      clear: left;
+      margin-top: 10px;
+      display: inline-block;
+  }
+  .plogo{ padding: 2px;}
+  
+
+
+section.bgr_img{
+    background-image: url("/assets/Images/bg-offers.jpg");
+    background-repeat: no-repeat;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    margin: 20px 0 0px;
+    background-size: cover;
+}
+section.bgrfire_img{
+    background-image: url("/assets/Images/untappdbg_logotext.png");
+    background-repeat: no-repeat;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    margin: 20px 0 0px;
+    background-size: cover;
+}
+section.bgrjob_img{
+    background-image: url("/assets/Images/LiquorWorld_Job_Block_v2.png");
+    background-repeat: no-repeat;
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    margin: 20px 0 0px;
+    background-size: cover;
+}
+.bgr_img .display_center h4{
+    font-family: $montserrat-bold;
+    font-size: 18px;
+    font-stretch: normal;
+    line-height: 1.22;
+    /* letter-spacing: 1.4px; */
+    text-align: left;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 15px 0px 5px 0px;
+} 
+.bgrfire_img .display_center h4{
+    font-family: $montserrat-bold;
+    font-size: 18px;
+    font-stretch: normal;
+    line-height: 1.22;
+    /* letter-spacing: 1.4px; */
+    text-align: left;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 15px 0px 5px 0px;
+} 
+.bgrjob_img .display_center h4{
+    font-family: $montserrat-bold;
+    font-size: 18px;
+    font-stretch: normal;
+    line-height: 1.22;
+    /* letter-spacing: 1.4px; */
+    text-align: left;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 15px 0px 5px 0px;
+} 
+.display_center a {
+    margin-right: 25px;
+    float: left;
+    margin-top: 0px;
+}
+
+.display_center h2.offer{
+    font-family: $montserrat-bold;
+    font-size: 36px;
+    font-stretch: normal;
+    line-height: 1.11;
+    letter-spacing: 1.8px;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center !important;
+    background: rgba(0,0,0,0.3);
+      }
+  
+      .display_center {
+        transform: translateY(20%);
+        text-align: center;
+        display: flex;
+        padding-top: 4%;
+      }
+.barcode-container {
+    border-radius: 25px;
+    -o-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    padding: 25px;
+    margin: 15px;
+    background-color: #fff;
+    width: 174px;
+}
+@media screen and (max-width: 767px) {
+    section.bgr_img{
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        margin: 20px 0 0px;
+        padding-top: 25px;
+        background-size: cover;
+            h4, h2 {
+                text-align: center !important;
+            }
+    }
+    section.bgrfire_img{
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        margin: 20px 0 0px;
+        padding-top: 25px;
+        background-size: cover;
+            h4, h2 {
+                text-align: center !important;
+            }
+    }
+    section.bgrjob_img{
+        float: left;
+        width: 100%;
+        overflow: hidden;
+        margin: 20px 0 0px;
+        padding-top: 25px;
+        background-size: cover;
+            h4, h2 {
+                text-align: center !important;
+            }
+    }
+    .barcode-container {
+        display: inline-block;
+    }
+    .display_center h2.offer {
+        text-align: center !important;
+        font-size: 26px;
+        padding-top: 0px;
+        margin-top: 0px;
+        padding-bottom: 10px;
+    }
+    .display_center a {
+        margin-right: 10px;
+        width: 46%;
+    }
+    .app-links-container {
+        width: 70% !important;
+        margin: 0 auto;
+    }
+    .display_center {
+        display: inline;
+    }
+}
+
+// @media screen and (max-width: 680px), screen and (orientation: landscape) and (max-width: 750px) {
+//     section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+//         height: 154px !important;}
+//   }
+  
+
+
+  
+
+
+  /* iPhone 6, 7, & 8 in portrait & landscape */
+  @media only screen 
+  and (min-device-width : 375px) 
+  and (max-device-width : 667px) {
+    
+  }
+  
+  /* iPhone 6, 7, & 8 in landscape */
+  @media only screen 
+  and (min-device-width : 375px) 
+  and (max-device-width : 667px) 
+  and (orientation : landscape) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 160px !important;}
+  }
+
+  /* iPhone 6, 7, & 8 in portrait */
+  @media only screen 
+  and (device-width : 375px) 
+  and (device-height : 667px) 
+  and (orientation : portrait) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 94px !important;}
+  }
+
+
+  /* iPhone 6, 7, & 8 Plus in portrait & landscape */
+  @media only screen 
+  and (min-device-width : 414px) 
+  and (max-device-width : 736px) {
+    
+  }
+  
+  /* iPhone 6, 7, & 8 Plus in landscape */
+  @media only screen 
+  and (device-width : 414px) 
+  and (device-height : 736px) 
+  and (orientation : landscape) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 184px !important;}
+  }
+  
+  /* iPhone 6, 7, & 8 Plus in portrait */
+  @media only screen 
+  and (min-device-width : 414px) 
+  and (max-device-width : 736px) 
+  and (orientation : portrait) {
+    
+  }
+  
+  /* iPhone 6 in portrait & landscape */
+  @media only screen 
+  and (min-device-width : 375px) 
+  and (max-device-width : 667px) {
+   
+  }
+  
+  /* iPhone 6 in landscape */
+  @media only screen 
+  and (min-device-width : 375px) 
+  and (max-device-width : 667px) 
+  and (orientation : landscape) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 160px !important;}
+  }
+  
+  /* iPhone 6 in portrait */
+  @media only screen 
+  and (min-device-width : 375px) 
+  and (max-device-width : 667px) 
+  and (orientation : portrait) {
+    
+  }
+  
+  /* iPhone 6 Plus in portrait & landscape */
+  @media only screen 
+  and (min-device-width : 414px) 
+  and (max-device-width : 736px) {
+    
+  }
+  
+  /* iPhone 6 Plus in landscape */
+  @media only screen 
+  and (min-device-width : 414px) 
+  and (max-device-width : 736px) 
+  and (orientation : landscape) {
+   
+  }
+  
+  /* iPhone 6 Plus in portrait */
+  @media only screen 
+  and (min-device-width : 414px) 
+  and (max-device-width : 736px) 
+  and (orientation : portrait) {
+   
+  }
+  
+  /* iPhone 5 & 5S in portrait & landscape */
+  @media only screen 
+  and (min-device-width : 320px) 
+  and (max-device-width : 568px) {
+    
+  }
+  
+  /* iPhone 5 & 5S in landscape */
+  @media only screen 
+  and (device-width : 320px) 
+  and (device-width : 568px) 
+  and (orientation : landscape) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 142px !important;}
+  }
+  
+  /* iPhone 5 & 5S in portrait */
+  @media only screen 
+  and (width : 320px) 
+  and (height : 568px) 
+  and (orientation : portrait) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 80px !important;}
+  }
+  
+  /* 
+    iPhone 2G, 3G, 4, 4S Media Queries
+    It's noteworthy that these media queries are also the same for iPod Touch generations 1-4.
+  */
+  
+  /* iPhone 2G-4S in portrait & landscape */
+  @media only screen 
+  and (min-device-width : 320px) 
+  and (max-device-width : 480px) {
+   
+  }
+  
+  /* iPhone 2G-4S in landscape */
+  @media only screen 
+  and (min-device-width : 320px) 
+  and (max-device-width : 480px) 
+  and (orientation : landscape) {
+    
+  }
+  
+  /* iPhone 2G-4S in portrait */
+  @media only screen 
+  and (min-device-width : 320px) 
+  and (max-device-width : 480px) 
+  and (orientation : portrait) {
+   
+  }
+  
+  /* iPad in portrait & landscape */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px)  {
+   
+  }
+  
+  /* iPad in landscape */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : landscape) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 256px !important;}
+  }
+  
+  /* iPad in portrait */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : portrait) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 192px !important;}
+  }
+  
+  /* Ipad Pro - Potrait */
+@media only screen
+and (min-device-width: 1024px)
+and (max-device-width: 1024px)
+and (orientation: portrait)
+and (-webkit-min-device-pixel-ratio: 2) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 256px !important;
+}
+}
+
+@media only screen
+and (min-device-width: 1366px)
+and (max-device-width: 1366px)
+and (orientation: landscape)
+and (-webkit-min-device-pixel-ratio: 2) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 341px !important;}
+}
+
+  /* Galaxy S3 portrait and landscape */
+  @media screen 
+    and (device-width: 320px) 
+    and (device-height: 640px) 
+    and (-webkit-device-pixel-ratio: 2) {
+     
+  }
+  
+  /* Galaxy S3 portrait */
+  @media screen 
+    and (device-width: 320px) 
+    and (device-height: 640px) 
+    and (-webkit-device-pixel-ratio: 2) 
+    and (orientation: portrait) {
+      
+  }
+  
+  /* Galaxy S3 landscape */
+  @media screen 
+    and (device-width: 320px) 
+    and (device-height: 640px) 
+    and (-webkit-device-pixel-ratio: 2) 
+    and (orientation: landscape) {
+        section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+            height: 160px !important;}
+  }
+  
+  /* Galaxy S4 portrait and landscape */
+  @media screen 
+    and (device-width: 320px) 
+    and (device-height: 640px) 
+    and (-webkit-device-pixel-ratio: 3) {
+     
+  }
+  
+  /* Galaxy S4 portrait */
+  @media screen 
+    and (device-width: 320px) 
+    and (device-height: 640px) 
+    and (-webkit-device-pixel-ratio: 3) 
+    and (orientation: portrait) {
+     
+  }
+  
+  /* Galaxy S4 landscape */
+  @media screen 
+    and (device-width: 320px) 
+    and (device-height: 640px) 
+    and (-webkit-device-pixel-ratio: 3) 
+    and (orientation: landscape) {
+        section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+            height: 160px !important;}
+  }
+  
+  /* Galaxy S5 portrait and landscape */
+  @media screen 
+    and (device-width: 360px) 
+    and (device-height: 640px) 
+    and (-webkit-device-pixel-ratio: 3) {
+    
+  }
+
+  /* Galaxy S5 portrait */
+  @media screen 
+    and (device-width: 360px) 
+    and (device-height: 640px) 
+    and (-webkit-device-pixel-ratio: 3) 
+    and (orientation: portrait) {
+      
+  }
+  
+  /* Galaxy S5 landscape */
+  @media only screen and (min-device-width: 360px) and (max-device-height: 640px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
+        section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+            height: 160px !important;}
+  }
+  
+  /* HTC One portrait and landscape */
+  @media screen 
+    and (device-width: 360px) 
+    and (device-height: 640px) 
+    and (-webkit-device-pixel-ratio: 3) {
+     
+  }
+  
+  /*
+    iPad 3 & 4 Media Queries
+    If you're looking to target only 3rd and 4th generation Retina iPads 
+    (or tablets with similar resolution) to add @2x graphics,
+    or other features for the tablet's Retina display, use the following media queries.
+  */
+
+    
+  /* Retina iPad in portrait & landscape */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+  
+  }
+  
+  /* Retina iPad in landscape */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : landscape)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    
+  }
+  
+  /* Retina iPad in portrait */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : portrait)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    
+  }
+  
+  /*
+    iPad 1 & 2 Media Queries
+    If you're looking to supply different graphics or choose different typography 
+    for the lower resolution iPad display, the media queries below will work 
+    like a charm in your responsive design!
+  */
+  
+  /* iPad 1 & 2 in portrait & landscape */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    
+  }
+  
+  /* iPad 1 & 2 in landscape */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : landscape)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    
+  }
+  
+  /* iPad 1 & 2 in portrait */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+   
+  }
+  
+  /* iPad mini in portrait & landscape */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+  
+  }
+  
+  /* iPad mini in landscape */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : landscape)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    
+  }
+  
+  /* iPad mini in portrait */
+  @media only screen 
+  and (min-device-width : 768px) 
+  and (max-device-width : 1024px) 
+  and (orientation : portrait)
+  and (-webkit-min-device-pixel-ratio: 1) {
+  
+  }
+  
+  
+  /* Asus Nexus 7 portrait and landscape */
+  @media screen 
+    and (device-width: 601px) 
+    and (device-height: 906px) 
+    and (-webkit-min-device-pixel-ratio: 1.331) 
+    and (-webkit-max-device-pixel-ratio: 1.332) {
+      
+  }
+  
+  /* Asus Nexus 7 portrait */
+  @media screen 
+    and (device-width: 601px) 
+    and (device-height: 906px) 
+    and (-webkit-min-device-pixel-ratio: 1.331) 
+    and (-webkit-max-device-pixel-ratio: 1.332) 
+    and (orientation: portrait) {
+      
+  }
+  
+  /* Asus Nexus 7 landscape */
+  @media screen 
+    and (device-width: 601px) 
+    and (device-height: 906px) 
+    and (-webkit-min-device-pixel-ratio: 1.331) 
+    and (-webkit-max-device-pixel-ratio: 1.332) 
+    and (orientation: landscape) {
+    
+  }
+  
+  
+  /* Laptops non-retina screens */
+  @media screen 
+    and (min-device-width: 1200px) 
+    and (max-device-width: 1600px) 
+    and (-webkit-min-device-pixel-ratio: 1) {
+      
+  }
+  
+  /* Laptops retina screens */
+  @media screen 
+    and (min-device-width: 1200px) 
+    and (max-device-width: 1600px) 
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (min-resolution: 192dpi) {
+      
+  }
+
+ 
+  //  @media
+  // only screen and (-webkit-min-device-pixel-ratio: 2),
+  // only screen and (   min--moz-device-pixel-ratio: 2),
+  // only screen and (     -o-min-device-pixel-ratio: 2/1),
+  // only screen and (        min-device-pixel-ratio: 2),
+  // only screen and (                min-resolution: 192dpi),
+  // only screen and (                min-resolution: 2dppx) { 
+  //   section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+  //     height: 103px !important;
+  // }
+  // }
+  @media only screen and (min-width: 411px) and (orientation: portrait) {
+
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 103px !important; }
+  }
+  @media (max-device-width: 320px) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+      height: 80px !important;}
+
+  }
+  @media only screen and (min-width: 731px) and (orientation: landscape) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+      height: 182px !important;}
+   }
+
+
+  /* HTC One portrait */
+  @media screen 
+    and (device-width: 360px) 
+    and (device-height: 640px) 
+    and (-webkit-device-pixel-ratio: 3) 
+    and (orientation: portrait) {
+        section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+            height: 89px !important;}
+  }
+  
+     /* HTC One landscape */
+  @media screen and (max-width: 680px) and (orientation:landscape){
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 160px !important;}
+}
+
+
+@media only screen and (width: 411px) and (orientation: portrait) {
+  section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+      height: 103px !important;}
+   }
+@media only screen and (device-width: 768px) {
+ section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+   height: 192px !important;}
+}
+   @media only screen and (min-width: 812px) and (orientation: landscape) {
+    section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+      height: 202px !important;
+        }
+      }
+
+
+/* Galaxy Tab 10.1 portrait and landscape */
+@media
+(min-device-width: 800px) 
+and (max-device-width: 1280px) {
+  
+}
+
+/* Galaxy Tab 10.1 portrait */
+@media 
+(max-device-width: 800px) 
+and (orientation: portrait) { 
+  
+}
+
+/* Galaxy Tab 10.1 landscape */
+@media 
+(device-width: 1280px) 
+and (orientation: landscape) { 
+  section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+    height: 320px !important;
+}
+}
+
+@media  screen and (device-width: 1366px) {
+  section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+    height: 341px !important;
+  }
+}
+
+@media  screen and (device-width: 3840px) {
+  section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+    height: 950px !important;
+  }
+}
+
+@media  screen and (device-width: 2160px) {
+  section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+    height: 541px !important;
+  }
+}
+
+@media  screen and (device-width: 356px) {
+  section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+    height: 89px !important;
+  }
+}
+
+@media  screen and (device-width: 667px) {
+  section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+    height: 167px !important;
+  }
+}
+@media  screen and (device-width: 568px) {
+  section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+    height: 142px !important;
+  }
+}
+
+  section.bgrfire_img, section.bgr_img,section.bgrjob_img {
+    height: 379px;}
+
+    @-moz-document url-prefix() {
+      section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 90px !important;
+      }
+  }
+
+@media screen and (width: 1920px) {
+      section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 480px !important;
+  }
+}
+@media screen and (width: 800px) {
+  section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+    height: 200px !important;
+}
+}
+
+  
+@media screen and (width: 1080px) {
+  section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+    height: 270px !important;
+}
+}
+
+
+  @media only screen   
+  and (min-width: 1370px)  
+  and (max-width: 1605px)  {
+      section.bgrfire_img, section.bgr_img,section.bgrjob_img {
+        height: 379px !important;} 
+    }
+
+    
+    @media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2)  and (orientation: landscape)  {
+      section.bgrfire_img, section.bgr_img,section.bgrjob_img {
+        height: 342px !important;} 
+    }
+    @media screen and (width: 1280px) {
+      section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 320px !important;
+    }
+    }
+    @media  screen and (device-width: 375px) {
+      section.bgrfire_img, section.bgr_img, section.bgrjob_img {
+        height: 94px !important;
+      }
+     
+    }
+
+
+    @media only screen and (width: 1024px) {
+      section.bgrfire_img, section.bgr_img,section.bgrjob_img {
+        height: 256px !important;} 
+  }

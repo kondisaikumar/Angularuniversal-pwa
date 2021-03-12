@@ -1,0 +1,48 @@
+@import "~src/variable.scss";
+
+.aboutus-content {width: 100%; float: left; margin-top: 20px; min-height: 200px;}
+.aboutus-content p{ font-family: $montserrat-regular; font-size: $common-font-size;}
+.aboutus-left-div {width: calc(100% - 340px); float: left; padding-right: 20px;}
+.aboutus-right-div {width: 340px; float: left; padding-left: 20px;}
+.aboutus-right-sub-div {width: 100%; float: left; margin-bottom: 12px;}
+h4 {font-size: 18px; margin-bottom: 10px;}
+.aboutus-right-sub-div p {font-size: $common-font-size; width: 100%; float: left; margin-bottom: 8px; font-family: $montserrat-regular;}
+.aboutus-right-sub-div ul {width: 100%; float: left; padding-left: 17px; font-family: $montserrat-regular;}
+.aboutus-right-sub-div ul li {width: 100%; float: left; margin-bottom: 6px; font-size: $common-font-size;}
+span.span-aboutus {padding-left: 6px;}
+.aboutus-left-div-img {width: 100%; float: left; background-color: #eee; padding: 8px; margin-bottom: 20px;}
+.aboutus-left-div-img .img-responsive {display: table; margin: 0 auto; padding: 35px; background: #fff;}
+.aboutus-total-div {width: 100%; float: left;}
+.text-underline{text-decoration: underline;}
+@media screen and (max-width: 1440px) and (min-width: 1200px) {
+    .aboutus-left-div {width: calc(100% - 300px);}
+    .aboutus-right-div {width: 300px;}
+}
+
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+    .aboutus-left-div {width: calc(100% - 270px);}
+    .aboutus-right-div {width: 270px;}
+    .aboutus-left-div-img .img-responsive {padding: 25px;}
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    .aboutus-left-div {width: calc(100% - 220px);}
+    .aboutus-right-div {width: 220px;}
+    .aboutus-left-div-img .img-responsive {padding: 20px;}
+}
+
+@media screen and (max-width: 767px) {
+    .aboutus-left-div {width: 100%;}
+    .aboutus-right-div {width: 100%;}    
+    .aboutus-left-div-img .img-responsive {padding: 4px;}
+}
+
+@media screen and (max-width: 767px) and (min-width: 481px) {
+    .aboutus-left-div-img {width: calc(33.3% - 20px); background-color: #fff; padding: 2px; border: 3px solid #eee;
+        margin-right: 20px; display: inline-block; vertical-align: middle; float: none;}
+}
+
+@media screen and (max-width: 480px) {
+    .aboutus-left-div-img {width: calc(50% - 15px); background-color: #fff; padding: 2px; border: 3px solid #eee;
+        margin-right: 15px; display: inline-block; vertical-align: middle; float: none;}
+}

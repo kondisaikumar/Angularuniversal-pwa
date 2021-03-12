@@ -1,0 +1,99 @@
+<div class="favorites-div-main">
+ <div class="favorites-div">
+  <h6>Favorites</h6>
+</div>
+<div class="favorites-component-div">
+  <div class="row">
+
+    <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="fav-btn-container">
+      <div class="row">
+        <div class="col-md-6">
+          <button class="btn btn-default" (click)="showPreviousProducts()" *ngIf="isPrevious">Previous Page</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-default pull-right" *ngIf="isNext" (click)="showMoreProducts()">Next Page</button>
+        </div>
+      </div>
+     </div>
+    </div> -->
+
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" *ngFor="let item of productsList">
+      <div class="Main_bottlesection_product">
+          <div >
+            <div class="product-image-div">
+              <div class="sale-tag-new">
+          <img src="https://staging.liquorapps.com/images/OrderStatus/club-price2.gif" class="img-responsive" alt="saleTag">
+        </div>
+
+        <div class="div-favourite">
+        <img src="../../../../assets/Images/icon-favorite-disable.png" class="fav-new fav" (click)="favoriteProductUpdate(item, true)"
+                      *ngIf="item?.IsFavorite===false; else favActive" alt="iconFavoriteDisable" />
+                    <ng-template #favActive>
+                      <img src="../../../../assets/Images/icon-favorite-active.png" class="fav-new fav active" (click)="favoriteProductUpdate(item, false)" alt="iconFavoriteACtive">
+                    </ng-template>
+                  </div>
+
+                  <div class="product-image-sub">
+                    <a routerLink="/product-details/{{item.PID}}/{{storeid}}"><img class="pimg" src="{{item?.ProductImg}}" alt="ProductImg" /></a>
+                    <div class="rating_star">
+                      <app-rating [rate]='item?.Rating'></app-rating>
+                      <!-- <span class="first">{{item?.ReviewCount}}</span>
+                      <span class="reviews"> reviews</span> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="second_content_product second_content">
+                  <a class="page-product" href="">
+                    <div class="producttitle producttitle_new">
+                            <span class="text-concat-new">
+                                <h5 class="productname" title="">{{item?.ProductName | uppercase}}</h5>
+                            </span>
+                    </div>
+                    <div class="product_size">
+                        <span>{{item?.Size}}</span>
+                    </div>
+                    
+                    <div class="price-cart-div">
+                        <div class="price-cart-div-sub">
+                          <div class="strike_text_new" *ngIf="item?.PriceDisplay !== item?.OfferPriceDisplay">
+                              <div class="">$240</div>
+                            </div>
+                            <div class="price_new">
+                              {{item?.OfferPriceDisplay}}
+                            </div>
+                          </div>
+                    </div>
+                    </a>
+
+                    <div class="cart-new cart">
+                      <img src="../../../../assets/Images/icon-cart-soldout.png" class="cart-feature active" title="Out of Stock" *ngIf="item?.Inventory === 0; else showCart">
+          <ng-template #showCart>
+<img src="../../../../assets/Images/icon-cart-disable.png" class="cart-feature" (click)="addToCart(item)" *ngIf="item?.InCart === 0; else cartActive">
+
+            <ng-template #cartActive>
+                <img src="../../../../assets/Images/icon-cart-active.png"  class="cart-feature" (click)="removeFromCart(item)">
+            </ng-template>
+          </ng-template>
+                    </div>
+                    
+                </div>
+            
+          </div>
+      </div>   
+    </div>
+
+    <!-- <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="row">
+        <div class="col-md-6">
+          <button class="btn btn-default" (click)="showPreviousProducts()" *ngIf="isPrevious">Previous Page</button>
+        </div>
+        <div class="col-md-6">
+          <button class="btn btn-default pull-right" *ngIf="isNext" (click)="showMoreProducts()">Next Page</button>
+        </div>
+      </div>
+    </div> -->
+
+  </div>
+ </div>
+</div>

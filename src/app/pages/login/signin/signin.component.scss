@@ -1,0 +1,156 @@
+@import "src/variable.scss";
+
+form .mandatory{
+    color: $lukas-color;
+}
+ form .form-group .border_radius{
+     border-radius: 0px; background-color: f1f1f1;
+ }
+
+ .forgot-login-password {width: 100%; float: left;}
+ button.facebook.common-btn {width: auto; float: right; padding: 8px 12px;}
+ .forgot-div {width: 100%; float: left; margin-top: 4px;}
+ .forgot-div-left {width: auto; float: left;}
+ .forgot-div-right {width: auto; float: right;}
+ .forgot-custom {float: right;}
+ .fb-sub-div {width: 100%; float: left;}
+span.border{
+    border-bottom: 1px solid $lukas-color;
+    padding-bottom: 3px;
+}
+.facebook-signin-span {width: auto; float: none; display: inline-block; vertical-align: middle;}
+button.facebook i.facebook-custom-div {width: 15px; float: none; display: inline-block; vertical-align: middle; padding-right: 0;}
+h4.font_size span,form .form-group label.email,form .form-group label.password {
+    font-family: $montserrat-regular;
+    font-size: 12px;
+    text-align: left;
+    color: $common-font-color;
+    margin-bottom: 4px;
+}
+h4.font_size{
+    padding: 20px 0 20px;   
+}
+h6.padding_top{
+    font-family: $poppins-regular;
+    font-size: 12px;
+    text-align: left;
+    color: $common-font-color;
+    padding: 10px 0 10px;
+}
+h6.color_text{
+    font-family: $poppins-regular;
+    font-size: 14.5px;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-align: left;
+    padding-bottom: 15px;
+    color: $common-font-color;
+}
+.checkbox.checkbox-custom {margin-top: 0; margin-bottom: 0;}
+h5.color, a.color{
+    font-family: $poppins-regular;
+    font-size: 15px;
+    text-align: left;
+    color: $lukas-color;
+    cursor: pointer;
+  }
+  h5.color:focus, a.color:focus{
+      outline: none;
+  }
+  .checkbox label{
+    font-family: $poppins-regular;
+    font-size: 15px;
+    font-stretch: normal;
+    line-height: 1.88;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: $common-font-color;
+  }
+section.padding_top{
+    padding-top: 15px;
+}
+
+/*Forgot Password*/
+.forgot-password-container {
+    .forgot-container {
+        background-color: #fcfcfc;
+    }
+    .forgot-header {
+        border-bottom: 1px solid transparent;
+        padding-bottom: 0;
+    }
+    .forgot {
+        text-align: center;
+        border-top: 1px solid transparent;
+        padding-top: 0;
+      button.active {
+        background-color: $lukas-color !important;
+    /*  position: absolute;
+        right: 0;
+        bottom: -60px !important;*/
+        color: #fff !important;
+        margin: 0;
+        font-family: $montserrat-bold;
+        font-size: 12.7px;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0.3px;
+        text-align: left;
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 0px;
+        text-align: center;
+        border: $lukas-color;
+        box-shadow: none !important;
+      }
+    }
+
+    p {
+        font-family: poppinsregular;
+        text-align: center;
+        font-size: 14px !important;
+        color: #777;
+    }
+
+    button.novalue{
+        background: #d7d7d7 !important;
+        color:#fff;
+        padding: 10px 25px;
+        box-shadow: none !important;
+        font-family: $montserrat-bold;
+        font-size: 11.2px;
+        margin-right: 6px;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ffffff;
+        opacity: 1;
+        border-radius: 0px;
+      }
+}
+
+.bottles-brand {
+  color: $lukas-color;
+}
+
+.or-div {width: 100%; float: left; position: relative; text-align: center;}
+.or-text {width: 100%; float: left; font-size: 14px;}
+.or-text span {background: #f1f1f1; position: relative; z-index: 10; padding: 7px 10px; border-radius: 50%;}
+.or-line {position: absolute; top: 50%; left: 0; width: 100%; height: 1px; background-color: #eee;}
+.alert-danger.login-alert {background-color: transparent; border: 0; margin-top: 4px;}
+.forgot-pwd-login {width: auto; float: right;}
+.forgot-pwd-login a {font-family: $poppins-regular; font-size: 14px; font-stretch: normal; line-height: 16px; letter-spacing: 0.4px; text-align: left; color: #ec0927; cursor: pointer;}
+.remember-text {font-family: $poppins-regular; font-size: 14px; font-stretch: normal; line-height: 16px; letter-spacing: 0.4px; text-align: left;
+    color: $common-font-color;}
+
+@media screen and (max-width: 767px) { 
+    .login-container {width: 100%; padding: 20px 40px;}
+    .forgot-pwd-login a {font-size: 12px; line-height: 13px;}
+    .remember-text {font-size: 12px; line-height: 13px;}
+    button.submit {font-size: 12px; padding: 9px 15px;}
+}
+
+@media screen and (max-width: 767px) {
+    .login-heading-sub {width: calc(100% - 200px); min-width: 70px;}
+}

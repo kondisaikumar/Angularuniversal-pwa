@@ -1,0 +1,73 @@
+@import "~src/variable.scss";
+
+.recipes img{
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+    width: 100%;
+}
+
+.recipes-breadcrumb-div {width: 100%; float: left; margin-bottom: 20px;}
+.recipes-images {width: 100%; float: left; margin-bottom: 5px;}
+.recipes-pagination {width: 100%; float: left;}
+
+.recipes-images .thumbnail {padding: 12px; width: 100%; float: left; position: relative; margin-bottom: 30px;}
+.recipes-images .thumbnail .caption {margin: 0; padding: 16px 12px; position: absolute; bottom: 12px; width: calc(100% - 24px);
+      background: rgba(255,255,255,0.9); font-family: $montserrat-bold; font-size: $common-font-color; font-weight: 700; text-align: center;}
+.thumbnail:hover {cursor: pointer;}
+
+.details_content h4 {border-bottom: 1px solid #d7d7d7;}
+.Searchrelated_div{
+    margin: 20px 0;
+    border-radius: 0px;
+    /* padding-bottom: 10px; */
+    overflow: hidden;   
+}
+.Searchrelated_div h4{
+    width: 50%;
+    //height: 21px;
+    padding-left: 12px;
+    border: none;
+    float: left;
+    border-left: 5px solid $lukas-color;
+    font-size: $common-font-size;
+    font-weight: bold;
+    color: #333;
+   
+}
+.thumbnail a{
+    display: block;
+    /*max-height: 180px;*/
+    overflow: hidden;
+}
+
+.thumbnail a:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
+}
+
+.thumbnail a img {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+    height: auto;
+    width: 100%;
+}
+
+.item_img:hover {text-decoration: none;}
+
+p {text-align: left !important;}
+
+.page-navigation {
+    width: auto;
+    float: right;
+}
+
+@media screen and (max-width: 550px) and (min-width: 481px) {
+    .recipes-images .thumbnail {max-width: 90%; margin: 0 auto 20px; display: table; float: none;}
+}
+
+@media screen and (max-width: 550px) {
+    .page-navigation {width: 100%; margin-top: 6px;}
+    .col-xs-6.item_img {width: 100%;}
+}

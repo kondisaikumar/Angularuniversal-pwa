@@ -1,0 +1,13 @@
+@import "~src/variable.scss";
+
+.privacy-content {width: 100%; float: left;}
+.privacy-content {
+	h4 {
+		font-size: 18px;
+	}
+	p {
+		font-family: $poppins-regular;
+		font-size: 15px;
+		margin-bottom: 8px;
+	}
+}

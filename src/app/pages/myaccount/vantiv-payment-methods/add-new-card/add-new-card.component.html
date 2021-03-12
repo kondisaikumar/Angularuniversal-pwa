@@ -1,0 +1,13 @@
+<div class="new-payment-method-section"  [ngClass]="loading && !captcha ? 'holds-the-iframe': ''">
+    <app-captchapayment *ngIf="captcha" (captcharesulttrue)="onCapthaValidatetrue()"
+        (captcharesultfalse)="onCapthaValidatefalse()"></app-captchapayment>
+    <div *ngIf="!captcha" class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+            <h6>Add New Payment Method</h6>
+        </div>
+
+        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+            <iframe class="payment-iframe" id="myIframe" height="700" [src]="url" (load)="onLoad()"></iframe>
+        </div>
+    </div>
+</div>

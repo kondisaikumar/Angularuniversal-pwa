@@ -1,0 +1,15 @@
+@import "src/variable.scss";
+.product-image{
+    width: 50px;
+}
+.product-name{
+    font-family: $montserrat-regular;
+    font-size: 13px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 18px;
+    text-align: left; 
+    color: #262628;
+    font-weight: bold;
+    margin: 0px;
+}

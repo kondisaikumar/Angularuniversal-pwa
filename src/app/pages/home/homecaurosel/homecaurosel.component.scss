@@ -1,0 +1,221 @@
+@import "~src/variable.scss";
+.carousel.carousel-new {padding-bottom: 0; width: 100%;}
+.carousel-inner>.item>img.carousel-img {width: 100%; float: left; height: auto;}
+// @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+// 	.carousel-inner>.item>img.carousel-img {object-fit: inherit; height: auto;}
+// }
+.container-banner {width: 100%; float: left; position: relative; padding: 0 15px 10px 15px;}
+.container-banner a.carousel-control {width: 30px; height: 30px; top: 50%; margin-top: -15px;}
+.carosel-icon {position: absolute; font-size: 19px; top: 50%; margin-top: -12px;
+  z-index: 2; background: rgba(53, 47, 47, 0.8); color: #fff; border-radius: 100%;
+  width: 30px; height: 30px;}
+.fa-chevron-left.carosel-icon {left: 60px; padding: 5px 8px;}
+.fa-chevron-right.carosel-icon {right: 60px; padding: 5px 10px;}
+.circle-click {display: none;}
+.circle-click {width: 100%; float: left;}
+.circle-click-sub {width: auto; display: table; margin: 0 auto; float: none; margin-top: 10px;}
+.circle-round {width: 12px; height: 12px; background-color: #fff; border: 2px solid #333; border-radius: 100%; display: inline-block; margin: 0 2px;}
+.circle-round.active {background-color: #333; border: 2px solid transparent;}
+.carousel-pointer {cursor: pointer;}
+.carousel-indicators {display: none;}
+.carousel-block {
+  
+  height: auto;
+  .carousel-img {
+    height: auto;
+    width: 100%;
+  }
+  a {
+    &.left,
+    &.right {
+      height: 100%;
+    }
+  }
+}
+
+a.left.carousel-control,
+a.right.carousel-control {
+  top: 45%;
+  margin: 25px;
+}
+
+.carousel-control.right,
+.carousel-control.left,
+a.carousel-control {
+  background-image: none;
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .fa-chevron-left.carosel-icon {left: 40px;}
+  .fa-chevron-right.carosel-icon {right: 40px;}
+}
+
+// @media screen and (min-width: 1550px) {
+//   .carousel-inner>.item>img.carousel-img {height: 440px;}
+// }
+
+// @media screen and (max-width: 1440px) and (min-width: 1200px) {
+//   .carousel-inner>.item>img.carousel-img {height: 320px;}
+// }
+
+// @media screen and (max-width: 1199px) and (min-width: 992px) {
+//   .carousel-inner>.item>img.carousel-img {height: 260px;}
+// }
+
+// @media screen and (max-width: 991px) and (min-width: 768px) {
+//   .carousel-inner>.item>img.carousel-img {height: 210px;}
+// }
+
+// @media screen and (max-width: 767px) and (min-width: 481px) {
+//   .carousel-inner>.item>img.carousel-img {height: 180px;}
+// }
+
+// @media screen and (max-width: 480px) {
+//   .carousel-inner>.item>img.carousel-img {height: 160px;}
+// }
+
+@media only screen and (max-width: 991px) {
+  .carousel-control img {
+    width: 50%;
+  }
+  .searchby {
+    width: 100% !important;
+    margin-bottom: 0px;
+    display: block !important;
+    float: left;
+    position: relative;
+    z-index: 9;
+  }
+  .input-group .form-control {
+    width: 100% !important;
+    height: 38px !important;
+    position: absolute;
+    padding-right: 40px;
+    z-index: -1;
+  }
+  .input-group button.btn {
+    margin: 0px !important;
+    float: right;
+  }
+  .search-btn .icon {
+    color: #fff !important;
+  }
+
+  ul.nav-tabs li.active {
+    color: $lukas-color;
+    opacity: 1 !important;
+  }
+
+  ul.nav-tabs li.active:after {
+    content: " ";
+    position: absolute;
+    left: 30%;
+    opacity: 1;
+    margin: 0 auto;
+    bottom: -30px;
+    border: 18px solid transparent;
+    border-bottom-color: #fff;
+    -ms-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+    z-index: 9999;
+  }
+
+  .m-menu-tabs {
+    ul.nav-tabs {
+      display: table;
+      table-layout: fixed;
+      overflow-y: auto;
+      overflow-x: hidden;
+      width: 100%;
+      border-bottom: solid 1px transparent;
+      li {
+        display: table-cell;
+        list-style: none;
+        padding: 0px;
+        width: 25%;
+        text-align: center;
+        opacity: 0.5;
+        /*              margin: 0 15px;
+              cursor: pointer;
+              background-color: $lukas-color;
+              padding: 3px 0px;
+              border-radius: 50%;
+              height: 60px;
+              width: 60px;*/
+        a {
+          background-color: transparent;
+          border: 0px solid transparent !important;
+          border-bottom-color: transparent;
+          padding: 0px;
+          cursor: pointer;
+          .icon {
+            font-size: 50px;
+            color: $lukas-color;
+            cursor: pointer;
+          }
+        }
+        &:hover {
+          /*background-color: $lukas-color !important;*/
+          border: 0px solid transparent !important;
+          opacity: 1;
+          .icon {
+            font-size: 50px;
+            color: $lukas-color;
+          }
+        }
+        .active {
+          background-color: transparent !important;
+          border: 1px solid transparent !important;
+          opacity: 1 !important;
+          .icon {
+            font-size: 50px;
+            opacity: 1 !important;
+            color: $lukas-color;
+          }
+          &:after {
+            content: " ";
+            position: absolute;
+            left: 0%;
+            opacity: 1;
+            margin: 0 auto;
+            bottom: 0px;
+            border: 18px solid $lukas-color;
+            border-bottom-color: $lukas-color;
+            -ms-transform: rotate(0deg);
+            -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+            z-index: 9999;
+          }
+        }
+      }
+    }
+    .m-tab-section {
+      width: 100%;
+      box-shadow: 0px -5px 25px rgba(0, 0, 0, 0.5);
+      background-color: #fff;
+      padding: 15px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .carosel-icon {display: none;}
+  .circle-click {display: block;}
+  .carousel-indicators {display: block; margin-bottom: 0; bottom: -24px;}
+  .carousel-indicators li {border: 1px solid $common-font-color; margin: 0 2px;}
+  .carousel-indicators .active {width: 10px; height: 10px; background-color: $common-font-color;}
+  .container-banner {margin-bottom: 20px;}
+}
+
+@media only screen and (max-width: 480px) {
+  .search-block .searchby .search-btn .btn {
+    top: 0px !important;
+  }
+  .container{ width: 100% !important; padding: 0px !important;}
+  .carousel-inner>.item>a>img, .carousel-inner>.item>img, .img-responsive, .thumbnail a>img, .thumbnail>img{
+    max-width: 96% !important; margin: 0 auto; text-align: center;
+}
+}

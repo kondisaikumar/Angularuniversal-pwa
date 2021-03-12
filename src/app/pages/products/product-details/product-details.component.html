@@ -1,0 +1,367 @@
+<div class="common-margin-top">
+    <div class="page-margin">
+    <div class="breadcrumb-container">
+        <div class="Search_div col-md-12 col-sm-12 col-lg-12 col-xs-12">
+           <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+               <li class="breadcrumb-item">Product Details</li>
+           </ol>
+        </div>
+      </div>
+    
+
+<section class="product-details-content">
+    <div class="product-details-desktop">
+    <div class="product-details-top">
+     <div class="product-details-container">
+                <div class="product_img">                    
+                    <img class="second_img img-responsive" src="{{productDetails?.Product?.ProductImg}}" alt="ProductImage"/>
+                </div>
+            
+                <div class="product-details-content-div">
+                    <div class="product_content">
+                        <div class="favorite-selection" *ngIf="productDetails">
+                            <i class="icon icon-favorites" (click)="favoriteProductUpdate(true)" *ngIf="productDetails?.Product?.IsFavorite===false; else favActive"></i>
+                            <ng-template #favActive>
+                                <i class="icon icon-favorites active" (click)="favoriteProductUpdate(false)"></i>
+                            </ng-template>
+                        </div>                    
+                    
+                    <div class="product_content_sub">
+                        <div class="product_content_sub_heading">{{productDetails?.Category}}</div>
+                        <div class="product_content_heading_details">{{productDetails?.Product?.ProductName | uppercase}}</div>
+                        <div class="top-seller-detail" *ngIf="productDetails?.Product?.IsTopPicks"><span>Top Seller</span></div>
+                        <!-- <ul>
+                            <li *ngIf="productDetails?.Category">
+                                <a> {{productDetails?.Category}}
+                                </a>
+                            </li>
+                            <li *ngIf="productDetails?.Type">
+                                <a>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    {{productDetails?.Type}}
+                                </a>
+                            </li>
+                            <li *ngIf="productDetails?.Varietal">
+                                <a>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    {{productDetails?.Varietal}}
+                                </a>
+                            </li>
+                            <li *ngIf="productDetails?.Region">
+                                <a>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    {{productDetails?.Region}}
+                                </a>
+                            </li>
+                            <li *ngIf="productDetails?.Country">
+                                <a>
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                    {{productDetails?.Country}}
+                                </a>
+                            </li>
+                        </ul> -->
+                        <span class="size_bottle">{{productDetails?.Product?.Size}}</span>
+                            <span class="">SKU: {{productDetails?.Product?.SKU}}</span>
+                            <div class="product-detail-price">
+                                <div class="strike_text" *ngIf="productDetails?.Product?.PriceDisplay !== productDetails?.Product?.OfferPriceDisplay">{{productDetails?.Product?.PriceDisplay}}</div>
+                                <div class="price_new">{{productDetails?.Product?.OfferPriceDisplay}}</div>                            
+                            </div>
+                        <div class="customers_review">                            
+                            <ul class="">
+                                <li>
+                                    <app-rating [rate]='rating' class="rating-detail"></app-rating>
+                                    <span class="review-caption" (click)="scroll(reviews)">{{productDetails?.ReviewTotalCount}} reviews</span>
+                                </li>
+                            </ul>
+                            <div class="write-a-review-main">
+                                <small class="write-a-review"><a (click)="scrolltoWrite(writeAReview)">Write a review</a></small>
+                            </div>
+                        </div>                
+                        <div class="product-description">{{productDetails?.ProductDescription}}</div>
+                        <div class="size">
+                         <div class="detail-cart-div">
+                            <label class="sizelabel">Quantity</label>
+                         </div>
+                        </div>
+                        
+                        <div class="select-bg">
+                            <select (change)="onchangequantity()"[disabled]="productDetails?.Product?.Inventory === 0 || productDetails?.Product?.InCart > 0"  
+                                    class="selectsize form-control" 
+                                    [(ngModel)]="qty">
+                                    <option *ngFor="let qty of getQty(productDetails?.Product)">{{qty}}</option>
+                            </select>
+                        </div>
+                        <span class="limit-per-user" *ngIf="productDetails?.Product?.DealInventoryMessage">{{productDetails?.Product?.DealInventoryMessage}}</span>
+
+                        <div class="cart-btn-detail">
+                            <button *ngIf="productDetails?.Product?.Inventory > 0 && productDetails?.Product?.InCart === 0" class="common-btn addtocart" (click)="addToCart()">Add to Cart</button>
+                            <button *ngIf="productDetails?.Product?.InCart > 0" class="common-btn btn-default addtocart" (click)="removeFromCart()">Remove from Cart</button>
+                            <button *ngIf="productDetails?.Product?.Inventory === 0" [disabled]="true" class="common-btn btn-default addtocart disabled">Out Of Stock</button>                                    
+                        </div>
+                    </div>
+                </div>                                     
+                </div>
+
+                <!-- <h4 class="size1">Size</h4>  -->
+                <!-- <div class="row">
+                    <div class="size">
+
+                        <div class="margin_top col-md-12 col-sm-12 col-lg-8 col-xs-12">
+                            <div class="row">
+          
+                                <div class="col-md-4 col-xs-5">
+                                    
+                                </div>
+                                
+                            </div>
+                             <button  class="dec_circle">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </button>
+                            <span class="value">5</span>
+                            <button  class="dec_circle">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </button> 
+                        </div>
+                    </div>
+                </div> -->
+
+               </div>
+            </div>
+
+<div class="like">
+ <section *ngIf="productsList">
+    <div class="container-new container">
+        <div class="row">
+            <ng-container>                
+                    <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+                         <div class="heading-margin">
+                            <!-- <input type="text" placeholder="Related Product"> -->
+                          <h4>Related Products</h4>
+                         </div>
+
+                    <!-- <div class="col-md-2 col-sm-2 col-lg-2 hidden-xs hidden-sm visible-md visible-lg">
+                        <a class="view_more" (click)="getProductList()">
+                            <span>View More</span>
+                        </a>
+                    </div> -->
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </ng-container>
+            <div class="Main_bottlesection">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" *ngFor="let product of productsList | slice:0:4">
+                    <app-product [item]="product"></app-product>
+                </div>
+                <div class="col-xs-12 hidden-md hidden-lg visible-xs visible-xs">
+                        <a class="view_more pull-right" (click)="getProductList()">
+                            <span>View More</span>
+                        </a><br>
+                    </div>
+            </div>
+        </div>
+    </div>
+ </section>
+</div>
+
+  <section class="write_review_main_div" id="reviews" #reviews>
+    <div class="container" id="reviews">
+        <div class="total_border write-review">
+           <div class="heading-margin">
+            <h4>Ratings & Reviews</h4>
+           </div>
+            <p *ngIf="userReviews?.length === 0 && productDetails?.UserReview?.UserId === 0" class="no-reviews">There
+                are no customer reviews yet.</p>
+                <div class="tot-reviews visible-lg visible-md hidden-xs hidden-sm">
+                    <div class="row">
+                     <div class="col-md-6"><span _ngcontent-c5="" class="star-rating"><app-rating [rate]='rating'></app-rating>
+                      <span _ngcontent-c5="" class="count-reviews"> {{productDetails?.RatingAverage}} | {{productDetails?.ReviewTotalCount}} Reviews</span></span></div>
+                      <div class="col-md-6">
+                          <div class="write-a-review-large" (click)="scrolltoWrite(writeAReview)"><a>Write a review</a></div>                        
+                       </div>
+                    </div>
+                </div>
+            <!--BELOW IS IMPORTANT CODE PLEASE DONT CHANGE OR REMOVE-->
+                <!-- <div>
+                    <app-product-review [review]="review" (edit)="onEdit($event)" *ngFor="let review of userReviews | slice:0:1">
+                    </app-product-review>
+                    <div class="all-reviews-block">
+                        <div id="demo" class="collapse">
+                            <div class="review-container">
+                                <div class="review-container-sub">
+                            <app-product-review [review]="review" (edit)="onEdit($event)" *ngFor="let review of userReviews | slice:1">
+                            </app-product-review>
+                            </div>
+                        </div>
+                        </div>
+                        <a href="#demo" onclick="rotateFunction()" (click)="getMoreReviews()" class="more-reviews fa fa-angle-down arotate" data-toggle="collapse"
+                            id="rotate"> </a>
+                    </div>
+                </div> -->
+                <app-product-review [review]="review" (edit)="onEdit($event)" *ngFor="let review of userReviews | slice:0:countshow"></app-product-review>
+                <ng-container *ngIf="userReviews?.length > 4">
+                    <div class="bg-fp-bottom" *ngIf="userReviews?.length > countshow">
+                        <div class="bg-fp-bottom-sub">
+                               <button onclick="rotateFunction()" (click)="getMoreReviews()" class="common-btn loadmore" data-toggle="collapse">Load More</button>
+                       </div>
+                    </div></ng-container>                
+        </div>
+    </div>
+  </section>
+  <div class="review-container" id="writeAReview" #writeAReview>
+    <div class="review-container-sub" *ngIf="productDetails?.UserReview?.UserId === 0 && !reviewAdded">
+      <app-product-add-review [productId]="productDetails?.Product?.PID" (addReview)="onAddReview()"></app-product-add-review>
+    </div>
+    <div class="review-container-sub" *ngIf="productDetails?.UserReview?.UserId !== 0 && isEdit">
+     <app-product-edit-review [productId]="productDetails?.Product?.PID" [edit]="isEdit" [review]="review" (updateReview)="onUpdateReview()"></app-product-edit-review>
+    </div>
+  </div>
+ </div>
+
+ <div class="product-details-mobile">
+    <div class="product_content">
+        <div class="favourite-img-mobile" *ngIf="productDetails">
+            <img src="../../../../assets/Images/icon-favorite-disable.png" (click)="favoriteProductUpdate(true)" *ngIf="productDetails?.Product?.IsFavorite===false; else favActive" class="fav" alt="iconFavoriteDisable">
+            <!-- <i class="icon icon-favorites"
+             ></i> -->
+            <ng-template #favActive>
+              <img src="../../../../assets/Images/icon-favorite-active.png" (click)="favoriteProductUpdate(false)" class="fav active" alt="iconFavoriteACtive">
+              <!-- <i class="icon icon-favorites active"></i> -->
+            </ng-template>
+          </div>
+            <div class="product_content_sub_heading">{{productDetails?.Category}}</div>
+                    <!-- <li *ngIf="productDetails?.Type">
+                        <a>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            {{productDetails?.Type}}
+                        </a>
+                    </li>
+                    <li *ngIf="productDetails?.Varietal">
+                        <a>
+                            <i class="fa fa-angle-right" aria-hidden="true"></i>
+                            {{productDetails?.Varietal}}
+                        </a>
+                    </li> -->
+        <div class="top-seller-detail" *ngIf="productDetails?.Product?.IsTopPicks"><span>Top Seller</span></div>
+        <div class="product_content_heading_details">{{productDetails?.Product?.ProductName}}</div>
+    </div>
+    <div class="product_img_description">
+        <div class="product_img">
+                <!-- <div class="">
+                     <div class="favorite-selection" *ngIf="productDetails">
+                             <img src="../../../../../assets/Images/icon-favorite-disable.png" class="fav" (click)="favoriteProductUpdate(true)" *ngIf="item?.IsFavorite===false; else favActive">
+                             <ng-template #favActive>
+                               <img src="../../../../assets/Images/icon-favorite-active.png" class="fav active" (click)="favoriteProductUpdate(false)">
+                             </ng-template>
+                           </div>
+                </div> -->
+                <img class="second_img img-responsive" src="{{productDetails?.Product?.ProductImg}}" alt="ProductImage"/>
+            </div>
+            <div class="customers_review">
+             <div class="product-detail-price">   
+              <div class="product-detail-price-sub">         
+                 <div class="strike_text"*ngIf="productDetails?.Product?.PriceDisplay !== productDetails?.Product?.OfferPriceDisplay">{{productDetails?.Product?.PriceDisplay}}</div>
+                 <div class="price_new">{{productDetails?.Product?.OfferPriceDisplay}}</div>
+              </div>
+             </div>
+
+                 <!-- <span class="size_bottle">{{productDetails?.Product?.Size}}</span>
+                 <small>SKU: {{productDetails?.Product?.SKU}}</small> -->
+                    <span class="size_bottle">{{productDetails?.Product?.Size}}</span>
+                    <small>{{productDetails?.Product?.SKU}}
+                     <!-- | UPC:
+                    {{productDetails?.Product?.UPC}} -->
+                     </small>
+                     <div class="product-reviews-main-div">
+                       <ul (click)="scrollMob()" class="reviews-list-div">
+                         <li>
+                         <app-rating [rate]='rating'></app-rating>
+                         <span class="review-caption">{{productDetails?.ReviewTotalCount}} Reviews</span>
+                         <!-- <span class="review-caption">{{productDetails?.ReviewTotalCount}} Reviews</span> -->
+                         </li>
+                        </ul>
+                     </div>
+                 <div class="write-a-review-main">
+                    <small class="write-a-review" (click)="scrollWriteReviewsMob()"><a>Write A Review</a></small>   
+                 </div>                     
+             </div>
+         </div>
+         <div class="addCart">
+            <div class="col-md-12">
+                <!-- <button class="common-btn addtocart" (click)="addToCart()">Add to Cart</button> -->
+                    <button *ngIf="productDetails?.Product?.Inventory > 0 && productDetails?.Product?.InCart === 0" class="common-btn addtocart" (click)="addToCart()">Add to Cart</button>
+                    <button *ngIf="productDetails?.Product?.InCart > 0" class="common-btn addtocart" (click)="removeFromCart()">Remove from Cart</button>
+                    <button *ngIf="productDetails?.Product?.Inventory === 0" [disabled]="true" class="common-btn addtocart disabled">Out Of Stock</button>                                    
+                </div>
+          </div>
+
+    <ul id="accordion" class="accordion" >
+      <li *ngFor="let menu of menus; let i = index" 
+        [class.active]="menu.active">
+        <div class="menu" (click)="toggle(i)">
+          {{menu.name}}<span class="review-caption" *ngIf="menu.name === 'Rating & Reviews'"> ({{productDetails?.ReviewTotalCount}})</span>
+          <i class="xyz"><img style="width: 20px;" src="../../../../assets/Images/arrow-toggle.png" alt="arrowToggle"></i>
+        </div>
+        <ul class="submenu" #submenu 
+          [style.height]="menu.active ? 'auto' : 0">
+          <li>
+            <a *ngIf="menu.name === 'Description'">{{productDetails?.ProductDescription}}</a>
+            <div class="mobile-accordian-fix" id="headingTwo">
+                 <div class="mobile-accordian-sub-fix">
+  
+                 </div>
+            </div>
+            <a *ngIf="menu.name === 'Rating & Reviews'" >
+              <div class="panel-body product-details-panel">
+              <div class="total_border write-review">
+                  <p *ngIf="userReviews?.length === 0 && productDetails?.UserReview?.UserId === 0" class="no-reviews">There
+                     are no customer reviews yet.</p>
+                     <div class="view-review">
+                         <app-product-review [review]="review" (edit)="onEdit($event)" *ngFor="let review of userReviews | slice:0:countshow">
+                         </app-product-review>
+                         <!-- <div class="all-reviews-block">
+                             <div id="demo" class="collapse">
+                                 <app-product-review [review]="review" (edit)="onEdit($event)" *ngFor="let review of userReviews | slice:0:countshow">
+                                 </app-product-review>
+  
+                                 <app-product-review [review]="review" (edit)="onEdit($event)" *ngFor="let review of userReviews | slice:1">
+                                 </app-product-review> 
+                             </div>
+                          <a href="#demo" onclick="rotateFunction()" (click)="getMoreReviews()" class="more-reviews fa fa-angle-down arotate" data-toggle="collapse"
+                                 id="rotate"> </a>
+                         </div> -->
+                     </div>
+                 
+                 <div *ngIf="productDetails?.UserReview?.UserId !== 0 && isEdit">
+                     <app-product-edit-review [productId]="productDetails?.Product?.PID" [edit]="isEdit" [review]="review" (updateReview)="onUpdateReview()"></app-product-edit-review>
+                 </div>
+             </div>
+             <ng-container *ngIf="userReviews?.length > 4">
+             <div class="bg-fp-bottom" *ngIf="userReviews?.length > countshow">
+                <div class="bg-fp-bottom-sub">
+                 <button onclick="rotateFunction()" (click)="getMoreReviews()" class="common-btn loadmore" data-toggle="collapse">Load More</button>   
+                 </div>               
+             </div>
+         </ng-container>
+      </div>
+            </a>
+            <div class="mobile-accordian-fix" id="headingThree">
+              <div class="mobile-accordian-sub-fix">
+  
+              </div>
+         </div>
+          
+            <a *ngIf="menu.name === 'Write A Review'">  <div *ngIf="productDetails?.UserReview?.UserId === 0 && !reviewAdded" id="reviews" #reviews > 
+              <app-product-add-review [productId]="productDetails?.Product?.PID" (addReview)="onAddReview()" id="reviews"></app-product-add-review>
+          </div></a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+   </div>
+</section>
+</div>
+</div>
+<button id="openCartReviewModal" #openCartReviewModal [hidden]="true" data-toggle="modal" data-target="#gridSystemModal">Review
+    Cart</button>
+<app-cart-review [cartItems]="reviewItems" (close)="onPopupClose()"></app-cart-review>

@@ -1,0 +1,333 @@
+@import "~src/variable.scss";
+
+
+.bottle-panel-container {
+  border: solid 1px #e5e5e5 !important;
+  border-radius: 2px !important;
+  list-style: none;
+}
+
+h4.left-panel-title .bottles-brand {color: $lukas-color;}
+.myaccount-main-div {width: 100%; float: left;}
+.myaccount-right-div {width: 100%; float: left; margin-top: 0px;}
+
+h4.left-panel-title {
+  margin: 0px;
+  padding: 0px;
+  text-transform: uppercase;
+  a {
+    padding: 12px 15px;
+    color: $common-font-color;
+    background-color: #f8f8f8;
+    display: block;
+    text-transform: uppercase;
+    font-family: poppinsregular !important;
+    font-weight: 700;
+    font-size: 14px;
+    &:hover, &:focus {
+      text-decoration: none;
+      background-color: $lukas-color;
+      outline: none;
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}
+
+ul.panel-group {
+    margin: 0px;
+    padding: 0px;
+}
+
+ul.left-panel-body {
+  background-color: #fff;
+  border-top: solid 1px #e5e5e5;
+  padding: 0px;
+  margin: 0px;
+  li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    display: block;
+    font-size: 14px;
+    a {
+      text-decoration: none;
+      color: $common-font-color;
+      font-size: 14px;
+      padding: 10px 20px;
+      font-family: poppinsregular !important;
+      display: block;
+      text-align: left;
+      &:hover, &:focus, &.active {
+        text-decoration: none;
+        color: #222;
+        font-size: 14px;
+        background-color: $lukas-color;
+        font-family: poppinsregular !important;
+        color: #fff;
+        padding: 10px 20px;
+        display: block;
+      }
+    }
+  }
+}
+
+ul.checkbox-list {
+  background-color: #fff;
+  border-top: solid 1px #e5e5e5;
+  padding: 0px;
+  margin: 0px;
+  li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    display: block;
+    font-size: 14px;
+    label {
+      text-decoration: none;
+      color: #222;
+      font-size: 14px;
+      margin: 15px 20px;
+      display: block;
+      text-align: left;
+    }
+  }
+}
+
+.left-panel-section {
+  background-color: #f8f8f8;
+}
+
+ul.search-history {
+  background-color: #fff;
+  border-top: solid 1px #e5e5e5;
+  padding: 0px;
+  margin: 0px;
+  padding-left: 20px;
+  padding-top: 15px;
+  padding-bottom: 12px;
+  li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    display: inline-flex;
+    a {
+      text-decoration: none;
+      color: #222;
+      font-size: 14px;
+      background-color: $lukas-color;
+      color: #fff;
+      padding: 5px 10px;
+      display: block;
+      margin-bottom: 5px;
+      margin-right: 5px;
+    }
+  }
+}
+
+.product-panel-thumbnail {
+  border: solid 1px #e5e5e5;
+  background-color: #fff;
+  border-radius: 3px;
+  .product-section {
+    width: 100%;
+    display: flex;
+    border-bottom: solid 1px #e5e5e5;
+    padding: 10px;
+  }
+  .like-img, .cart-img {
+    width: 40px;
+    height: auto;
+  }
+  .product-img {
+    width: 109px;
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+    float: left;
+  }
+}
+
+.price-details {
+  padding: 5px 10px;
+  .product-price {
+    font-weight: bolder;
+    color: $lukas-color;
+    font-size: 22px;
+    display: block;
+  }
+  .product-name {
+    color: #222;
+    font-size: $common-font-size;
+    display: block;
+  }
+  .product-caption {
+    color: #222;
+    font-size: 12px;
+    display: block;
+  }
+  .product-rating {
+    color: #ddd;
+    font-size: 12px;
+  }
+}
+
+h4.left-panel-title a.bottles-brand {
+  color: $lukas-color;
+  &:hover {
+    color: $lukas-color;
+  }
+}
+
+.bottles-brand {
+  color: $lukas-color;
+}
+
+h4.left-panel-title a:hover .myac-icon, h4.left-panel-title a:focus .myac-icon {color: #fff;}
+
+.myac-icon {
+  font-size: 16px;
+  margin-right: 10px;
+  text-align: left;
+}
+
+.custom-checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+.custom-checkbox {
+  &:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  input:checked ~ .checkmark {
+    background-color: #2196F3;
+  }
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.custom-checkbox {
+  input:checked ~ .checkmark:after {
+    display: block;
+  }
+  .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+}
+
+.profile span.img_class img {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    -moz-border-radius: 50%;
+    float: left;
+    margin-right: 30px;
+    border: solid 1px #ccc;
+    color: #222;
+    font-size: 24px;
+    text-align: center;
+}
+
+.page-navigation {
+    width: auto;
+    margin: 0 auto;
+    display: table;
+}
+
+@media only screen and (max-width: 991px) {
+  .myaccount-right-div {margin-top: 15px;}
+  ul.myac-panel {
+      margin-left: 0px;
+      padding-left: 0px;
+      list-style: none;
+      width: 100%;
+      margin-bottom: 10px;
+      li {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
+        display: inline-block;
+      }
+    }
+
+    h4.left-panel-title a {
+      text-align: center;
+      font-size: 12px;
+      font-family: poppinsregular !important;
+      height: auto;
+      padding: 9px 12px;
+    }
+
+    .icon-recipt-date:before {margin: 0;}
+    .tab-span-myac {padding-left: 6px;}
+
+    .myac-icon {
+      margin-right: 6px;
+      display: inline-block;
+      text-align: center;
+    }
+
+    ul#myAccountm {
+        /*display: table;*/
+        border-top: solid 0px transparent;
+        background-color: transparent;
+        text-align: center;
+        width: 100%;
+
+        li {
+            display: table-cell;
+            text-align: center;
+            border: solid 1px #f9f9f9;
+            /*width: 100%;*/
+            a {
+                padding: 10px;
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 480px) {
+  ul.myac-panel {
+    li {width: 50%;}
+  }
+}

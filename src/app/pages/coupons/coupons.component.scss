@@ -1,0 +1,91 @@
+@import "~src/variable.scss";
+
+.Searchrelated_div h4 {width: 100%;}
+.coupon-tile-main {width: 100%; float: left; margin-top: 10px;}
+.coupon-tile {
+  width: 25%;
+  padding: 0 15px;
+  display: inline-block;
+  vertical-align: top;
+  float: none;
+  h4, span.highlight {
+    color: $lukas-color;
+  }
+  .img-container {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    height: auto;
+    width: 100%;
+    background-color: #ddd;
+  }
+  .thumbnail {
+      padding: 12px;
+      border: 1px solid #ccc;
+      margin-bottom: 30px;
+      width: 100%;
+      float: left;
+      height: auto;
+      min-height: 270px;
+      .caption {
+      padding: 15px;
+      }
+    }
+    .coupon-table {
+      width: 100%;
+      float: left;
+      font-family: poppinsregular;
+      margin: 20px 0 12px 0;
+    }
+}
+
+.coupon-table .coupon-table-sub {width: 100%; float: left; margin-bottom: 6px;}
+.coupon-date {width: auto; float: right; font-size: 10px; padding-top: 2px;}
+.coupon-heading {width: calc(100% - 120px); float: left; font-size: 14px; font-weight: bold; padding-right: 6px;}
+.coupon-offer {width: 100%; float: left; font-size: 16px; text-align: center; font-weight: bold; margin: 4px 0; line-height: 20px;}
+.coupon-description {width: 100%; float: left; margin: 0; padding-top: 2px; font-size: 14px;}
+.no-coupons-container-main {width: 100%; float: left;}
+.no-coupons-container {
+    width: 25%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+  .coupon-tile {width: 33.3%;}
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .coupon-heading {width: 100%;}
+  .coupon-date {width: 100%; float: left;}
+  .coupon-table .coupon-table-sub {margin-bottom: 8px;}
+   .coupon-tile {width: 33.3%;}
+   .coupon-tile {
+     .thumbnail {
+      min-height: 230px;
+     }
+   }
+}
+
+@media only screen and (max-width: 767px) {
+    .no-coupons-container {
+        width: 100%;
+        margin: 0 auto 10px auto;
+        max-width: 300px;
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 551px) {
+  .coupon-tile {width: 50%;}
+  .coupon-heading {width: 100%;}
+  .coupon-date {width: 100%; float: left;}
+  .coupon-table .coupon-table-sub {margin-bottom: 8px;}
+}
+
+@media screen and (max-width: 550px) {
+  .coupon-tile {width: 100%;}
+  .coupon-date {width: 100%;}
+  .coupon-heading {width: 100%; margin-bottom: 2px;}
+  .coupon-table .coupon-table-sub {margin-bottom: 8px;}
+}
+
+
+

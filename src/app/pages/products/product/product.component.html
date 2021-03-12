@@ -1,0 +1,81 @@
+<div class="Main_bottlesection_product">
+  <div class="product-image-div">
+        <div class="sale-tag-new"
+          *ngIf="item?.OfferType === 'SALE' || item?.OfferType === 'Flash Sale' || item?.OfferType === 'CLUB'">
+          <img [src]="item?.OfferIcon" class="img-responsive" alt="saleTag">
+        </div>
+        <div class="div-favourite">
+          <img src="../../../../assets/Images/icon-favorite-disable.png" class="fav-new fav"  (click)="favoriteProductUpdate(true)"
+          *ngIf="item?.IsFavorite===false; else favActive" alt="iconFavoriteDisable" >
+          <ng-template #favActive>
+            <img src="../../../../assets/Images/icon-favorite-active.png" class="fav-new fav active" (click)="favoriteProductUpdate(false)" alt="iconFavoriteACtive">
+          </ng-template>
+        </div>
+        <div class="product-image-sub">
+          <a routerLink="/product-details/{{item.PID}}/{{storeid}}" class="pimg">
+            <!-- <img class="second_img" src="../../../../assets/landing-page-images/sample.png" /> -->
+            <img class="second_img" src="{{item?.ProductImg}}" alt="ProductImage" />
+          </a>
+          <div class="rating_star">
+            <!-- <app-rating [rate]='item?.Rating'></app-rating> -->
+            <app-productrating [rate]='item?.Rating'></app-productrating>
+          </div>
+        </div>
+        <div class="top-seller-div" *ngIf="router.url !== '/'"> <span *ngIf="item?.IsTopPicks">Top Seller</span></div>
+  </div>
+   <div class="second_content_product second_content">
+        <a class="page-product" routerLink="/product-details/{{item.PID}}/{{storeid}}">
+          <div class="producttitle producttitle_new">
+            <span class="text-concat-new">
+                <h5 class="productname" title="{{item?.ProductName | uppercase}}">{{item?.ProductName | titlecase}}</h5>
+            </span>
+    </div>
+    <div class="product_size">
+      <span>{{item?.Size}}</span>
+    </div>
+
+  <div class="price-cart-div">
+    <div class="price-cart-div-sub">
+      <div class="strike_text_new" *ngIf="item?.PriceDisplay !== item?.OfferPriceDisplay">
+          <div class="">{{item?.PriceDisplay}}</div>
+        </div>
+        <div class="price_new">
+          {{item?.OfferPriceDisplay}}
+        </div>
+      </div>
+</div>
+<!-- 
+          <div class="ptop15">
+            
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <p class="review"><a routerLink="/product-details/{{item.PID}}/{{storeid}}" fragment="reviews"><span class="first">{{item?.ReviewCount}}</span>
+                <span class="reviews"> reviews</span></a></p>
+            </div>
+          </div> -->
+
+</a>
+    <!-- <div class="cart-new cart">
+  <img src="../../../../assets/Images/icon-cart-soldout.png" class="cart-feature active" title="Out of Stock" *ngIf="item?.Inventory === 0; else showCart">
+  <ng-template #showCart>
+<img src="../../../../assets/Images/icon-cart-disable.png" class="cart-feature" (click)="addToCart(item)"
+*ngIf="item?.InCart === 0; else cartActive">
+    <ng-template #cartActive>
+      <img src="../../../../assets/Images/icon-cart-active.png"  class="cart-feature" (click)="removeFromCart(item)">
+    </ng-template>
+  </ng-template>
+   </div>  -->
+
+   <div class="cart-new cart">
+    <i class="icon icon-remove-from-my-cart active" title="Out of Stock"
+      *ngIf="item?.Inventory === 0; else showCart"></i>
+    <ng-template #showCart>
+      <i class="icon icon-add-to-my-cart" (click)="addToCart(item)"
+        *ngIf="item?.InCart === 0; else cartActive"></i>
+      <ng-template #cartActive>
+        <i class="icon icon-remove-cart active" (click)="removeFromCart(item)"></i>
+      </ng-template>
+    </ng-template>
+  </div>
+
+  </div>  
+</div>

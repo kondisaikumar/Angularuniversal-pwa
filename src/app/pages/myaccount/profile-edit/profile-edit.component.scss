@@ -1,0 +1,142 @@
+@import "~src/variable.scss";
+
+.profile-edit-main {width: 100%; float: left;}
+h4.edit-profile-heading {margin-top: 0; width: 100%; float: left;}
+.mat-form-field {width: 100%;}
+mat-form-field .mat-form-field-flex{border: solid 1px #979797 !important; padding: 0 10px !important;}
+.mat-form-field-appearance-legacy .mat-form-field-underline{background-color: #fff !important; height: 0 !important;}
+.form-group label.no-margin {margin: 0;}
+.gender-div {width: 100%; float: left; padding-left: 20px;}
+.gender-sub {width: auto; float: left; margin-right: 40px;}
+.btn_right.btn_right_custom {margin-right: 0;}
+.btn_right.btn_right_custom button.btn {margin-left: 10px; margin-right: 0; float: right;}
+
+.img_class{
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -o-border-radius: 50%;
+    -moz-border-radius: 50%;
+    float: left;
+    border: solid 1px #ccc;
+    color: #222;
+    text-align: center;
+    background-color: #777;
+    img {
+        height: 90px;
+        width: 90px;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -o-border-radius: 50%;
+        -moz-border-radius: 50%;
+        float: left;
+        margin-right: 30px;
+        border: solid 1px #ccc;
+        color: #222;
+        font-size: 24px;
+        text-align: center;
+    }
+}
+
+.inputWrapper {
+    height: 30px;
+    width: 30px;
+    position: absolute;
+    cursor: pointer;
+    /*Using a background color, but you can use a background image to represent a button*/
+    background-color: $lukas-color;
+    border-radius: 50%;
+    color: #fff;
+    margin-top: 5px;
+    right: -10px;
+    top: 24px;
+    //box-shadow: 0px 10px 20px 0 rgba(236, 28, 36, 0.3);
+    span {
+        font-size: 14px;
+        padding: 0px 0px 0px 0px;
+        margin-top: -10px;
+        position: absolute;
+        left: 8px;
+        top: 18px;
+    }
+}
+.fileInput {
+    width: 30px;
+    height: 30px;
+    background-image: none;
+    opacity: 1;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0px;
+    opacity: 0;
+    z-index: 9;
+    position: absolute;
+}
+
+.form-group-editprofile {width: auto; float: left; margin-top: 15px; position: relative;}
+.profile-edit-section {
+        h4 {
+          font-family: $montserrat-regular;
+        }
+        button.novalue{
+        background: #d7d7d7;
+        border: 0;
+        color:#fff;
+        padding: 8px 25px;
+        //box-shadow: 0px 10px 20px 0 rgba(135, 135, 135, 0.3);
+        font-family: $poppins-regular;
+        font-size: 14px;
+        float: left;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ffffff;
+        opacity: 1;
+        text-shadow:none !important;
+      }
+      
+      button.save-new{
+        background-color: $lukas-color;
+        font-family: $poppins-regular;
+        font-size: 14px;        
+        text-align: left;
+        color: #ffffff;
+        padding: 8px 25px;
+        text-shadow:none !important;
+        line-height: 17px;
+        float: left;
+        margin-right: 8px;
+      }
+    .form-control {
+      border-radius: 0px;
+      height: 35px;
+      border: solid 1px #979797;
+      font-family: $montserrat-regular;
+      background-color: #fff;
+      margin-top: 2px;
+      box-shadow: inherit;
+      font-weight: normal;
+    }
+    form label {
+    font-family: $gotham-bold;
+    font-weight: bold;
+    color: #56565a;
+
+      span {
+        color: $lukas-color;
+      }
+      width: 100%;
+    }
+    .button-container {
+      width: 90%;
+    }
+  }
+
+    .m-radio {
+      float: left;
+        .checkmark {
+              top: 0px !important;
+        }
+    }

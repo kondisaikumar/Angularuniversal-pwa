@@ -1,0 +1,147 @@
+<div class="modal fade cart-review" role="dialog" id="gridAddressModal" tabindex="-1" aria-labelledby="gridModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" #closemodal class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" >×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+                <div class="add-newaddress"> 
+                  <div class="addnewaddress-div" id="gridModalLabel">Add New Address</div>             
+                    <form [formGroup]=formAddNewAddress (ngSubmit)="onAddressSave()">
+                      <div class="popup">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="addaddress-label">Name</label>
+                              <input aria-label="Search" type="name" formControlName="aFirstName" class="form-control" placeholder="" autocomplete="none">
+                              <div *ngIf="submitted && f.aFirstName.errors" class="alert alert-danger">
+                                <div *ngIf="f.aFirstName.errors.required">First Name is required.</div>
+                                <div *ngIf="f.aFirstName.errors.minlength">First Name should be at least 2 characters</div>
+                              </div>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="addaddress-label">Last Name</label>
+                              <input aria-label="Search" type="name" formControlName="aLastName" class="form-control" placeholder="" autocomplete="none">
+                              <div *ngIf="submitted && f.aLastName.errors" class="alert alert-danger">
+                                <div *ngIf="f.aLastName.errors.required">Last Name is required.</div>
+                                <div *ngIf="f.aLastName.errors.minlength">Last Name should be at least 2 characters</div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="addaddress-label">Address</label>
+                              <input aria-label="Search" type="search" formControlName="aAddress1" class="form-control" placeholder="" autocorrect="off" autocapitalize="off" spellcheck="off" #search autocomplete="none">
+                              <div *ngIf="submitted && f.aAddress1.errors" class="alert alert-danger">
+                                <div *ngIf="f.aAddress1.errors.required">Address is required.</div>
+                              </div>
+                              <input aria-label="Search" type="name" formControlName="aAddress2" class="form-control" placeholder="" autocomplete="none">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="addaddress-label">City</label>
+                              <input aria-label="Search" type="name" formControlName="aCity" class="form-control" placeholder="" autocomplete="none">
+                              <div *ngIf="submitted && f.aCity.errors" class="alert alert-danger">
+                                <div *ngIf="f.aCity.errors.required">City is required.</div>
+                              </div>
+                          </div>
+                        </div>
+        
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="addaddress-label">State</label>
+                              <select formControlName="aState" class="form-control">
+                                <option value="" disabled selected>Select State</option>
+                                <option [value]="statelist.StateCode"*ngFor="let statelist of stateList">{{statelist.StateName}}</option>
+                              </select>
+                              <div *ngIf="submitted && f.aState.errors" class="alert alert-danger">
+                                <div *ngIf="f.aState.errors.required">State is required.</div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="addaddress-label">Zip Code</label>
+                              <input aria-label="Search" type="name" formControlName="aZip" class="form-control" placeholder="" autocomplete="none">
+                              <div *ngIf="submitted && f.aZip.errors" class="alert alert-danger">
+                                <div *ngIf="f.aZip.errors.required">Enter Zip Code</div>
+                                <div *ngIf="f.aZip.errors.minlength">Zip Code should be minimum 5 numbers</div>
+                                <div *ngIf="f.aZip.errors.maxlength">Zip Code should be maximum 6 numbers</div>
+                              </div>
+                          </div>
+                        </div>
+                        <!-- <div class="col-md-6">
+                          <div class="form-group">
+                            <label class="addaddress-label">NICKNAME
+                              <input type="name" formControlName="aAddressName" class="form-control" placeholder="">
+                            </label>
+                          </div>
+                        </div> -->
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                              <label class="addaddress-label">Phone Number</label>
+                                  <input aria-label="Search" type="text" formControlName="aContactNo" class="form-control" placeholder="" />
+                                  <div *ngIf="submitted && f.aContactNo.errors" class="alert alert-danger">
+                                      <div *ngIf="f.aContactNo.errors.required">Enter Phone Number</div>
+                                      <div *ngIf="f.aContactNo.errors.minlength">Phone Number should be minimum 10 numbers</div>
+                                <div *ngIf="f.aContactNo.errors.maxlength">Phone Number should be maximum 10 numbers</div>
+                                  </div>
+                          </div>
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="addaddress-label txt-fav">
+                              <!-- <img src="../../../../assets/Images/icon-fav.png" formControlName="aIsDefault">  -->
+                              <input aria-label="Search" class="star" type="checkbox" (change)="favcheck()" formControlName="aIsDefault" [checked]="favcheckflag">
+                              ADD AS FAVORITE?
+                            </label>
+                          </div>
+                        </div>
+                        <!-- <div class="col-md-12">
+                            <div class="form-group"> 
+                            <label class="addaddress-label">Update Profile
+                              <label class="switch">
+                          <input type="checkbox" formControlName="aIsProfileUpdate">
+                          <span class="slider round"></span>
+                        </label></label>
+                        </div>
+                        </div> -->
+                      </div>
+                    
+                        <!-- <div class="col-md-12 text-center">
+                          <div class="form-group">
+                            <div class="buttons-container">
+                              <button type="cancel" routerLink="../manage-addresses"  class="btn btn-default novalue">Cancel</button>
+                           
+                            </div>
+                          </div>
+                        </div> -->
+                      </div>
+                      <div class="text-center btn-add">
+                        <button type="submit" class="btn btn-default close-btn">Add</button>
+                      </div>
+                    </form>
+                </div>     
+      </div>
+      <div class="modal-footer buttons-container text-center">
+        <!-- <button type="button" class="btn btn-primary" data-dismiss="modal" aria-label="Close" (click)="onClose()">OK</button> -->.
+        <!-- <button type="submit" class="btn btn-default close-btn">Add</button> -->
+      </div>
+    </div>
+  </div>
+</div>

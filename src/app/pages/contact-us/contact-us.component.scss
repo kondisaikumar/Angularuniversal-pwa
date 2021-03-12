@@ -1,0 +1,94 @@
+@import "~src/variable.scss";
+
+.about-us{ margin-top: 0;}
+
+.contact-page-main-div {width: 100%; float: left; margin-top: 25px;}
+.contact-logo-img {margin: 10px 0 20px;}
+
+.contact-section {
+	background-color: #fff;
+	padding: 0 15px;
+    width: 100%;
+	box-shadow: 1px 15px 30px rgba(0,0,0,.2);
+	input, textarea, select {
+		border-radius: 0px;
+	}
+	p, .icon, a, a:hover {
+		color: #fff;
+	}
+	p.line {
+		padding-top: 10px;
+		padding-bottom: 10px;
+		font-size: 14px;
+	}
+	p span.icon {
+		margin-right: 10px;
+	}
+	.contactform {
+		background-color: #fff;
+		label {
+			color: #999;
+			margin-bottom: 4px;
+		}
+	}
+}
+
+.contact-section-sub {width: 1100px; margin: 0 auto; display: table;}
+
+	.no-resize {
+		resize: none !important;
+	}
+
+	.mb20 {
+		margin-bottom: 20px;
+	}
+
+.contact-address-section {
+	/*background-color: $lukas-color;*/
+	height: 100%;
+    display: block;
+    // min-height: 380px;
+    /*padding: 15px;*/
+    height: 371px;
+}
+
+button.contact{
+    background-color: $lukas-color;
+    font-size: 12.7px;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.3px;
+    color: #ffffff;
+    padding: 10px 20px 8px 20px;
+    border-radius: 0px;
+    text-align: center;
+    border: $lukas-color;
+  }
+  button.contact:focus{
+      border:$lukas-color;
+      outline: none;
+  }
+
+.contact-map {
+	// height: 100vh;
+	display: contents;
+}
+
+.contact-textarea {
+	height: 100px;
+	background-color: #f1f1f1;
+}
+
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+	.contact-section-sub {width: 960px;}
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+	.contact-section-sub {width: 740px;}
+	.contact-address-section {height: 496px;}
+}
+
+@media screen and (max-width: 767px) {
+	.contact-section-sub {width: 100%;}
+	.contact-page-main-div {margin-bottom: 20px;}
+}

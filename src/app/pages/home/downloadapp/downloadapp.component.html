@@ -1,0 +1,24 @@
+<section class="bgr_img-right bgr_img_new" *ngIf="storeGetHomeData?.DownloadLink !== ''">
+  <section class="bgr_img-left">
+    <div class="downloadapp_div display_center slideInUP wow delay-05s  animated">
+      <div class="download_app_main">
+              <div class="download_app">Now Available
+                <span>on the App Store</span></div>   
+                <h4>Download The App Today!</h4>
+              <div class="app-links-container">
+                    <a href="{{storeGetHomeData?.DownloadLink}}" target="_blank">
+                      <img src="assets/Images/btn-dnld-appstore.png" class="img-responsive" alt="appStore">
+                    </a>download_app
+                    <a href="{{storeGetHomeData?.DownloadLink}}" target="_blank">
+                      <img src="assets/Images/btn-dnld-googleplay.png" class="img-responsive" alt="googlePlay">
+                    </a>                  
+              </div>
+      </div>
+      <!-- <div class="barcode-container-main">
+          <div class="barcode-container">
+              <img src="{{downloadLink}}" class="img-responsive">
+          </div>
+      </div> -->
+    </div>
+</section>
+</section>

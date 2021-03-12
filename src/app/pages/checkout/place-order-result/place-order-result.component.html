@@ -1,0 +1,111 @@
+<!-- <div class="success-failed-order-section">
+  <div class="success-order-section" *ngIf="orderNumber  !== ''">
+    <h2>Congratulations!</h2>
+    <h4>Order successfully placed</h4>
+  </div>
+  <div class="failed-order-section" *ngIf="orderNumber === ''">
+    <h2>Failed!</h2>
+    <h4>Unable To Complete Order</h4>
+  </div>
+  <div class="order-details-section" *ngIf="orderNumber  !== ''">
+    <h4>Your Order ID</h4>
+    <h2>{{orderNumber}}</h2>
+  </div>
+  <button class="btn continue-shop" (click)="onContinueShoping()">Continue Shopping</button>
+</div> -->
+<div class="order-result-sub-div" id="component1">
+  <div class="place-order-container">
+<div class="items-cart">
+<div class="success-failed-order-section">
+  <div class="success-order-section" *ngIf="orderNumber  !== ''">
+    <h2>Thank You For Your Order!</h2>
+    <!-- <h4>Order successfully placed</h4> -->
+  </div>
+  <div class="failed-order-section" *ngIf="orderNumber === ''">
+    <h2>Failed!</h2>
+    <h4>Unable To Complete Order</h4>
+  </div>
+  <div class="order-details-section" *ngIf="orderNumber  !== ''">
+    <h4>Order #{{orderNumber}}</h4>
+    <div class="order-pickup-time">
+      <span class="order-pickup-sub-text">Your Order will be {{orderInvoice?.OrderTypeId===1 ? ' ready for pick-up':' Delivered' }} between</span>
+<span class="order-pickup-sub-time">{{orderInvoice?.DoPDate}} - {{orderInvoice?.DoPTimeSlot}}</span>
+     </div>
+      <p>Thank you for shopping with {{myOrdersList?.StoreAddressInfo.Name}}. An email confirmation will be sent to <a><strong>{{orderInvoice?.EmailId}}</strong></a>.</p>
+  </div>
+  <div class="store-address" *ngIf="orderNumber  !== ''">
+    <div class="logo-store"><img [src]="myOrdersList?.StoreAddressInfo.StoreImage"></div>
+    <div class="address-main">
+            <address>
+                <span>{{myOrdersList?.StoreAddressInfo.Name}}</span><br>
+                {{myOrdersList?.StoreAddressInfo.Address1}},<br>
+                {{myOrdersList?.StoreAddressInfo.City}}, {{myOrdersList?.StoreAddressInfo.State}}
+            </address>
+          </div>
+</div>
+  <!-- <button class="btn continue-shop" (click)="onContinueShoping()">Continue Shopping</button> -->
+</div>
+</div>
+<div class="cart-total" *ngIf="orderNumber  !== ''">
+<h3 class="total">Order Total</h3>
+<span class="red visible-lg visible-md hidden-sm hidden-xs " (click)="printComponent('component1')">Print</span>
+<span class="red hidden-lg hidden-md visible-sm visible-xs" [routerLink]="['/cart']">Back to Cart</span>
+<div class="order-details-panel">
+  
+  <table class="total-container">
+    <tbody>
+      <tr>
+        <td class="label">
+         Sub-Total
+        </td>
+        <td class="text-right">
+          {{orderInvoice?.SubTotalDisplay}}
+        </td>
+      </tr>
+      
+      <tr *ngFor="let listcharge of orderInvoice?.ListCharge">
+          <td class="label">
+              {{listcharge.ChargeTitle}}
+          </td>
+          <td class="text-right">
+            {{listcharge.ChargeAmountDisplay}}
+          </td>
+        </tr>
+        <tr *ngFor="let listdiscount of orderInvoice?.ListDiscount">
+            <td class="label">
+                {{listdiscount.DiscountTitle}}
+            </td>
+            <td class="text-right">
+              -{{listdiscount.DiscountAmountDisplay}}
+            </td>
+          </tr>
+          <tr *ngIf="orderInvoice?.StoreCredit !== 0">
+            <td class="label">
+                Rewards Credit Display
+            </td>
+            <td class="text-right">
+              {{orderInvoice.StoreCreditDisplay}}
+            </td>
+          </tr>
+      <tr class="tot-row">
+        <td class="label total">
+         Total
+        </td>
+        <td class="text-right total">
+          {{orderInvoice?.TotalValueDisplay}}
+        </td>
+      </tr>
+      <tr>
+        <td class="label">
+         Payment
+        </td>
+        <td class="text-right">
+          {{orderInvoice?.PaymentInfo.CardNumberMasked !== '' ? orderInvoice?.PaymentInfo.CardNumberMasked : 'Cash'}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
+</div>

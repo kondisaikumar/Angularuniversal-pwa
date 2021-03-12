@@ -1,0 +1,117 @@
+@import "src/variable.scss";
+.pickup-tile {
+    float: left;
+    margin-top: 15px;
+    color: $common-font-color;
+    width: 100%;
+}
+.checkout-section {width: 100%; float: left;}
+.pickup-section {width: 100%; float: left;}
+.checkout-section .pickup-options .input-container {width: 100%; margin-bottom: 10px;}
+.checkout-section .pickup-options .input-container img {width: 28px; height: 28px; margin: 0; display: inline-block; vertical-align: middle;
+    float: none;}
+.checkout-pickup-details-select {width: calc(100% - 28px); max-width: 400px; padding-left: 15px; display: inline-block; vertical-align: middle; float: none;}
+.pickup-tile h4 {margin-bottom: 5px; color: $common-font-color; font-size: 17px;}
+.address-text-name a {color: $common-font-color;}
+.modal-newregistration {padding-right: 0 !important;}
+.modal-newregistration .modal-content {width: 100%; border-radius: 0; padding: 12px; float: left; background-color: #fff;}
+.modal-newregistration .modal-header {width: 100%; padding: 0; border: 0; float: left;}
+.modal-newregistration .modal-body {width: 100%; padding: 0 6px; float: left;}
+.modal-newregistration .modal-dialog {width: 400px; margin: 15px auto 15px 20px;}
+.newreg-form-fields {width: 100%; float: left; margin-bottom: 10px;}
+.newreg-form-fields input.form-control {border-color: #979797; margin-bottom: 5px; height: 28px; font-size: 12px; border-width: 1.5px; border-radius: 0;}
+.newreg-form-fields label {width: 100%; float: left; margin-bottom: 3px; font-family: $poppins-regular; text-transform: uppercase; font-size: 13px;}
+.newreg-form-btn {width: auto; float: right;}
+.newreg-form-btn .common-btn, .newreg-form-btn .common-btn-grey {font-family: $poppins-regular; font-size: 20px; padding: 3px 17px 5px; font-weight: normal; text-transform: inherit;}
+h4.modal-title.modal-title-newreg {font-size: 18px; margin-bottom: 12px; color: $common-font-color;}
+.close.close-newreg {color: $lukas-color; margin: 0; font-size: 40px; line-height: 23px; opacity: 1;}
+h4 {
+    font-family: $gotham-bold !important;
+    font-weight: bold;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+h5 {
+    font-family: $gotham-bold !important;
+    font-weight: bold;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+p {
+    font-family: $gotham-book;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 18px;
+    padding: 0;
+    margin: 0;
+}
+.logo-store {width: 60px; display: inline-block; vertical-align: top; float: none;}
+.logo-store img {width: 100%;}
+.address {width: 100%; float: left; word-break: break-word;}
+.address-text-name {width: 100%; font-size: 13px; line-height: 16px; float: left; margin: 0 0 3px 0; color: $common-font-color; text-transform: uppercase; font-weight: bold; font-family: $gotham-bold !important;}
+p.address-details-checkout {width: 100%; float: left; margin: 0 0 3px 0; color: $common-font-color; font-family: $gotham-book; font-weight: 600; font-size: 13px; line-height: 16px;}
+.address-text-name-autowidth {width: auto; clear: both; float: left; margin: 0; color: $common-font-color; text-transform: uppercase; font-weight: bold; font-family: $gotham-bold !important;}
+.address-text-name-autowidth a {color: $common-font-color;}
+.address-text-name-autowidth.address-text-name-margin {margin-bottom: 3px;}
+.pickup-store-left {width: 55%; padding-right: 20px; position: relative; float: left;}
+.pickup-store-right {width: 45%; font-size: 13px; word-break: break-word; float: left;}
+.checkout-pickup-details {width: 100%; float: left;}
+.pickup-options {width: 100%; float: left;}
+.pickup-store-left-sub {width: 100%; float: left;}
+.pickup-store-right-sub {width: auto; float: left; margin-top: 10px;}
+.checkout-section .dateinput {background: 0 0!important; outline: 0; box-shadow: none;}
+.checkout-section .form-control {border-radius: 0 !important;}
+.checkout-section select.classic {
+    background-image:
+      linear-gradient(45deg, transparent 50%, white 50%),
+      linear-gradient(135deg, white 50%, transparent 50%),
+      linear-gradient(to right, $lukas-color, $lukas-color) !important;
+    background-position:calc(100% - 10px) calc(1em + -2px), calc(100% - 5.5px) calc(1em + -2px), 100% 0 !important;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1.5em 3.5em !important;
+    background-repeat: no-repeat !important;
+    border: 1px solid #e90b29;
+  }
+  select.form-control {
+    -webkit-appearance: unset !important;
+    padding: 3px 12px;
+  }
+  
+.checkout-section select.classic:focus {
+    background-image:
+      linear-gradient(45deg, white 50%, transparent 50%),
+      linear-gradient(135deg, transparent 50%, white 50%),
+      linear-gradient(to right, $lukas-color, $lukas-color) !important;
+    background-position:
+      calc(100% - 5.5px) 0.8em,
+      calc(100% - 10px) 0.8em,
+      100% 0 !important;
+    background-size:
+      5px 5px,
+      5px 5px,
+      1.5em 3.5em !important;
+    background-repeat: no-repeat !important;
+    border: 1px solid #e90b29;
+    border-color: #e90b29 !important;
+    // border-color: grey  !important;
+    outline: 0 !important;
+  }
+
+@media screen and (max-width: 1440px) and (min-width: 768px) {
+    .pickup-store-left {width: 60%;}
+    .pickup-store-right {width: 40%;}
+}
+
+@media screen and (max-width: 767px) {
+    .pickup-store-left {width: 100%; padding-right: 0; float: left; display: block; margin-bottom: 20px;}
+    .pickup-store-right {width: 100%; float: left; display: block;}
+    .pickup-store-right-sub {float: left;}
+    .checkout-pickup-details {margin-top: 4px;}
+}
+
+@media screen and (max-width: 420px) {
+  .modal-newregistration .modal-dialog {width: 100%; margin: 0;}
+}

@@ -1,0 +1,146 @@
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse mid-nav" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar navbar-nav">
+	    <li class="nav-item dropdown dropdown_menu droparrow" *ngFor="let item of menuItems" >
+      <span class="arrowup arrowup-alt"></span>
+      <a class="nav-link" routerLink="/home" [ngClass]="{'active' : activeURL === item.url}">{{item.name}}</a>
+      <ul class="dropdown-menu dropdown-menu-itemone">
+      <li [routerLink]="item.url"><a>Featured Products</a></li>
+      <li routerLink="/staff-picks" *ngIf="menuOptions?.IsDealAvailable"><a>{{staffpicksTitle !=='' ? staffpicksTitle : 'Staff Picks'}}</a></li>
+      <ng-container *ngFor="let fitem of filterMenuItems"><li routerLink="/top-{{fitem.CategoryName | lowercase}}" *ngIf="fitem.CategoryId !== 4"><a >Top {{fitem.CategoryName}}</a></li></ng-container>
+      </ul>
+		  </li>
+        <li class="nav-item dropdown dropdown_menu droparrow" [ngClass]="{'nohover': isClicked}" *ngFor="let fitem of filterMenuItems" (mouseleave)="isClicked=false">
+            <span class="arrowup" *ngIf="!isClicked"></span>
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+               [ngClass]="{'active' : activeURL === getMenuName(fitem.CategoryName)}" aria-expanded="false" (click)="showProducts(fitem.CategoryId, fitem.CategoryName)">
+                {{fitem.CategoryName}}
+            </a>
+            <ul [ngClass]="(fitem.CategoryId !== 2 && fitem.CategoryId !== 4) ? 'dropdown-menu dropdown-menu-custom-div1' : 'dropdown-menu dropdown-menu-custom-div2'">
+                <div class="optional-dropmenu">
+                    <app-filter-menu [filters]="fitem" (filterApply)="onApplyFilter()"></app-filter-menu>
+                </div>
+            </ul>
+        </li>
+
+<li class="more-list">
+    <ul class="more-list-sub">
+        <li *ngIf="receipeMenuItem" class="nav-item">
+            <a class="nav-link" [ngClass]="{'active' : activeURL === receipeMenuItem.url}" [routerLink]="receipeMenuItem.url">{{receipeMenuItem.name}}</a>
+        </li>
+        <!-- <li *ngIf="couponAvailable === true" class="nav-item">
+            <a class="nav-link" [ngClass]="{'active' : activeURL === '/coupons'}" [routerLink]="'/coupons'">Coupons</a>
+        </li> -->
+        <li class="nav-item">
+            <a class="nav-link" [ngClass]="{'active' : activeURL === eventsMenuItem.url}" [routerLink]="eventsMenuItem.url">{{eventsMenuItem.name}}</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [ngClass]="{'active' : activeURL === '/aboutus'}" [routerLink]="'/aboutus'">About us</a>
+        </li>
+
+      <!-- <li class="nav-item">
+        <a disabled class="nav-link"  [ngClass]="{'active' : activeURL === eventsMenuItem.url}" >Newsletter</a>
+      </li>
+
+    <li class="nav-item">
+      <a class="nav-link" [routerLink]="'/faq'" [ngClass]="{'active' : activeURL === '/faq'}" >FAQ</a>
+    </li> -->
+
+
+        <!-- <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/aboutus']">About Us</a>
+      </li> -->
+     </ul>
+    </li>
+      <!-- Additional Links -->
+       <div id="mainMenu" class="main-menu">
+            <span class="arrowup" *ngIf="!isClicked"></span>
+                <ul id="autoNav" class="main-nav">
+                  
+                  <li id="autoNavMore" class="auto-nav-more">
+                    <a  class="more-btn">More...</a>
+                    <ul id="autoNavMoreList" class="auto-nav-more-list">
+                      <li *ngIf="receipeMenuItem" class="nav-item">
+                        <a class="nav-link" [ngClass]="{'active' : activeURL === receipeMenuItem.url}" [routerLink]="receipeMenuItem.url">{{receipeMenuItem.name}}</a>
+                    </li>
+                    <!-- <li *ngIf="couponAvailable === true" class="nav-item">
+                        <a class="nav-link" [ngClass]="{'active' : activeURL === '/coupons'}" [routerLink]="'/coupons'">Coupons</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" [ngClass]="{'active' : activeURL === eventsMenuItem.url}" [routerLink]="eventsMenuItem.url">{{eventsMenuItem.name}}</a>
+                    </li>
+
+                    <li class="nav-item">
+                      <a class="nav-link" [ngClass]="{'active' : activeURL === eventsMenuItem.url}" [routerLink]="'/aboutus'">About Us</a>
+                    </li>
+            
+                  <!-- <li class="nav-item">
+                    <a disabled class="nav-link" [ngClass]="{'active' : activeURL === eventsMenuItem.url}">Newsletter</a>
+                  </li>
+            
+                <li class="nav-item">
+                  <a class="nav-link" [ngClass]="{'active' : activeURL === eventsMenuItem.url}" [routerLink]="'/faq'">FAQ</a>
+                </li> -->
+                    <!-- Additional Link -->
+                    <!-- <li>
+                        <a [routerLink]="['/aboutus']">About Us</a>
+                    </li> -->
+                    <!-- Additional Link -->
+                    </ul>
+                  </li>
+                </ul>
+              </div> 
+  <!-- Additional Links -->
+
+
+      </ul>
+     
+    </div>
+
+
+    <script id="rendered-js">
+    // MAIN MENU
+const $mainMenu = $("#mainMenu");
+const $autoNav = $("#autoNav");
+const $autoNavMore = $("#autoNavMore");
+const $autoNavMoreList = $("#autoNavMoreList");
+autoNavMore = () => {
+  let childNumber = 2;
+
+  if ($(window).width() >= 320) {
+    // GET MENU AND NAV WIDTH
+    const $menuWidth = $mainMenu.width();
+    const $autoNavWidth = $autoNav.width();
+    if ($autoNavWidth > $menuWidth) {
+      // CODE FIRES WHEN WINDOW SIZE GOES DOWN
+      $autoNav
+        .children(`li:nth-last-child(${childNumber})`)
+        .prependTo($autoNavMoreList);
+      autoNavMore();
+    } else {
+      // CODE FIRES WHEN WINDOW SIZE GOES UP
+      const $autoNavMoreFirst = $autoNavMoreList
+      .children("li:first-child")
+      .width();
+      // CHECK IF ITEM HAS ENOUGH SPACE TO PLACE IN MENU
+      if ($autoNavWidth + $autoNavMoreFirst < $menuWidth) {
+        $autoNavMoreList.children("li:first-child").insertBefore($autoNavMore);
+      }
+    }
+    if ($autoNavMoreList.children().length > 0) {
+      $autoNavMore.show();
+      childNumber = 2;
+    } else {
+      $autoNavMore.hide();
+      childNumber = 1;
+    }
+  }
+};
+// INIT
+autoNavMore();
+$(window).resize(autoNavMore);
+// MAIN MENU END
+
+      </script>

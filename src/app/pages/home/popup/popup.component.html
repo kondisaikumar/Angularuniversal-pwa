@@ -1,0 +1,15 @@
+<button id="openModal" #openModal [hidden]="true" data-toggle="modal" data-target="#myModal" aria-label="openModel"></button>
+
+<div id="myModal" class="modal fade animated fadeInRightBig  activate" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title"><img src="../../../assets/Images/logo-popup.png" class="popup-logo" alt="popupLogo" /></div>
+      </div>
+      <app-agelimit *ngIf="!isAgeVerified" (ageVerified)="onAgeVerified($event)"></app-agelimit>
+    </div>
+
+  </div>
+</div>

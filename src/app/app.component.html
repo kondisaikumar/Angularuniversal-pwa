@@ -1,1 +1,46 @@
-<h2 *ngFor="let filter of filters">{{filter.CategoryName}}</h2>
+<div *ngIf="storeId !== 0">  <!--  *ngIf="!isMobile; else mobileView"> -->
+    <app-header></app-header>
+    <app-commonlink></app-commonlink>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+</div>
+
+
+<button id="openModal" #openModal [hidden]="true" data-toggle="modal" data-target="#myModal" aria-label="openModel"></button>
+<!-- Modal -->
+<div id="myModal" class="modal fade animated fadeInRightBig  activate" role="dialog" data-backdrop="static" data-keyboard="false">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center"><img src="../../../assets/Images/logo-popup.png" alt="logoPopup"></h4>
+      </div>
+    <div class="modal-body text-center">
+  <div *ngIf="!sorryPopup; else sorryDialogBody">
+    <p class="font">We sell alcohol-based products on this website, but we can’t advertise or sell to minors.</p>
+    <h2 class="popins_bold">Are you at least 21 Years old?</h2>
+    <div class="text-center">
+        <button type="button" class="btn btn-default close modal-age no" style="float: none;" (click)="sorryclick()">No</button>
+      <button type="button" class="btn btn-default close modal-age" style="float: none;" data-dismiss="modal"
+        (click)="onAgeVarify()">Yes</button>
+    </div>
+  </div>
+  <ng-template #sorryDialogBody>
+    <span class="fa fa-ban popicon-block"></span>
+    <h2 class="popins_bold-2">Sorry!</h2>
+  </ng-template>
+  <div class="modal-footer buttons-container">
+      <p *ngIf="!sorryPopup; else sorryDialogFooter">By entering this site you are agreeing to the <a [routerLink]="['/terms-conditions']" target="_blank">Terms of Use</a> and <a [routerLink]="['/privacy-policy']" target="_blank">Privacy Policy</a>.</p>
+      <ng-template #sorryDialogFooter>
+        <p>You must be 21 years of age or older to view this site. </p>
+        <div class="btncenter-block">
+          <button type="button" class="btn btn-default close">Leave Site!</button>
+        </div>
+      </ng-template>
+    </div>
+</div>
+      </div>
+
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="searchbar-new-sub-div">
+ <ul class="nav navbar-nav mobile_none search-block">
+  <li>
+      <div class="input-group searchby searchby-new">
+		<i aria-hidden="true" class="fa fa-search-new fa-2"></i>
+		<!-- <i class="fa fa-search fa-2"  [ngClass]="{'fa-2-alt' :isFocus }" aria-hidden="true"></i> -->
+			<form (ngSubmit) = "searchByText()">
+        <input type="text" aria-label="Search" class="search-drink" (blur)="onBlur()" (focus)="onFocus()" id='searchBar' #searchBar (keydown.esc)="onEscape()" (click)="arrayEmpty()" (keyup.enter)="searchByText()" name="search" [(ngModel)]="searchText" (keyup)="saveSearch()"  placeholder="Search Drinks" [matAutocomplete]="auto">
+		<input type="submit" value="Go" style="visibility:hidden" class="hidden-input">
+	</form>   
+		<!-- <div class="search-btn"> -->
+		    	<!-- <button type="button" class="btn btn-primaray" (click)="searchByText()" >
+		        
+		        	<i class="icon icon-search"></i>
+		        </button> -->
+		    <!-- </div> -->
+			</div>
+			<mat-autocomplete #auto="matAutocomplete" >
+				<mat-option *ngFor="let result of PreSearchResults" [value]="option" [disabled]="result.pPrice === 0 ? true : false" [style.background-color]="result.pPrice === 0 ? '' : ''" (click)="productRoute(result.spid)" >
+						<table width="98%" class="pdd">
+								<tr>
+									<td width="15%" class="text-center td15"><img style="vertical-align:middle;" aria-hidden [src]="result.imagePath" height="20" />
+									</td>
+									<td width="85%" class="td85">
+										<div class="title product-search-title-div"><span class="titlebrk">{{result.name}}</span></div>
+										<span class="sz">{{result.size}}</span>
+										<div class="brand-price-div">
+											<span class="catg">{{result.category}}/{{result.type}}/{{result.varietal}}</span>
+											<small class="red text-right price-right-div">
+											<span *ngIf="result.pPrice !== 0; else na"><strong>${{result.pPrice}}</strong></span>
+											<ng-template #na>
+												<span>Not available</span>
+											</ng-template></small>
+										</div>
+									</td>
+									
+								</tr>
+							
+							</table>
+				
+				</mat-option>
+			</mat-autocomplete>
+		<!-- </mat-form-field> -->
+</li>
+</ul>
+</div>

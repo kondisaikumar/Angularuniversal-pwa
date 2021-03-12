@@ -1,0 +1,38 @@
+<div class="container-banner">
+  <!-- <i class="fas fa-chevron-left carosel-icon"></i> -->
+  <div id="myCarousel" class="carousel carousel-new slide">
+     <ol class="carousel-indicators">
+      <li data-target="#myCarousel" attr.data-slide-to="{{i}}" [ngClass]="{'active' : i == 0}" *ngFor="let promotionimage of promotionList; let i = index"></li>
+    </ol> 
+    <!-- <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol> -->
+
+    <div class="carousel-inner" role="listbox">     
+          <div class="item" [ngClass]="{'active' : i == 0}" *ngFor="let promotionimage of promotionList; let i = index">
+                <img alt="promotionimage" src="{{promotionimage.BannerURL}}" (click)="clickbanner(promotionimage)" class="carousel-img" [ngClass]="{' carousel-pointer' :promotionimage?.BannerTargetContent!==''}">
+            </div>
+    </div>
+  </div>
+
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <i class="fas fa-chevron-left carosel-icon"></i>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <i class="fas fa-chevron-right carosel-icon"></i>
+    <span class="sr-only">Next</span>
+  </a>
+
+  <!-- <i class="fas fa-chevron-right carosel-icon"></i> -->
+  <!-- <div class="circle-click">
+   <div class="circle-click-sub">
+     <div class="circle-round"></div>
+     <div class="circle-round active"></div>
+     <div class="circle-round"></div>
+   </div>
+  </div> -->
+</div>
+<div class="clearfix"></div>

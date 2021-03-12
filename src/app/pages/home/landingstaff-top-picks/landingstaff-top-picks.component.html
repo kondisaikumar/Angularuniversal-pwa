@@ -1,0 +1,45 @@
+<div class="featured-products-list-sub" *ngIf="productsList?.length > 0">
+  <div class="featured-products-heading-main">
+    <h5 class="featured-products-list-heading">{{responseData.StaffPicksTitle}}</h5>
+    <div class="view-all-div"routerLink="/staff-picks">View All</div>
+  </div>
+  <div class="carosel-common">
+  <owl-carousel-o [options]="customOptions">
+    <ng-template carouselSlide *ngFor="let product of productsList"><app-product [item]="product"></app-product></ng-template> 
+  </owl-carousel-o>
+</div>
+</div>
+  <h4 class="featured-products-altheading" *ngIf="topLiquorListProduct?.length > 0 || topWineListProduct?.length > 0 || topBeerListProduct?.length > 0">Top sellers</h4>
+  <div class="featured-products-list-sub" *ngIf="topLiquorListProduct?.length > 0">
+    <div class="featured-products-heading-main">
+      <h5 class="featured-products-list-heading">Top liquors</h5>
+      <div class="view-all-div"routerLink="/top-liquor">View All</div>
+    </div>
+  <div class="carosel-common">
+  <owl-carousel-o [options]="customOptions">
+  <ng-template carouselSlide *ngFor="let product of topLiquorListProduct"><app-product [item]="product"></app-product></ng-template> 
+  </owl-carousel-o>
+  </div>
+  </div>
+  <div class="featured-products-list-sub" *ngIf="topWineListProduct?.length > 0">
+    <div class="featured-products-heading-main">
+      <h5 class="featured-products-list-heading">Top wine</h5>
+      <div class="view-all-div" routerLink="/top-wine">View All</div>
+    </div>
+  <div class="carosel-common">
+      <owl-carousel-o [options]="customOptions">
+        <ng-template carouselSlide *ngFor="let product of topWineListProduct"><app-product [item]="product"></app-product></ng-template> 
+     </owl-carousel-o>
+     </div>
+    </div>
+    <div class="featured-products-list-sub" *ngIf="topBeerListProduct?.length > 0">
+      <div class="featured-products-heading-main">
+        <h5 class="featured-products-list-heading">Top Beer</h5>
+        <div class="view-all-div"routerLink="/top-beer">View All</div>
+      </div>
+   <div class="carosel-common">
+     <owl-carousel-o [options]="customOptions">
+      <ng-template carouselSlide *ngFor="let product of topBeerListProduct"><app-product [item]="product"></app-product></ng-template> 
+   </owl-carousel-o>
+  </div>
+  </div>

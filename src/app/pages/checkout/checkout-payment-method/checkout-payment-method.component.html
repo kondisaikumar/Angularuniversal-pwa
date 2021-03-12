@@ -1,0 +1,134 @@
+<div class="checkout-section">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="checkout-heading">Payment Method</div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="payment-method">
+        <div class="payment-option-select-main" *ngIf="orderTypeId === 1">
+          <div class="payment-option-select">
+
+            <div class="payment-option-select-sub" *ngIf="customerService?.isPayAtStore">
+              <div [ngClass]="(paymentTypeId === 2) ? 'payment-type-active' : 'payment-type'">
+              <a (click)="changePaymentType('payAtStore')" [ngClass]="{'pay-opt-1' : paymentTypeId === 2}" class="payatstorenew">
+                <!--                 <div class="text-left">  -->
+                <span [ngClass]="(paymentTypeId === 2) ? 'fas fa-check-circle fa-icon-circle' : 'fa fa-circle fa-icon-circle'"></span>
+                <span class="payonline"> Pay at Store </span>
+                <!--                 </div> -->
+              </a>
+            </div>
+            </div>
+            <!-- <span class="pay-or-store">OR</span> -->
+            <div class="payment-option-select-sub" *ngIf="customerService?.isPayOnline">
+              <div [ngClass]="(paymentTypeId === 1 || paymentTypeId === 7) ? 'payment-type-active' : 'payment-type'">
+              <a (click)="changePaymentType('payOnline')"
+                [ngClass]="{'pay-opt-1' : (paymentTypeId === 1 || paymentTypeId === 7)}">
+                <span [ngClass]="(paymentTypeId === 1 || paymentTypeId === 7) ? 'fas fa-check-circle fa-icon-circle' : 'fa fa-circle fa-icon-circle'"></span>
+                <span class="payonline"> Pay Online</span>
+              </a>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div *ngIf="(paymentTypeId === 1 || paymentTypeId === 7) || orderTypeId === 2" class="payment-cards">
+          <div class="table-responsive-main">
+          <div class="table-responsive">
+          <table>
+            <!-- <thead>
+              <th></th>
+              <th>Your Saved Card</th>
+              <th></th>
+              <th style="border-left: solid 2px #fff;">Expires On</th>
+            </thead> -->
+            <tbody *ngIf="paymentProfiles?.length > 0">
+              <tr *ngFor="let paymentProfile of paymentProfiles; index as i"
+                (click)="updateSelectedPayment(paymentProfile); selectedCard=i" [ngClass]="(selectedCard === i) ? 'payment-type-active' : 'payment-type'">
+                <td width="2%">
+                  <div class="check-icon-payment-container">
+                      <span [ngClass]="(selectedCard === i)?'fas fa-check-circle fa-icon-circle':'fa fa-circle fa-icon-circle'"></span>
+                  </div>
+                </td>
+                <td width="50%">
+                  <div class="td-para">
+                    <img *ngIf="paymentProfile?.payment?.creditCard?.cardType === 'Discover'" alt="Discover"
+                      title="Discover" src="../../assets/Images/payment-discover.png" border="0" />
+                    <img *ngIf="paymentProfile?.payment?.creditCard?.cardType === 'MasterCard'" alt="Master"
+                      title="Master" src="../../assets/Images/payment-mastercard.png" border="0" />
+                    <img *ngIf="paymentProfile?.payment?.creditCard?.cardType === 'Visa'" alt="Visa" 
+                    title="Visa" src="../../assets/Images/payment-visa.png" border="0" />
+                    <img *ngIf="paymentProfile?.payment?.creditCard?.cardType === 'AmericanExpress'" alt="Amex"
+                      title="Amex" src="../../assets/Images/payment-americanExpress.png" border="0" />
+                  <span>  {{paymentProfile?.payment?.creditCard?.cardNumber}}</span>
+                    
+                  </div>
+                  
+                </td>
+                <td width="20%">
+                  <div *ngIf="selectedCard===i" class="enter-cvv">
+                    <div class="form-group-inline">
+                      <label>CVV: </label>
+                      <input type="password" name="cvv" [(ngModel)]="cardCVV" (keyup)="saveCVV()" class="text-cvv form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" [maxlength]="paymentProfile?.payment?.creditCard?.cardType === 'AmericanExpress' ? 4 : 3" >
+                    </div>
+                  </div>
+                </td>
+                <td width="28%"><span class="exp-date">{{paymentProfile?.payment?.creditCard?.expirationDate}}</span></td>
+              </tr>
+            </tbody>
+            <tbody *ngIf="paymentProfilesForVantiv?.length > 0">
+              <tr *ngFor="let paymentProfile of paymentProfilesForVantiv; index as i"
+                (click)="updateSelectedPaymentForVantiv(paymentProfile); selectedCard=i" [ngClass]="(selectedCard === i) ? 'payment-type-active' : 'payment-type'">
+                <td width="2%">
+                  <div class="check-icon-payment-container">
+                    <span [ngClass]="(selectedCard === i)?'fas fa-check-circle fa-icon-circle':'fa fa-circle fa-icon-circle'"></span>
+                  </div>
+                </td>
+                <td width="50%">
+                  <!-- <div class="check-icon-payment-container">
+                    
+                  </div> -->
+                  <div class="td-para">
+                    <img *ngIf="paymentProfile?.PaymentBrand === 'Discover'" alt="Discover" title="Discover"
+                      src="../../assets/Images/payment-discover.png" width="57" height="36" border="0" />
+                    <img
+                      *ngIf="paymentProfile?.PaymentBrand === 'MasterCard' || paymentProfile?.PaymentBrand === 'Mastercard'"
+                      alt="Master" title="Master" src="../../assets/Images/payment-mastercard.png" width="57" height="36"
+                      border="0" />
+                    <img *ngIf="paymentProfile?.PaymentBrand === 'Visa'" alt="Visa"
+                      title="Visa" src="../../assets/Images/payment-visa.png" width="57" height="26" border="0" />
+                    <img
+                      *ngIf="paymentProfile?.PaymentBrand === 'AmericanExpress' || paymentProfile?.PaymentBrand === 'Amex'"
+                      alt="Amex" title="Amex" src="../../assets/Images/payment-americanExpress.png" width="43"
+                      height="36" border="0" />
+                    {{paymentProfile?.TruncatedCardNumber}}
+                  </div>
+                </td>
+                <td width="20%"></td>
+                <td width="28%">
+                  <span *ngIf="paymentProfile?.ExpirationMonth && paymentProfile?.ExpirationYear">
+                    {{paymentProfile?.ExpirationMonth}}/{{paymentProfile?.ExpirationYear}}
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+          <div class="new-payment-mode-main">
+              <a id="openPaymentModal" #openPaymentModal data-toggle="modal" data-target="#gridPaymentModal" class="new-payment-mode"><i class="fa fa-plus mright10"></i> Add New Payment Method</a>
+            <app-addpayment *ngIf="paymentTypeId === 1" (close)="onPopupClose()"></app-addpayment>
+            <app-addvpayment *ngIf="paymentTypeId === 7" (close)="onPopupClose()"></app-addvpayment>
+          </div>
+        </div>
+      </div>
+    </div>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="instruction">
+      <div class="checkout-heading">{{storeGetHomeData?.SpecialInstructionsLabel ? storeGetHomeData?.SpecialInstructionsLabel :'special instructions'}}</div>
+      <div class="instructions-textbox">
+      <textarea aria-label="Search" rows="3" class="form-control textarea"  [(ngModel)]="remarks" (keyup)="saveRemarks()"></textarea>
+       </div>
+    </div>
+
+  </div>
+  </div>
+</div>

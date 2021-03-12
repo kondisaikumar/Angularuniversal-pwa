@@ -1,0 +1,501 @@
+@import "src/variable.scss";
+.text-center{
+  text-align: center;
+}
+.custom-tip-sub {width: auto; float: right; clear: both; margin-top: 6px;}
+.table-responsive-tip {width: 100%; float: left;}
+td.text-right {min-width: 100px;}
+.text-center a {
+  color: $lukas-color;
+  font-weight: bold;
+  font-family: $montserrat-regular;
+}
+h5.savings {color: $lukas-color !important; cursor: pointer;}
+h5.savings .fa-plus-circle {color: $lukas-color;}
+.coupun-sub-div {width: auto; display: table; margin: 0 auto;}
+.coupon-success { 
+  margin-top: 15px;
+  img{
+    margin-right: 10px;
+    width: 44px;
+    height: 44px;
+}
+
+span {
+color: #39b24e;
+font-family: $gotham-bold;
+font-weight: bold;
+font-size: 15px;
+text-transform: uppercase;
+  }
+  i{
+    margin-left: 10px;
+    font-weight: bold;
+    color: #ea1c2d;
+  }
+}
+
+.order-details-panel {
+  width: 100%;
+  float: left;
+  margin-bottom: 10px;
+  table {
+    width: 100%;
+    float: left;
+    .prod-img {
+      /*width: 60px;*/
+      height: 70px;
+      border-radius: 5px;
+      border: solid 1px #ccc;
+      padding: 5px 15px;
+      margin-top: -3px;
+      margin-right: 5px;
+    }
+    td.img-block {
+      padding-top: 10px;
+      padding-bottom: 0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      vertical-align: top;
+    }
+    &.first-table {
+      border-bottom: solid 1px #ccc;
+      h4 {
+        margin-bottom: 0px;
+      }
+      h6 {
+        font-size: $common-font-size;
+        margin-bottom: 5px;
+        margin-top: 10px;
+        color: $lukas-color;
+        font-family: $montserrat-regular;
+      }
+      p {
+        font-size: 14px;
+        margin-bottom: 5px;
+        font-family: $poppins-regular;
+      }
+      .totalprice-right {
+        margin: 0px;
+        padding: 0px;
+        vertical-align: bottom;
+        font-family: $montserrat-regular;
+        p {
+          margin-top: 10px;
+          margin-bottom: 30px;
+          font-weight: bold;
+          font-size: 13px;
+          font-family: $poppins-regular;
+        }
+        h5 {
+          font-size: 20px;
+          color: $lukas-color;
+          font-family: $montserrat-regular;
+        }
+      }
+    }
+    td.summary-block {
+      width: 90px;
+      padding-top: 0px;
+      padding-bottom: 0px;
+      margin-top: 0px;
+      margin-bottom: 0px;
+      vertical-align: top;
+      h5 {
+        margin: 0px;
+        font-family: $montserrat-regular;
+      }
+    }
+    &.summary-container {
+      margin-top: 20px;
+    }
+  }
+}
+.tip-details{
+  width: 100% !important;
+}
+.tip-details td{
+  background-color: #d7d7d7;
+  text-align: center;
+  margin-right: 1px;
+  font-family: $gotham-bold;
+  font-weight: bold;
+  color: #56565a;
+  padding: 8px 3px;
+  text-transform: uppercase;
+  font-size: 13px;
+  border-right: solid 2px #fff;
+}
+.custom-check td {vertical-align: middle;}
+.tip-details td.custom{
+  color: #fff;
+  background-color: #56565a;
+}
+.custom-check{
+  width: 50% !important;
+  float: right;
+  margin-top: 5px !important;
+  font-weight: bold;
+  font-family: $gotham-bold;
+  button{
+    background-color: #ea1c2d;
+    color: #fff;
+    border-radius: 0;
+    text-transform: uppercase;
+    margin: 0;
+    border: 0;
+    float: right;
+    height: 28px;
+    font-size: 11px;
+  }
+input{
+  text-align: right;
+  width: 90px;
+  float: right;
+  padding: 2px;
+  font-family: $gotham-book;
+  font-weight: 600;
+  margin-left: 3px;
+  font-size: 13px;
+  height: 28px;
+}
+}
+
+.icon-selected {
+  cursor: pointer;
+}
+.add-coupon button {
+  background: #56565a;
+  color: #fff;
+  padding: 9px 8px;
+  font-family: $gotham-bold;
+  font-weight: bold;
+  font-size: 14px;
+  text-transform: uppercase;
+  height: auto;
+  margin: 0;
+  float: left;
+  width: 100%;
+}
+.btn-checkout-new {margin-top: 10px;}
+.icon-coupon {float: none; width: 22px; height: 22px; padding: 0; display: inline-block; vertical-align: middle;}
+.icon-coupon:before {margin: 0; float: left;}
+.coupon-code-btn {float: none; display: inline-block; vertical-align: middle; width: auto; padding-left: 8px; line-height: 25px;}
+.add-coupon {width: 100%; float: left;}
+.add-coupon button.form-control:focus {
+  border-color: #56565a !important;
+}
+.coupon-panel {
+  text-align: center;
+  float: left;
+  width: 100%;
+  padding: 4px 0;
+  position: relative;
+  input.coupon {
+    width: 75%;
+    background-color: transparent;
+    outline: none;
+    border: 0px solid transparent;
+    float: right;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: $gotham-bold;
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  .icon-coupon {
+    position: relative;
+    font-size: 22px;
+    color: #fff;
+    // float: left;
+    left:0;
+    border-radius: none;
+  }
+  .icon-selected {
+    position: absolute;
+    top: 15px;
+    font-size: 21px;
+    color: $lukas-color;
+    right: 55px;
+    cursor: pointer;
+  }
+  .icon-cancel2 {
+    position: absolute;
+    top: 19px;
+    font-size: 16px;
+    color: #ccc;
+    right: 25px;
+    cursor: pointer;
+    &:hover {
+      color: $lukas-color;
+    }
+  }
+  table {
+    width: 100%;
+  }
+}
+
+.submit-button-panel {
+  border-top: solid 1px #efefef;
+  border-bottom: solid 1px #efefef;
+  display: table;
+  width: 70%;
+  background-color: transparent;
+  padding: 10px 25px;
+  float: right;
+}
+
+.summary-container {
+  a.exapand-icon {
+    font-size: 0.8em !important;
+    position: relative;
+    top: 0px;
+    color: #222;
+    padding-left: 10px;
+    padding-right: 3px;
+  }
+  table {
+    td p {
+      margin-bottom: 0px !important;
+    }
+    &.exapnded-table {
+      margin-bottom: 10px;
+      width: 100%;
+    }
+  }
+  h4, h5 {
+    margin-bottom: 5px;
+    margin-top: 5px;
+    line-height: 19px;
+    font-size: 13px;
+  }
+  h4{
+    font-family: $montserrat-regular;
+    font-size: 14px;
+    color: #56565a;
+  }
+  h5, .checkout-total h3{
+    font-family: $gotham-bold; 
+    font-weight: bold;
+    color: #56565a;
+    text-transform: uppercase;
+  }
+  .checkout-total td.text-right h3 {
+    font-family: $gotham-book; font-weight: 600;
+  }
+  .checkout-total h3{
+    font-size: 14px;
+  }
+}
+
+.bottles-brand {
+  color: $lukas-color;
+  font-size: 15px;
+  line-height: 17px;
+  &:hover {
+    color: $lukas-color;
+    text-decoration: none;
+  }
+}
+
+.payment-option-select {
+  a {
+    &.pay-opt-1, .pay-or-store {
+      font-size: 20px;
+      color: $lukas-color;
+    }
+    color: #222;
+    &:hover, &.active {
+      color: $lukas-color;
+      text-decoration: none;
+    }
+  }
+  border-bottom: solid 1px #ccc;
+  margin-bottom: 25px;
+  margin-top: 10px;
+  .pay-or-store {
+    font-size: 20px;
+    border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    text-align: center;
+    color: #222;
+    background-color: #ccc;
+    padding: 15px;
+    position: relative;
+    left: 45%;
+    top: 7px;
+  }
+}
+
+
+  button.novalue {
+    background: #d7d7d7 !important;
+    color:#fff;
+    cursor: not-allowed;
+    padding: 10px 25px;
+    border: 0;
+    font-family: $montserrat-regular;
+    font-size: 25px;
+    font-stretch: normal;
+    line-height: normal;
+    text-align: left;
+    color: #ffffff;
+    opacity: 1;
+    text-shadow: none !important;
+    margin: 10px 0;
+  }
+  .buttons-container{
+    display: inline-flex;
+  }
+  button.close {
+    background-color: $lukas-color !important;
+    //box-shadow: 0px 10px 20px 0 rgba(236, 28, 36, 0.3);
+    font-family: $montserrat-regular;
+    text-align: center;
+    font-size: 23px;
+    font-stretch: normal;
+    font-weight: normal;
+    color: #ffffff;
+    padding:10px 25px;
+    opacity: 1;
+    text-shadow: none !important;
+    float: none !important;
+    margin: 10px 0;
+  }
+.checkout-btns {width: 100%; float: left; text-align: center;}
+.checkout-btns a {font-weight: 700; color: $lukas-color; cursor: pointer; text-decoration: none;}
+.checkout-btns a:hover {color: $lukas-color;}
+
+td .checkout-product-details {
+          padding-top: 10px !important;
+          padding-bottom: 10px !important;
+        }
+.text-muted, .td-para, .payment-method table td, p {
+  font-family: $poppins-regular;
+}
+
+.payment-method table th {
+  font-family: $montserrat-regular;
+}
+.text-muted{ color: #191818;}
+.tip{ 
+  // background: #f1f1f1; height: 40px;
+}
+.tip span{ font-size: 1.4em; padding-right: 3px;}
+.tipdown{ background: #fff; padding: 10px;}
+
+
+// @media only screen and (max-width: 1024px) {
+//     .order-details-panel {
+//       padding: 15px !important;
+//         table {
+//           .prod-img {
+//               padding: 5px 10px !important;
+//           }
+//         }
+//     }
+//     .checkout-info {
+//       margin-left: 5px;
+//     }
+
+//     .m-radio {
+//       float: left;
+//         .checkmark {
+//               top: 0px !important;
+//         }
+//     }
+
+//     .tip-container {
+//       input {
+//         width: 60px;
+//         float: left;
+//         height: 25px;
+//         margin-left: 5px;
+//         margin-right: 3px;
+//         margin-top: -4px;
+//       }
+//       .icon {
+//         font-size: 20px;
+//         color: $lukas-color;
+//         position: relative;
+//         top: -5px;
+//       }
+//   }
+// }
+.m-radio {
+  float: left;
+  .checkmark {
+    margin-top: -2px;
+  }
+}
+.tip-container {
+    input {
+      width: 60px;
+      float: left;
+      height: 25px;
+      margin-left: 5px;
+      margin-right: 3px;
+      margin-top: 0px;
+    }
+    .icon {
+      font-size: 20px;
+      color: $lukas-color;
+      position: relative;
+      top: -1px;
+    }
+}
+.pright10{ padding-right:10px;}
+.tip-custom-div {width: auto; float: right;}
+.storereward-div {width: 100%; float: left; margin-bottom: 5px;}
+.storereward-input {width: 14px; height: 14px; float: none; margin: 0; display: inline-block; vertical-align: middle;}
+.storereward-label {width: calc(100% - 17px); color: $lukas-color; padding-left: 6px; float: none; margin: 0; display: inline-block; vertical-align: middle;}
+.storereward-label.storereward-label-alt {color: #228B22;}
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+  .coupon-panel {
+    .icon-coupon {width: 18px; height: 18px; font-size: 18px;}
+    .coupon-code-btn {font-size: 12px; padding-left: 6px; padding-top: 0;}
+  }
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .add-coupon button {padding: 10px 20px; width: auto; display: table; margin: 0 auto; float: none;}
+  .coupon-panel {
+    .icon-coupon {width: 18px; height: 18px; font-size: 18px;}
+    .coupon-code-btn {font-size: 12px; padding-left: 6px; padding-top: 0;}
+  }
+}
+
+@media screen and (max-width: 767px) and (min-width: 481px) {
+  .add-coupon button {padding: 10px 20px;}
+  .coupon-panel {
+    .icon-coupon {width: 18px; height: 18px; font-size: 18px;}
+    .coupon-code-btn {font-size: 12px; padding-left: 6px; padding-top: 0;}
+  }
+}
+
+@media screen and (max-width: 767px) {
+.table-responsive{
+  border: none;
+  margin-bottom: 0;
+}
+.custom-check input{
+  padding: 2px;
+}
+.tip-details td{
+  font-size: 13px !important;
+}
+// button.close {width: 100%;}
+.add-coupon button {width: auto; display: table; margin: 0 auto; float: none;}
+}
+
+@media screen and (max-width: 480px) {
+  .add-coupon button {font-size: 12px; padding: 10px 15px;}
+  .coupon-panel {
+    .icon-coupon {width: 18px; height: 18px; font-size: 16px;}
+    .coupon-code-btn {font-size: 11px; padding-left: 6px; padding-top: 1px;}
+  }
+}
+
+

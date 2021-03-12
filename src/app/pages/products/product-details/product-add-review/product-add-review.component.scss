@@ -1,0 +1,100 @@
+@import "src/variable.scss";
+.common_width {
+    width: 100%;
+    margin: 0 auto;
+    .form-main{
+        width: 100%;
+        float: left;
+        padding-left: 180px;
+    }
+}
+.rating-stars {
+    font-size: 22px;
+    margin-top: -5px;
+    span a {
+       margin-right: 5px !important;
+       color: #555555;
+    }
+}
+h4{
+    font-family: $montserrat-regular;
+    font-weight: bold;
+    color: $common-font-color;
+    font-size: 25px;
+}
+
+.review-heading {width: 100%; float: left; font-family: $montserrat-regular; font-weight: bold; color: $common-font-color; font-size: 25px;}
+.add-review-form {width: 100%; float: left;}
+.form-group-add-review {width: 100%; float: left; padding: 0 15px;}
+.form-control.form-control-alt {background-color: #fff;}
+
+.form-group label{
+    font-family: $montserrat-regular;
+    font-weight: bold;
+    font-size: 18px;
+    color: $common-font-color;
+    margin-bottom: 0px;
+}
+.form-group label span{
+    color: #dadbdb;
+    font-weight: normal !important;
+}
+.top{ position: absolute; bottom:16px; left:-10%;
+    background: #494a4c;
+    font-family: $montserrat-regular;
+    font-size: 1.7em;
+    color: #fff;
+    border-radius: 0px;
+    border: none;
+    padding: 3px 15px 4px 15px;
+  }
+  
+.your_rating h5,form.common_width label{
+    font-family: poppinsregular;
+    font-size: 12.3px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: #777777 ;
+}
+
+.add_review p{
+    font-family: $montserrat-regular;
+    font-size: 13px;
+    width: 100%;
+    float: left;
+}
+
+.reviewsubmit {
+    padding: 5px 20px;
+    font-size: 17px;
+}
+
+.required-fields {width: 100%; float: left;}
+
+.addreviewmsg {
+    height: 120px;
+    resize: none;
+}
+@media screen and (min-width:320px) and (max-width:823px){
+.common_width{ width:100%;}
+.btn.reviewsubmit{
+    float: right;
+    padding: 2px 25px 3px !important;
+    font-size: 19px !important;
+}
+button{
+    margin-right: 0px !important;
+}
+h4{ display: none;}
+}
+
+@media screen and (max-width: 767px) {
+    .common_width .form-main {padding-left: 0;}
+    .review-heading {font-size: 14px; padding: 0;}
+    .form-group label {font-size: 14px; margin-bottom: 4px;}
+    .required-fields {padding-left: 15px;}
+}

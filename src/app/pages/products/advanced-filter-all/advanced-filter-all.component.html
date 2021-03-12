@@ -1,0 +1,613 @@
+<div id="backtotop" class="common-margin-top">
+  <div class="bg-fp-advall">
+    <div class="col-md-12  slideInUP wow delay-05s animated advanced-filter-all-mobile">
+      <!-- Mobile Menu Start -->
+      <div class="icon-filter">
+       <a  (click)="openNav()"><img alt="iconFilter" src="../../../../assets/Images/icon-filter.png"></a>
+       <div id="mySidenav" class="sidenav" [ngStyle]="{'width': widthSide ? '100%' : '0%' }">
+           <a class="closebtn" (click)="closeNav()" *ngIf="crossHide === true">&times;</a>
+  
+   <div class="col-sm-12 col-xs-12" >
+     <!-- Filter Search Left Menu Start -->
+  
+     <mat-accordion>
+     <mat-expansion-panel [expanded]="accordionExpand === 'sort'">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          SORT BY
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="list-accordian-div" (click)="onSortfilterchange(type.Id,'sort')" [ngClass]="{'active' : type.isSelected === true}" *ngFor="let type of SortProductsBy">{{type.SortBy}}</div>
+    </mat-expansion-panel>
+      <mat-expansion-panel *ngIf="dataservice.searchByText !== '' || selectedFilters?.length > 0 " [expanded]="accordionExpand === 'filter'">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            FILTER({{selectedFiltersLength}})
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="filter-list-div" *ngFor="let filter of selectedFilters">
+          <a (click)="removeFilter(filter,'filter')">
+             <span class="filter-value-div">{{filter.value}}</span>
+              <span class="fa fa-close filter-value-close"></span>
+          </a>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel [expanded]="accordionExpand === 'category'">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            CATEGORY
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="list-accordian-div" (click)="onCategorySelectionChange(category,'category')" [ngClass]="{'active' : category.isSelected === true}"
+        *ngFor="let category of categoryList">{{category.value}}</div>
+      </mat-expansion-panel>
+  
+  <mat-expansion-panel [expanded]="accordionExpand === 'type'">
+<mat-expansion-panel-header>
+  <mat-panel-title>
+  TYPE
+  </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="list-accordian-div" (click)="onTypeSelectionChange(type,'type')" [ngClass]="{'active' : type.isSelected === true}" *ngFor="let type of allFilterOptions?.type |sortnumber">{{type.value}}</div>
+  </mat-expansion-panel >
+  <mat-expansion-panel *ngIf="allVarietals?.length > 0" [expanded]="accordionExpand === 'varietal'">
+  <mat-expansion-panel-header>
+  <mat-panel-title>
+  VARIETAL
+  </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="list-accordian-div" (click)="onSelectionChange(varietal,'varietal')" [ngClass]="{'active' : varietal.isSelected === true}" *ngFor="let varietal of allVarietals |sortnumber">{{varietal.value}}</div>
+  </mat-expansion-panel>
+  <mat-expansion-panel [expanded]="accordionExpand === 'size'">
+  <mat-expansion-panel-header>
+  <mat-panel-title>
+  SIZE
+  </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="list-accordian-div" (click)="onSelectionChange(size,'size')" [ngClass]="{'active' : size.isSelected === true}" *ngFor="let size of allFilterOptions?.size |sortnumber">{{size.value}}</div>
+  </mat-expansion-panel>
+  <mat-expansion-panel *ngIf="allFilterOptions?.countries.length > 0" [expanded]="accordionExpand === 'country'">
+  <mat-expansion-panel-header>
+  <mat-panel-title>
+  COUNTRY
+  </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="list-accordian-div" (click)="onCountrySelectionChange(country,'country')" [ngClass]="{'active' : country.isSelected === true}" *ngFor="let country of allFilterOptions?.countries |sortnumber">{{country.value}}</div>
+  </mat-expansion-panel>
+  <mat-expansion-panel *ngIf="allFilterOptions?.countries.length > 0" [expanded]="accordionExpand === 'region'">
+  <mat-expansion-panel-header>
+  <mat-panel-title>
+  REGION
+  </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="list-accordian-div" (click)="onSelectionChange(region,'region')" [ngClass]="{'active' : region.isSelected === true}" *ngFor="let region of allRegions |sortnumber">{{region.value}}</div>
+  </mat-expansion-panel>
+  
+  <mat-expansion-panel [expanded]="accordionExpand === 'price'">
+  <mat-expansion-panel-header>
+  <mat-panel-title>
+  PRICE
+  </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="list-accordian-div" (click)="onSelectionChange(price,'price')" [ngClass]="{'active' : price.isSelected === true}" *ngFor="let price of allFilterOptions?.price |sortnumber">{{price.value}}</div>
+  </mat-expansion-panel>
+ <mat-expansion-panel [expanded]="accordionExpand === 'review'">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+    REVIEW
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="list-accordian-div" (click)="onReviewChange(4,'review')">
+  <div class="rating-icon rating-icon-custom">
+    <a><i class="fa fa-star" ></i></a>
+    <a><i class="fa fa-star" ></i></a>
+    <a><i class="fa fa-star" ></i></a>
+    <a><i class="fa fa-star" ></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a> 
+    <span class="more-rating-new">& Up</span>
+  </div></div>
+  <div class="list-accordian-div" (click)="onReviewChange(3,'review')">
+  <div class="rating-icon rating-icon-custom">
+    <a><i class="fa fa-star" ></i></a>
+    <a><i class="fa fa-star" ></i></a>
+    <a><i class="fa fa-star" ></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a> 
+    <a class="star-o"><i class="fa fa-star-o"></i></a> 
+    <span class="more-rating-new">& Up</span>
+  </div>
+</div>
+  <div class="list-accordian-div" (click)="onReviewChange(2,'review')">
+  <div class="rating-icon rating-icon-custom">
+    <a><i class="fa fa-star" ></i></a>
+    <a><i class="fa fa-star" ></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a> 
+    <a class="star-o"><i class="fa fa-star-o"></i></a> 
+    <a class="star-o"><i class="fa fa-star-o"></i></a> 
+    <span class="more-rating-new">& Up</span>
+  </div></div>
+  <div class="list-accordian-div" (click)="onReviewChange(1,'review')">
+  <div class="rating-icon rating-icon-custom">
+    <a><i class="fa fa-star" ></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a> 
+    <a class="star-o"><i class="fa fa-star-o"></i></a> 
+    <a class="star-o"><i class="fa fa-star-o"></i></a> 
+    <a class="star-o"><i class="fa fa-star-o"></i></a>
+    <span class="more-rating-new">& Up</span> 
+  </div>
+</div>
+</mat-expansion-panel>
+</mat-accordion>
+     <!-- <div class="panel-group filter-panel" id="selectedFiltersAccordion" role="tablist" aria-multiselectable="true" *ngIf="dataservice.searchByText !== '' || selectedFilters?.length > 0 ">
+       <div class="panel bottle-panel-container">
+         <div class="left-panel-section" role="tab" id="myFilterHeading">
+           <h4 class="panel-title left-panel-title">
+             <a role="button" data-toggle="collapse" data-parent="#selectedFiltersAccordion" href="#myFilters" aria-expanded="true"
+               aria-controls="myFilter">
+               Filter <span class="fa fa-sort-desc pull-right"></span>
+             </a>
+           </h4>
+         </div>
+         <ul id="myFilters" class="panel-collapse collapse in search-history" role="tabpanel" aria-labelledby="myFilterHeading">
+           <li *ngFor="let filter of selectedFilters"><a (click)="removeFilter(filter)"> <span class="filter-value-div">{{filter.value}}</span> <span
+                 class="fa fa-close filter-value-close"></span></a></li>
+         </ul>
+       </div>
+   </div>
+   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"> 
+     <div class="panel bottle-panel-container">
+       <div class="left-panel-section" role="tab" id="myCategoryHeading">
+         <h4 class="panel-title left-panel-title">
+           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myCategory"
+             aria-expanded="false" aria-controls="myCategory">
+             Category <span class="fa fa-sort-asc pull-right"></span>
+           </a>
+         </h4>
+       </div>
+       <ul id="myCategory" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myTypeHeading">
+         <li><a (click)="onCategorySelectionChange(category)" [ngClass]="{'active' : category.isSelected === true}"
+             *ngFor="let category of categoryList">{{category.value}}</a></li>
+       </ul>
+     </div>
+     <div class="panel bottle-panel-container">
+       <div class="left-panel-section" role="tab" id="myTypeHeading">
+         <h4 class="panel-title left-panel-title">
+           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myType"
+             aria-expanded="false" aria-controls="myType">
+             Type <span class="fa fa-sort-asc pull-right"></span>
+           </a>
+         </h4>
+       </div>
+       <ul id="myType" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myTypeHeading">
+         <li><a (click)="onTypeSelectionChange(type)" [ngClass]="{'active' : type.isSelected === true}" *ngFor="let type of allFilterOptions?.type">{{type.value}}</a></li>
+       </ul>
+     </div>
+     <div class="panel bottle-panel-container"  *ngIf="allVarietals?.length > 0">
+       <div class="left-panel-section" role="tab" id="myVarietalHeading">
+         <h4 class="panel-title left-panel-title">
+           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myVarietal"
+             aria-expanded="false" aria-controls="myVarietal">
+             Varietal <span class="fa fa-sort-asc pull-right"></span>
+           </a>
+         </h4>
+       </div>
+       <ul id="myVarietal" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myVarietalHeading">
+         <li><a (click)="onSelectionChange(varietal)" [ngClass]="{'active' : varietal.isSelected === true}" *ngFor="let varietal of allVarietals">{{varietal.value}}</a></li>
+       </ul>
+     </div>
+     <div class="panel bottle-panel-container">
+       <div class="left-panel-section" role="tab" id="mySizeHeading">
+         <h4 class="panel-title left-panel-title">
+           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#mySize"
+             aria-expanded="false" aria-controls="mySize">
+             Size <span class="fa fa-sort-asc pull-right"></span>
+           </a>
+         </h4>
+       </div>
+       <ul id="mySize" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="mySizeHeading">
+         <li><a (click)="onSelectionChange(size)" [ngClass]="{'active' : size.isSelected === true}" *ngFor="let size of allFilterOptions?.size">{{size.value}}</a></li>
+       </ul>
+     </div>
+     <div class="panel bottle-panel-container" *ngIf="allFilterOptions?.countries.length > 0">
+       <div class="left-panel-section" role="tab" id="myCountryHeading">
+         <h4 class="panel-title left-panel-title">
+           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myCountry"
+             aria-expanded="false" aria-controls="myCountry">
+             Country <span class="fa fa-sort-asc pull-right"></span>
+           </a>
+         </h4>
+       </div>
+       <ul id="myCountry" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myCountryHeading">
+         <li><a (click)="onCountrySelectionChange(country)" [ngClass]="{'active' : country.isSelected === true}" *ngFor="let country of allFilterOptions?.countries">{{country.value}}</a></li>
+       </ul>
+     </div>
+     <div class="panel bottle-panel-container" *ngIf="allFilterOptions?.countries.length > 0">
+       <div class="left-panel-section" role="tab" id="myRegionHeading">
+         <h4 class="panel-title left-panel-title">
+           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myRegion"
+             aria-expanded="false" aria-controls="myRegion">
+             Region <span class="fa fa-sort-asc pull-right"></span>
+           </a>
+         </h4>
+       </div>
+       <ul id="myRegion" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myRegionHeading">
+         <li><a (click)="onSelectionChange(region)" [ngClass]="{'active' : region.isSelected === true}" *ngFor="let region of allRegions">{{region.value}}</a></li>
+       </ul>
+     </div>
+     <div class="panel bottle-panel-container">
+       <div class="left-panel-section" role="tab" id="PriceHeading">
+         <h4 class="panel-title left-panel-title">
+           <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myPrice"
+             aria-expanded="false" aria-controls="myPrice">
+             price <span class="fa fa-sort-asc pull-right"></span>
+           </a>
+         </h4>
+       </div>
+       <ul id="myPrice" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="PriceHeading">
+         <li><a (click)="onSelectionChange(price)" [ngClass]="{'active' : price.isSelected === true}" *ngFor="let price of allFilterOptions?.price">{{price.value}}</a></li>
+       </ul>
+     </div>
+     <div class="bottle-panel-container clear-search-div">
+       <div class="left-panel-section">
+         <h4 class="left-panel-title">
+           <a (click)="clearSearch()" class="bottles-brand">
+             Clear Search</a>
+         </h4>
+       </div>
+     </div>
+   </div> -->
+     <!-- Filter Search Left Menu End -->
+   </div>
+  </div>
+  <!-- Mobile Menu End-->      
+         
+  </div>
+  </div>
+
+
+
+
+
+
+  <div class="featured-products-all-list-sub">
+    <section class="m_bottom">
+      <div class="container-new container">
+      <div class="featured-products-relative-div">
+      <div class="row">
+       <div class="col-md-3 col-sm-3 col-lg-3 col-xs-12 featured-product-list-left advanced-filter-all-desktop">
+        <mat-accordion>
+          <mat-expansion-panel *ngIf="dataservice.searchByText !== '' || selectedFilters?.length > 0 " [expanded]="accordionExpand === 'filter'">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                FILTER({{selectedFiltersLength}})
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="filter-list-div" *ngFor="let filter of selectedFilters">
+              <a (click)="removeFilter(filter,'filter')">
+                 <span class="filter-value-div">{{filter.value}}</span>
+                  <span class="fa fa-close filter-value-close"></span>
+              </a>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel [expanded]="accordionExpand === 'category'">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                CATEGORY
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="list-accordian-div" (click)="onCategorySelectionChange(category,'category')"
+              [ngClass]="{'active' : category.isSelected === true}" *ngFor="let category of categoryList">
+              {{category.value}}</div>
+          </mat-expansion-panel>
+
+          <mat-expansion-panel [expanded]="accordionExpand === 'type'">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                TYPE
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="list-accordian-div" (click)="onTypeSelectionChange(type,'type')"
+              [ngClass]="{'active' : type.isSelected === true}" *ngFor="let type of allFilterOptions?.type |sortnumber">
+              {{type.value}}</div>
+          </mat-expansion-panel>
+          <mat-expansion-panel *ngIf="allVarietals?.length > 0" [expanded]="accordionExpand === 'varietal'">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                VARIETAL
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="list-accordian-div" (click)="onSelectionChange(varietal,'varietal')"
+              [ngClass]="{'active' : varietal.isSelected === true}" *ngFor="let varietal of allVarietals |sortnumber">
+              {{varietal.value}}</div>
+          </mat-expansion-panel>
+          <mat-expansion-panel [expanded]="accordionExpand === 'size'">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                SIZE
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="list-accordian-div" (click)="onSelectionChange(size,'size')"
+              [ngClass]="{'active' : size.isSelected === true}" *ngFor="let size of allFilterOptions?.size |sortnumber">
+              {{size.value}}</div>
+          </mat-expansion-panel>
+          <mat-expansion-panel *ngIf="allFilterOptions?.countries.length > 0"
+            [expanded]="accordionExpand === 'country'">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                COUNTRY
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="list-accordian-div" (click)="onCountrySelectionChange(country,'country')"
+              [ngClass]="{'active' : country.isSelected === true}" *ngFor="let country of allFilterOptions?.countries |sortnumber">
+              {{country.value}}</div>
+          </mat-expansion-panel>
+          <mat-expansion-panel *ngIf="allFilterOptions?.countries.length > 0" [expanded]="accordionExpand === 'region'">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                REGION
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div class="list-accordian-div" (click)="onSelectionChange(region,'region')"
+              [ngClass]="{'active' : region.isSelected === true}" *ngFor="let region of allRegions |sortnumber">{{region.value}}
+            </div>
+          </mat-expansion-panel>
+
+<mat-expansion-panel [expanded]="accordionExpand === 'price'">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+    PRICE
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="list-accordian-div" (click)="onSelectionChange(price,'price')" [ngClass]="{'active' : price.isSelected === true}" *ngFor="let price of allFilterOptions?.price |sortnumber">{{price.value}}</div>
+</mat-expansion-panel>
+<mat-expansion-panel [expanded]="accordionExpand === 'review'">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+    REVIEW
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+  <div class="list-accordian-div" (click)="onReviewChange(4,'review')">
+  <div class="rating-icon rating-icon-custom">
+    <a><i class="fa fa-star" ></i></a>
+    <a><i class="fa fa-star" ></i></a>
+    <a><i class="fa fa-star" ></i></a>
+    <a><i class="fa fa-star" ></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a>
+    <span class="more-rating-new">& Up</span>
+  </div></div>
+  <div class="list-accordian-div" (click)="onReviewChange(3,'review')">
+  <div class="rating-icon rating-icon-custom">
+    <a><i class="fa fa-star" ></i></a>
+    <a><i class="fa fa-star" ></i></a>
+    <a><i class="fa fa-star" ></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a>
+    <span class="more-rating-new">& Up</span>
+  </div>
+</div>
+  <div class="list-accordian-div" (click)="onReviewChange(2,'review')">
+  <div class="rating-icon rating-icon-custom">
+    <a><i class="fa fa-star" ></i></a>
+    <a><i class="fa fa-star" ></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a>
+    <span class="more-rating-new">& Up</span>
+  </div></div>
+  <div class="list-accordian-div" (click)="onReviewChange(1,'review')">
+  <div class="rating-icon rating-icon-custom">
+    <a><i class="fa fa-star" ></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a>
+    <a class="star-o"><i class="fa fa-star-o"></i></a>
+    <span class="more-rating-new">& Up</span>
+  </div>
+</div>
+</mat-expansion-panel>
+</mat-accordion>        <!-- Filter Search Left Menu Start -->
+        <!-- <div class="panel-group filter-panel" id="selectedFiltersAccordion" role="tablist" aria-multiselectable="true">
+            <div class="panel bottle-panel-container">
+              <div class="left-panel-section" role="tab" id="myFilterHeading">
+                <h4 class="panel-title left-panel-title">
+                  <a role="button" data-toggle="collapse" data-parent="#selectedFiltersAccordion" href="#myFilters" aria-expanded="true"
+                    aria-controls="myFilter">
+                    Filter <span class="fa fa-chevron-down pull-right"></span>
+                  </a>
+                </h4>
+              </div>
+              <ul id="myFilters" class="panel-collapse collapse in search-history" role="tabpanel" aria-labelledby="myFilterHeading">
+                <li *ngFor="let filter of selectedFilters"><a (click)="removeFilter(filter)"> {{filter.value}} <span
+                      class="fa fa-close"></span></a></li>
+              </ul>
+            </div>
+        </div>
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true"> 
+          <div class="panel bottle-panel-container">
+            <div class="left-panel-section" role="tab" id="myCategoryHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myCategory"
+                  aria-expanded="false" aria-controls="myCategory">
+                  Category <span class="fa fa-chevron-up pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="myCategory" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myTypeHeading">
+              <li><a (click)="onCategorySelectionChange(category)" [ngClass]="{'active' : category.isSelected === true}"
+                  *ngFor="let category of categoryList">{{category.value}}</a></li>
+            </ul>
+          </div>
+          <div class="panel bottle-panel-container">
+            <div class="left-panel-section" role="tab" id="myTypeHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myType"
+                  aria-expanded="false" aria-controls="myType">
+                  Type <span class="fa fa-chevron-up pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="myType" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myTypeHeading">
+              <li><a (click)="onTypeSelectionChange(type)" [ngClass]="{'active' : type.isSelected === true}" *ngFor="let type of allFilterOptions?.type">{{type.value}}</a></li>
+            </ul>
+          </div>
+          <div class="panel bottle-panel-container"  *ngIf="allVarietals?.length > 0">
+            <div class="left-panel-section" role="tab" id="myVarietalHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myVarietal"
+                  aria-expanded="false" aria-controls="myVarietal">
+                  Varietal <span class="fa fa-chevron-up pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="myVarietal" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myVarietalHeading">
+              <li><a (click)="onSelectionChange(varietal)" [ngClass]="{'active' : varietal.isSelected === true}" *ngFor="let varietal of allVarietals">{{varietal.value}}</a></li>
+            </ul>
+          </div>
+          <div class="panel bottle-panel-container">
+            <div class="left-panel-section" role="tab" id="mySizeHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#mySize"
+                  aria-expanded="false" aria-controls="mySize">
+                  Size <span class="fa fa-chevron-up pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="mySize" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="mySizeHeading">
+              <li><a (click)="onSelectionChange(size)" [ngClass]="{'active' : size.isSelected === true}" *ngFor="let size of allFilterOptions?.size">{{size.value}}</a></li>
+            </ul>
+          </div>
+          <div class="panel bottle-panel-container" *ngIf="allFilterOptions?.countries.length > 0">
+            <div class="left-panel-section" role="tab" id="myCountryHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myCountry"
+                  aria-expanded="false" aria-controls="myCountry">
+                  Country <span class="fa fa-chevron-up pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="myCountry" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myCountryHeading">
+              <li><a (click)="onCountrySelectionChange(country)" [ngClass]="{'active' : country.isSelected === true}" *ngFor="let country of allFilterOptions?.countries">{{country.value}}</a></li>
+            </ul>
+          </div>
+          <div class="panel bottle-panel-container" *ngIf="allFilterOptions?.countries.length > 0">
+            <div class="left-panel-section" role="tab" id="myRegionHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myRegion"
+                  aria-expanded="false" aria-controls="myRegion">
+                  Region <span class="fa fa-chevron-down pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="myRegion" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="myRegionHeading">
+              <li><a (click)="onSelectionChange(region)" [ngClass]="{'active' : region.isSelected === true}" *ngFor="let region of allRegions">{{region.value}}</a></li>
+            </ul>
+          </div>
+          <div class="panel bottle-panel-container">
+            <div class="left-panel-section" role="tab" id="PriceHeading">
+              <h4 class="panel-title left-panel-title">
+                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#myPrice"
+                  aria-expanded="false" aria-controls="myPrice">
+                  price <span class="fa fa-chevron-up pull-right"></span>
+                </a>
+              </h4>
+            </div>
+            <ul id="myPrice" class="panel-collapse collapse left-panel-body" role="tabpanel" aria-labelledby="PriceHeading">
+              <li><a (click)="onSelectionChange(price)" [ngClass]="{'active' : price.isSelected === true}" *ngFor="let price of allFilterOptions?.price">{{price.value}}</a></li>
+            </ul>
+          </div>
+          <div class="bottle-panel-container">
+            <div class="left-panel-section">
+              <h4 class="left-panel-title">
+                <a (click)="clearSearch()" class="bottles-brand">
+                  Clear Search</a>
+              </h4>
+            </div>
+          </div>
+        </div> -->
+        <!-- Filter Search Left Menu End -->
+      </div>
+      <div class="col-md-9 col-sm-9 col-lg-9 col-xs-12 featured-product-list-right">        
+        <div class="searchresult-top-div">
+          <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
+              <!-- <h4>Search Results</h4> -->
+              <!-- <input type="text" placeholder="Search Results"> -->
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                  <a [routerLink]="['/home']">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                  Search Categories
+                </li>
+              </ol>
+            </div>
+          </div>
+        <div class="top-pagination-main">
+         <div class="row" *ngIf="productsList?.length > 0">
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="heading-sub-text">
+              Showing {{fromProductNo}}-{{(fromProductNo - 1) + productsList.length}} of {{totalProducts}} Products
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="page-navigation" *ngIf="totalProducts > 0">
+              <ngb-pagination [collectionSize]="totalProducts" (pageChange)="onPageChange($event)" [(page)]="page"
+                [pageSize]="selectedPageSize" [maxSize]="2" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+            </div>
+              <div class="select-div">
+                <select #selectedvalue class="selectBox form-control classic size-sort" [(ngModel)]="selectedPageSize" (change)="onPageSizeChange()">
+                  <option>Page Size</option>
+                  <option *ngFor="let size of PageSize">
+                    {{size}}
+                  </option>
+                </select>
+  
+                 <select [(ngModel)]="sortbyfilter" (change)="onSortfilter()" class="form-control classic type-sort">                <option value="0" disabled selected>SORT BY</option>
+                <option [value]="type.Id" *ngFor="let type of SortProductsBy">
+                  {{type.SortBy}}
+                </option>
+              </select>
+              </div>
+           </div>         
+         </div>
+       </div>
+      </div>
+
+        <div class="Main_bottlesection">
+          <div *ngIf="isLoading" class="loader">Loading...</div>
+          <div class="row row-alt">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 advance-filter-product-div" *ngFor="let product of productsList">
+              <app-product [item]="product"></app-product>
+            </div>
+          </div>
+          <div *ngIf="isError" class="products-error-page">              
+            <div class="products-error-page-description"> 
+              <p>There are no products matching your search!</p>
+              <p>Try a different filter.</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-xs-12">
+            <div class="f-page-navigation" *ngIf="totalProducts > 0">
+              <ngb-pagination [collectionSize]="totalProducts" (pageChange)="onPageChange($event)" [(page)]="page"
+                [pageSize]="selectedPageSize" [maxSize]="2" [rotate]="true" [boundaryLinks]="true"></ngb-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  <div class="back-top-top-btn" *ngIf="productsList?.length > 6">
+    <button id="button" (click)="gotoTop()" class="top">
+      <span class="back-top-top-sub">Back To Top</span>
+        <i class="fa fa-arrow-up arrow-up-backtotop" aria-hidden="true"></i>
+    </button>
+  </div>
+</div>
+</div>
+</section>
+</div>
+</div>
+</div>
+
+<app-downloadapp></app-downloadapp>

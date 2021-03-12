@@ -1,0 +1,322 @@
+@import "src/variable.scss";
+.items-cart {width: calc(100% - 380px); float: left; padding-right: 45px;}
+.cart-total {width: 380px; float: left; padding-left: 45px;}
+.place-order-container {width: 1380px; margin: 0 auto; display: table;}
+.order-result-sub-div {width: 100%; float: left;}
+.address-main {display: inline-block; vertical-align: top; float: none;}
+.order-details-section {width: 100%; float: left; margin-bottom: 10px;}
+.success-failed-order-section {
+    margin: 0;
+    width: 100%;
+    float: left;
+    display: block;
+    .order-details-section {
+        h2 {
+            font-family: $montserrat-regular;
+            font-size: 32px;
+            color: $common-font-color;
+            display: block;
+            padding-top: 5px;
+            letter-spacing: 1px;
+            margin-top: 0px;
+        }
+        h4 {
+            font-family: $gotham-bold;
+            font-weight: bold;
+            font-size: 20px;
+            color: $common-font-color;
+            display: block;
+            padding-top: 5px;
+            padding-bottom: 0px;
+            margin-bottom: 0px;
+        }
+        p {font-size: 14px; line-height: 16px; margin-top: 6px;
+            a{color: $common-font-color; color: pointer;}
+        }
+    }
+    .success-order-section {
+        h2 {
+            font-family: $montserrat-regular;
+            font-size: 38px;
+            color: $common-font-color;
+            display: block;
+            padding-top: 0px;
+            padding-bottom: 10px;  
+            margin: 0;          
+        }
+        h4 {
+            font-family: $gotham-bold;
+            font-weight: bold;
+            font-size: 18px;
+            color: $common-font-color;
+            display: block;
+            padding-top: 5px;
+            letter-spacing: 1px;
+        }
+    }
+    .failed-order-section {
+        h2 {
+            font-family: $montserrat-regular;
+            font-size: 38px;
+            color: #ed0000;
+            display: block;
+            padding-top: 15px;            
+        }
+        h4 {
+            font-family: $gotham-bold;
+            font-weight: bold;
+            font-size: 18px;
+            color: $common-font-color;
+            display: block;
+            padding-top: 5px;
+            letter-spacing: 1px;
+        }
+    }
+
+    button.continue-shop {
+        font-family: $poppins-regular !important;
+        outline: none;
+        background-color: $lukas-color;
+        color: #fff !important;
+        border-color: $lukas-color;
+        padding: 10px 50px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        // box-shadow: $boxshadow-active;
+    }
+}
+h3.total{
+    border-bottom:1px solid #979797 !important;
+padding-bottom:10px;
+margin-bottom: 10px;
+color: $common-font-color;
+margin-top: 0;
+}
+.red{ color: #ea0a2a;
+    font-family: $montserrat-regular;
+    font-weight: bold;
+    position: absolute;
+    right: 15px;
+    top: 21px;
+    cursor: pointer;
+}
+address {
+    display: inline-block;
+    font-family: $gotham-book;
+    font-weight: 600;
+    font-size: 13px;
+    color: #56565a !important;
+  }
+  address span{
+    font-family: $gotham-bold;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .store-address{
+    // border-bottom: 1px solid #979797 !important;
+    margin: 5px 0 15px 0;
+    padding-bottom: 1px;
+  }
+  .total-container{
+    font-family: $montserrat-regular;
+    text-align: left;
+  }
+  .total-container td.label{
+    font-family: $gotham-bold;
+    font-weight: bold;
+    color: #56565a !important;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 19px;
+    white-space: normal;
+    display: table-cell;
+    text-align: left;
+    padding: 4px 0;
+  }
+  .total-container td.text-right{
+    padding: 4px 0;
+    font-family: $montserrat-regular;
+    font-size: 14px;
+    display: table-cell;
+    min-width: 100px;
+  }
+  .total-container td.total{
+    font-size: 20px;
+    line-height: 50px;
+  }
+  .total-container td.red{
+    color: #ea0a2a !important;
+  }
+  .logo-store {width: 64px; display: inline-block; vertical-align: top; float: none; margin-right: 25px;}
+  .logo-store img {width: 100%;}
+  .order-details-panel {
+    // background-color: #f7f7f7;
+    padding: 10px 0 0;
+    table {
+      width: 100%;
+      .prod-img {
+        /*width: 60px;*/
+        height: 70px;
+        border-radius: 5px;
+        border: solid 1px #ccc;
+        padding: 5px 15px;
+        margin-top: -3px;
+        margin-right: 5px;
+      }
+      td.img-block {
+        padding-top: 10px;
+        padding-bottom: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        vertical-align: top;
+      }
+      &.first-table {
+        border-bottom: solid 1px #ccc;
+        h4 {
+          margin-bottom: 0px;
+        }
+        h6 {
+          font-size: $common-font-size;
+          margin-bottom: 5px;
+          margin-top: 10px;
+          color: $lukas-color;
+          font-family: $montserrat-regular;
+        }
+        p {
+          font-size: 14px;
+          margin-bottom: 5px;
+          font-family: $poppins-regular;
+        }
+        .totalprice-right {
+          margin: 0px;
+          padding: 0px;
+          vertical-align: bottom;
+          font-family: $montserrat-regular;
+          p {
+            margin-top: 10px;
+            margin-bottom: 30px;
+            font-weight: bold;
+            font-size: 13px;
+            font-family: $poppins-regular;
+          }
+          h5 {
+            font-size: 20px;
+            color: $lukas-color;
+            font-family: $montserrat-regular;
+          }
+        }
+      }
+      td.summary-block {
+        width: 90px;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        vertical-align: top;
+        h5 {
+          margin: 0px;
+          font-family: $montserrat-regular;
+        }
+      }
+      &.summary-container {
+        margin-top: 10px;
+      }
+    }
+  }
+  
+@media screen and (max-width: 1440px) and (min-width: 1200px) {
+  .place-order-container {width: 1160px;}
+  .items-cart {width: calc(100% - 330px);}
+  .cart-total {width: 330px;}
+  .summary-container {margin-right: 50px;}
+}
+
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+  .place-order-container {width: 950px;}
+  .items-cart {padding-right: 30px; padding-left: 15px;}
+  .cart-total {padding-left: 30px; padding-right: 15px;}
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+    .place-order-container {width: 100%; padding: 0 30px;}
+    .items-cart {width: 100%; padding-right: 0;}
+    .cart-total {width: 100%; padding-left: 0; margin-top: 20px; margin-bottom: 30px;}
+    .success-failed-order-section {
+      .failed-order-section {
+         h2 {font-size: 34px;}
+   }
+   }
+    .success-failed-order-section {
+      .success-order-section {
+         h2 {font-size: 34px;}
+   }
+   }
+    h3.total{
+      font-size: $common-font-size;
+    }
+    .red{
+      top: 0;
+    }
+    tr.tot-row td.total{
+      font-size: 18px !important;
+    }
+    tr.tot-row .text-right{
+      padding: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+  .items-cart {width: 100%; padding-right: 0;}
+  .place-order-container {width: 100%; padding: 0 20px;}
+  .cart-total {width: 100%; padding-left: 0; margin-top: 0px; margin-bottom: 20px;}
+      h3.total{
+      font-size: 20px !important;
+    }
+    .red{
+      top: 0;
+      font-size: 13px !important;
+    }
+        .success-failed-order-section .success-order-section h2{
+            font-size: 23px;
+        }
+        .red{
+            right: 25px;
+            top: 3px;
+            font-size: 13px !important;
+        }
+
+        .total-container td.total{
+            font-size: 20px !important;
+        }
+        .total-container td.label{
+            font-size: 14px !important;
+            padding: 4px 0;
+        }
+        .total-container td.text-right{
+            font-size: 13px !important;
+            padding: 4px 0;
+        }
+        tr.tot-row td.total{
+          font-size: 18px !important;
+        }
+    }    
+    @media screen and (max-width: 480px) {
+        .success-failed-order-section .success-order-section h2{
+            font-size: 23px;
+        }
+        .red{
+            right: 25px;
+            top: 3px;
+        }
+        .total-container td.label{
+            font-size: 14px !important;
+            padding: 0px 0;
+        }
+        .total-container td.text-right{
+            font-size: 13px !important;
+            padding: 0px 0;
+        }
+        tr.tot-row td.total{
+          font-size: 18px !important;
+        }
+  }

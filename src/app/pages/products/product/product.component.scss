@@ -1,0 +1,148 @@
+@import "src/variable.scss";
+
+.sale-tag-new {
+  position: relative;
+  img {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    border-top-right-radius: 10px;
+    width: 55px;
+   }
+  }
+
+.sale-tag {
+  position: relative;
+  img {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    border-top-right-radius: 10px;
+    width: 55px;
+  }
+}
+
+.Main_bottlesection_product {width: 100%; float: left; margin-bottom: 30px; height: 305px; background: #fff; border-radius: 10px;}
+.product-image-div {height: 180px; text-align: center; padding: 15px 15px 10px; position: relative; border-radius: 10px 10px 0 0; transition: .3s ease-in-out; width: 100%; float: left;}
+.div-favourite {position: absolute; left: 15px; top: 15px; width: 32px; z-index: 3;}
+.fav-new.fav {max-width: inherit; cursor: pointer; pointer-events: all; width: 32px;}
+.product-image-sub {width: 100%; float: left; position: relative;}
+.product-image-sub img {width: 65px; height: 135px; display: table; margin: 0 auto !important; float: none;}
+.second_content_product.second_content {min-height: inherit; text-align: left; padding: 2px 15px 15px; height: 125px; border-radius: 0 0 5px 5px; cursor: pointer; position: relative;
+  float: left !important; width: 100%;}
+.second_content_product.second_content h5 {height: 48px; text-transform: capitalize; text-align: left; padding: 0; margin: 0 auto; font-size: 18px; line-height: 22px;
+  white-space: normal; overflow-x: auto; text-overflow: inherit;}
+.text-concat-new {position: relative; word-wrap: break-word; overflow: hidden; max-height: 50px; line-height: 1.2em;}
+.price-cart-div {width: 100%; float: left; margin-top: 6px;}
+.price-cart-div-sub {padding-right: 40px; width: 100%; float: left; font-family: $montserrat-regular; font-size: 1.3em; font-stretch: normal;
+  letter-spacing: normal; text-align: left; line-height: normal;}
+.strike_text_new {text-decoration: line-through;  color: $common-font-color; float: left; padding-right: 15px; width: auto;}
+.price_new {font-weight: 700; color: $second-color; width: auto; float: left;}
+.page-product {pointer-events: all; cursor: pointer; width: 100%; float: left; color: $common-font-color;}
+.producttitle {word-break: break-word; margin-bottom: 2px;}
+.top-seller-div {width: calc(100% + 30px); text-transform: uppercase; float: left; margin: 3px 0; font-family: $gotham-book; font-weight: 600; text-align: center; letter-spacing: 1.2px; left: -15px; position: relative; background: $lukas-color; color: #fff; padding: 0 6px; font-size: 13px;}
+.cart {position: absolute; right: 15px; bottom: 27px; z-index: 3;}
+.product_size {min-height: 18px;}
+.pright0{ padding-right: 0px;}
+.pleft0{ padding-left:0px;}
+.rating_star{ position: absolute; left: 0; bottom: 0;}
+.ptop5{ padding-top: 5px;}
+i.icon-favorites{  display: block; position: absolute; left: 10px; top: 10px; }
+i.icon-add-to-my-cart,
+i.icon.icon-remove-cart.active,
+i.active {
+  // padding-top: 67px;
+  display: inline-block;
+}
+.active-star i.fa-star {
+  color: $lukas-color;
+}
+.strike_text {
+  text-decoration: line-through;
+  font-family: PT Sans Narrow;
+  font-size: $common-font-size;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: $common-font-color;
+  float: left;
+  //padding-right: 35px;
+}
+.cart-feature{ max-width: 32px; pointer-events: all; cursor: pointer;}
+.limit-per-user {
+  color: $second-color;
+  font-size: 10px;
+}
+.sale-tag {
+  position: relative;
+  img {
+    position: absolute;
+    right: 0px;
+    top: -5px;
+    border-top-right-radius: 10px;
+  }
+}
+.margin_bottom a.pimg img {
+  width: 100%;
+  max-width: 25% !important;
+  height: auto;
+  cursor: pointer;
+  pointer-events: all;
+  /* position: relative;
+  left: 25px; */
+}
+
+@media screen and (max-width: 1199px) and (min-width: 992px) {
+  .strike_text_new {padding-right: 25px;}
+}
+
+@media screen and (max-width: 1199px) {
+  .product-image-sub img {width: 60px; height: 125px;}
+}
+
+@media screen and (max-width: 991px) and (min-width: 768px) {
+  .second_content_product.second_content h5 {font-size: 18px !important;}
+  .price-cart-div-sub {font-size: 1.1em;}
+  .strike_text_new {padding-right: 20px;}
+  .fav-new.fav {width: 28px;}
+}
+
+@media screen and (max-width: 767px) {
+  .Main_bottlesection_product {margin-bottom: 20px; height: 285px;}
+  .fav-new.fav {width: 24px;}
+  .price-cart-div-sub {font-size: 1.1em; padding-right: 25px;}
+  .strike_text_new {padding-right: 12px;}
+  .second_content_product.second_content h5 {font-size: 16px !important; line-height: 18px; height: 40px;}
+  .cart-feature {max-width: 30px;}
+  .second_content_product.second_content {height: 115px; padding: 2px 15px 15px;}
+  .cart img {max-width: 24px;}
+  .producttitle.producttitle_new {height: 39px;}
+  .product-image-div {padding: 15px;}
+  .sale-tag-new {
+    img {
+      right: -15px;
+      top: -15px;
+    }
+  }
+}
+
+:host(.mixers) ::ng-deep a.pimg img {
+  max-width: 100%;
+}
+.text-concat {
+    position: relative;
+    display: inline-block;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 2.9em; 
+    line-height: 1.2em;
+    // text-align:justify;
+  }
+  
+.text.ellipsis::after {
+    content: "...";
+    position: absolute;
+    right: -12px; 
+    bottom: 4px;
+  }

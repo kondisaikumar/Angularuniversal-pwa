@@ -1,0 +1,41 @@
+@import "~src/variable.scss";
+
+.Product_name h5{
+	font-family: poppins;
+    font-size: 20px;
+    text-align: left;
+    color: #262628;
+}
+
+.Searchrelated_div_myorders {width: auto; float: left; position: relative; z-index: 2;}
+.Searchrelated_div_myorders h6 {font-family: $montserrat-regular; font-size: 20px;}
+.myorders-section {width: 100%; float: left; top: -20px; position: relative; z-index: 1;}
+.myorders-section-sub {width: 100%; float: left;}
+.order-results {width: 100%; float: left;}
+
+.bg-transparent h5.Product_price {
+	font-family: poppins;
+    font-size: 18px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: .5px;
+    text-align: left;
+    color: $lukas-color;
+}
+
+.Searchrelated_div-bot {
+    margin-bottom: 10px !important;
+}
+
+.page-navigation {
+    width: auto;
+    float: right;
+    margin-bottom: 20px !important;
+}
+
+@media only screen and (max-width: 991px) {
+    .page-navigation {
+        margin-bottom: 10px !important;
+    }
+}

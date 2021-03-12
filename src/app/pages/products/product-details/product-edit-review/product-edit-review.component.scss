@@ -1,0 +1,38 @@
+@import "~src/variable.scss";
+.rating-stars {
+    font-size: 22px;
+    margin-top: -5px;
+    span a {
+       margin-right: 5px !important;
+       color: #555555;
+    }
+}
+
+.your_rating h5,form.common_width label{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12.3px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: #777777 ;
+}
+
+.form-group-new {width: 100%; float: left; margin-bottom: 15px; padding: 0 15px;}
+.product-edit-main {width: 100%; float: left; padding-left: 180px;} 
+.form-group-new label {
+    font-family: $montserrat-regular;
+    font-weight: bold;
+    font-size: 18px;
+    color: $common-font-color;
+    margin-bottom: 0px;
+}
+.review-heading-edit {width: 100%; float: left; font-family: $montserrat-regular; font-weight: bold; color: $common-font-color; font-size: 25px;}
+.product-edit-form {width: 100%; float: left;}
+@media screen and (max-width: 767px) {
+    .review-heading-edit {font-size: 14px; padding: 15px 0 0;}
+    .form-group-new label {font-size: 14px; margin-bottom: 4px;}
+    .product-edit-main {padding-left: 0;}
+}

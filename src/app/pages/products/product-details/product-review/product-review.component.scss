@@ -1,0 +1,175 @@
+@import "~src/variable.scss";
+
+.reviews {
+	width: 100%;
+    float: left;
+    .review-edit {
+	  position: absolute;
+	  top: 0;
+	  right: 0;
+      cursor: pointer;
+      width: 40px;
+    	.edit-icon {
+	    	color: #fff;
+		    font-size: 16px;
+		    background-color: $lukas-color;
+		    border-radius: 50%;
+		    text-align: center;
+		    padding: 10px;
+	    }
+    }
+	.user-review-dp {
+		border-radius: 50%;
+		-o-border-radius: 50%;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+		background-color: $common-font-color;
+		display: inline-block;
+        vertical-align: middle;
+		color: $common-font-color;
+		cursor: pointer;
+		float: none;
+
+		img {
+			width: 54px;
+			height: 54px;
+			border-radius: 50%;
+		}
+	}
+	.rev-name { 
+		font-family: $poppins-regular;
+		color:$common-font-color;
+		font-weight: bold;
+		font-size: 26px;
+		float: none;
+		display: inline-block;
+		vertical-align: middle;
+		padding-left: 8px;
+		line-height: 30px;
+		width: calc(100% - 58px);
+	}
+	.rev-block{
+		border-bottom: solid 1px #d8d9d9;
+		padding-bottom: 20px;
+		padding-top: 20px;
+		width: 100%;
+		float: left;
+	}
+	.user-review-content-left {width: 50%; padding-right: 15px; float: left; position: relative; top: 2px;}
+    .user-review-content-right {width: 50%; padding-left: 15px; float: left; font-size: 16px; font-family: $montserrat-regular;}
+	.user-review-content {
+		font-family: poppinssemiregular;
+		margin-left: 0;		
+		padding-right: 55px;
+		position: relative;
+	    float: left;
+	    width: 100%;
+			.title {
+				font-size: 14px;
+				color: #222;
+				font-weight: 700;
+				font-family: $poppins-regular;
+
+			}
+			.caption {
+				margin-top: 10px;
+				font-size: 14px;
+				color: #777;
+				font-weight: normal !important;
+				font-family: poppinssemiregular;
+				margin-right: 70px;
+			}
+			.name_date {
+				font-family: $montserrat-regular;
+				font-size: 16px;
+				width: 100%;
+				float: left;
+			}
+	}
+
+	.rating-stars {
+		float: right;
+	    position: relative;
+	    top: -12px;
+	    right: 20px;
+	}
+}
+
+.your_rating h5,form.common_width label{
+    font-family: 'Roboto', sans-serif;
+    font-size: 12.3px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.71;
+    letter-spacing: 0.4px;
+    text-align: left;
+    color: #777777 ;
+}
+
+.user-reviews-left {width: 300px; display: inline-block; vertical-align: top; float: none;}
+.user-reviews-right {width: calc(100% - 300px); padding-left: 40px; display: inline-block; vertical-align: top; float: none;}
+.form-group label{
+    font-family: $montserrat-regular;
+    font-weight: bold;
+    font-size: 18px;
+    color: $common-font-color;
+    margin-bottom: 0px;
+}
+
+.write-review {
+    padding: 20px 50px !important;
+    margin: 0px !important;
+    p {
+        font-size: 16px !important;
+    }
+    .review_title {
+        font-size: 28px !important;
+        line-height: normal !important;
+        padding-top: 10px;
+    }
+    .add_review  {
+        padding: 10px 0px;
+        h4 {
+            font-size: 22px !important;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+            }
+        p {
+            font-size: 16px !important;
+        }
+    }
+    .review-form-right {
+            margin-top: 20px !important;
+            padding-left: 0 !important;
+        }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+	.reviews .user-review-dp img {width: 48px; height: 48px;}
+	.reviews .rev-name {font-size: 22px;}
+}
+
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+	.reviews .user-review-dp img {width: 42px; height: 42px;}
+	.reviews .rev-name {font-size: 20px;}
+}
+
+@media only screen and (max-width: 767px) {
+	.reviews .user-review-dp img {width: 36px; height: 36px;}
+	.reviews .rev-name {display: none;}
+	.reviews .rev-block {padding-top: 15px; padding-bottom: 15px;}
+	.reviews .rev-name {font-size: 15px; line-height: 17px;}
+	.reviews .user-review-content-left {padding-right: 5px;}
+	.reviews .user-review-content-right {padding-left: 5px;}
+}
+
+@media only screen and (max-width: 767px) and (min-width: 481px) {
+	.user-reviews-left {width: 40px;}
+	.user-reviews-right {width: calc(100% - 40px); padding-left: 15px;}
+}
+
+@media only screen and (max-width: 480px) {
+	.user-reviews-left {width: 40px;}
+	.user-reviews-right {width: calc(100% - 40px); padding-left: 10px;}
+}

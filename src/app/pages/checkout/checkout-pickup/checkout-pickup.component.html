@@ -1,0 +1,108 @@
+<div class="checkout-section">
+        <div class="pickup-tile">                
+                    <div class="pickup-section">
+                        <div class="pickup-store-left">
+                          <div class="checkout-heading">Pick-Up Address</div>
+                            <div class="address">
+                            <div class="address-text-name">{{storeDetails?.StoreName}}</div>
+                            <p class="address-details-checkout">{{storeDetails?.Address1}}</p>
+                            <p *ngIf="storeDetails?.Address2" class="address-details-checkout"> {{storeDetails?.Address2}}, </p>
+                            <p class="address-details-checkout">{{storeDetails?.City}}, {{storeDetails?.State}} {{storeDetails?.Zip}}</p>
+                         </div>
+                        </div>
+                        <div class="pickup-store-right">
+                          <div class="pickup-options">
+                          <div class="checkout-heading">Pickup Date & Time</div>
+                          <div class="checkout-pickup-details">
+                           <div class="input-container">
+                            <img src="../../../../assets/Images/icon-calendar.png" alt="iconcalender">
+                            <div class="checkout-pickup-details-select">
+                            <select id="dateList" name="dateList" class="form-control classic dateinput" [(ngModel)]="selectedDeliveryDate" (ngModelChange)="getDeliveryTimings(true)">
+                             <option value="" disabled selected>Select Date</option>
+                             <option [value]="ddate" *ngFor="let ddate of deliveryDatesList">
+                              {{ddate}}
+                             </option>
+                             </select>    
+                            </div>                    
+                           </div>
+  
+                            <div class="input-container">
+                              <img src="../../../../assets/Images/icon-time.png" alt="icontime">
+                               <div class="checkout-pickup-details-select">
+                                 <select id="timeList" name="timeList" class="form-control classic dateinput" [(ngModel)]="selectedDeliveryTime" (ngModelChange)="updateDeliveryTime()">
+                                  <option value="" disabled selected>Select time</option>  
+                                  <option [value]="dtime" *ngFor="let dtime of deliveryTimingsList">
+                                      {{dtime}}
+                                    </option>
+                                  </select>
+                                </div>                            
+                             </div>
+                            </div>
+                            </div>
+
+                            <div class="pickup-store-right-sub">
+                            <div class="address-text-name-autowidth address-text-name-margin"><a href="tel:{{storeDetails?.ContactNo}}">{{storeDetails?.ContactNo}}</a></div>
+                            <div class="address-text-name-autowidth"><a href="mailto:{{storeDetails?.StoreEmail}}">{{storeDetails?.StoreEmail}}</a></div>
+                         </div>
+                        </div>
+                    </div>                
+        </div>
+      </div>
+
+
+        <!-- Trigger the modal with a button -->
+  <button type="button" [hidden]="true" #profileModal  data-toggle="modal" data-target="#myModal"></button>
+
+  <!-- Modal -->
+  <div class="modal-newregistration modal fade" id="myModal" data-backdrop="static" data-keyboard="false" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close close-newreg" #closeprofileModal data-dismiss="modal">&times;</button>          
+        </div>
+        <div class="modal-body">
+          <h4 class="modal-title modal-title-newreg">Add Profile</h4>
+        <div class="add-newaddress">
+          <form [formGroup]=formProfile (ngSubmit)=" saveProfile()">
+              <div class="newreg-form-fields">
+                  <label>First Name <span>*</span></label>
+                    <input type="name" aria-label="Search" formControlName="pFirstName" class="form-control" placeholder="" autocomplete="none">
+                    <div *ngIf="submitted && p.pFirstName.errors" class="alert alert-danger">
+                      <div *ngIf="p.pFirstName.errors.required">First Name is required.</div>
+                      <div *ngIf="p.pFirstName.errors.minlength">First Name should be at least 2 characters</div>
+                    </div>
+                  </div>
+                  <div class="newreg-form-fields">
+                   <label>Last Name <span>*</span></label>
+                    <input type="name" aria-label="Search" formControlName="pLastName" class="form-control" placeholder="" autocomplete="none">
+                    <div *ngIf="submitted && p.pLastName.errors" class="alert alert-danger">
+                      <div *ngIf="p.pLastName.errors.required">Last Name is required.</div>
+                      <div *ngIf="p.pLastName.errors.minlength">Last Name should be at least 2 characters</div>
+                    </div>
+                  </div>
+                  <div class="newreg-form-fields">
+                    <label>Phone Number <span>*</span></label>
+                        <input type="text" aria-label="Search" formControlName="pContactNo" class="form-control" placeholder="" />
+                     <div *ngIf="submitted && p.pContactNo.errors" class="alert alert-danger">
+                              <div *ngIf="p.pContactNo.errors.required">Phone Number is required.</div>
+                              <div *ngIf="p.pContactNo.errors.minlength">Phone Number should be minimum 10 numbers</div>
+                        <div *ngIf="p.pContactNo.errors.maxlength">Phone Number should be maximum 10 numbers</div>
+                          </div>
+                      </div> 
+             
+            <div class="newreg-form-btn">
+                <div class="btn_right buttons-container">
+                  <button type="submit" class="common-btn">Save</button>
+                  <button type="cancel" data-dismiss="modal" class="common-btn-grey">Cancel</button>                  
+                </div>
+              </div> 
+            </form>
+          </div> 
+        </div>       
+      </div>      
+    </div>
+  </div>
+  
+

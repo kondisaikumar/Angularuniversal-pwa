@@ -1,0 +1,189 @@
+<div class="add-address-main-div">
+  <div class="row">
+   <div class="col-lg-10 col-md-11 col-sm-12 col-xs-12">
+    <div class="add-address-top">
+     <div class="myaccount-common-div">
+      <h6>Add New Address</h6>
+       </div>
+        <div class="add-newaddress">
+            <form [formGroup]=formProfile>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="text-uppercase">First Name <span>*</span></label>
+                      <input type="name" formControlName="pFirstName" class="form-control" placeholder="" autocomplete="none">
+                      <div *ngIf="submitted && p.pFirstName.errors" class="alert alert-danger">
+                        <div *ngIf="p.pFirstName.errors.required">First Name is required.</div>
+                        <div *ngIf="p.pFirstName.errors.minlength">First Name should be at least 2 characters</div>
+                      </div>
+                    
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="text-uppercase">Last Name <span>*</span></label>
+                      <input type="name" formControlName="pLastName" class="form-control" placeholder="" autocomplete="none">
+                      <div *ngIf="submitted && p.pLastName.errors" class="alert alert-danger">
+                        <div *ngIf="p.pLastName.errors.required">Last Name is required.</div>
+                        <div *ngIf="p.pLastName.errors.minlength">Last Name should be at least 2 characters</div>
+                      </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="text-uppercase">Phone Number <span>*</span></label>
+                          <input type="text" formControlName="pContactNo" class="form-control" placeholder="" />
+                          <div *ngIf="submitted && p.pContactNo.errors" class="alert alert-danger">
+                              <div *ngIf="p.pContactNo.errors.required">Phone Number is required.</div>
+                              <div *ngIf="p.pContactNo.errors.minlength">Phone Number should be minimum 10 numbers</div>
+                        <div *ngIf="p.pContactNo.errors.maxlength">Phone Number should be maximum 10 numbers</div>
+                          </div>
+                      
+                  </div>
+              </div>
+              </div>
+              </form>
+              </div>
+              </div>
+
+
+      <div class="add-address-top">
+        <div class="myaccount-common-div">
+        <h6>Delivery Information</h6>
+      </div>
+        <div class="add-newaddress">
+            <form [formGroup]=formAddNewAddress (ngSubmit)="onAddressSave()">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="text-uppercase">First Name <span>*</span></label>
+                      <input type="name" formControlName="aFirstName" class="form-control" placeholder="">
+                      <div *ngIf="submitted && f.aFirstName.errors" class="alert alert-danger">
+                        <div *ngIf="f.aFirstName.errors.required">First Name is required.</div>
+                        <div *ngIf="f.aFirstName.errors.minlength">First Name should be at least 2 characters</div>
+                      </div>
+                    
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="text-uppercase">Last Name <span>*</span></label>
+                      <input type="name" formControlName="aLastName" class="form-control" placeholder="">
+                      <div *ngIf="submitted && f.aLastName.errors" class="alert alert-danger">
+                        <div *ngIf="f.aLastName.errors.required">Last Name is required.</div>
+                        <div *ngIf="f.aLastName.errors.minlength">Last Name should be at least 2 characters</div>
+                      </div>
+                    
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="text-uppercase">Address 1 <span>*</span></label>
+                      <input type="text" formControlName="aAddress1" class="form-control" placeholder="" autocorrect="off" autocapitalize="off" spellcheck="off" #search >
+                      <div *ngIf="submitted && f.aAddress1.errors" class="alert alert-danger">
+                        <div *ngIf="f.aAddress1.errors.required">Address 1 is required.</div>
+                      </div>                    
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="text-uppercase">Address 2</label>
+                      <input type="name" formControlName="aAddress2" class="form-control" placeholder="">                    
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="text-uppercase">City <span>*</span></label>
+                      <input type="name" formControlName="aCity" class="form-control" placeholder="">
+                      <div *ngIf="submitted && f.aCity.errors" class="alert alert-danger">
+                        <div *ngIf="f.aCity.errors.required">City is required.</div>
+                      </div>                    
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="text-uppercase">State <span>*</span></label>                    
+                    <select formControlName="aState" class="form-control">
+                      <option value="" disabled selected>Select State</option>
+                      <option [value]="statelist.StateCode"*ngFor="let statelist of stateList">{{statelist.StateName}}</option>
+                    </select>
+                     <div *ngIf="submitted && f.aState.errors" class="alert alert-danger alert-custom">
+                        <div *ngIf="f.aState.errors.required">State is required.</div>
+                        <!-- <div *ngIf="f.aState.errors.maxlength">State should be max 2 characters</div> -->
+                      </div> 
+                   
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="text-uppercase">Zip Code <span>*</span></label>
+                      <input type="name" formControlName="aZip" class="form-control" placeholder="">
+                      <div *ngIf="submitted && f.aZip.errors" class="alert alert-danger">
+                        <div *ngIf="f.aZip.errors.required">Zip Code is required.</div>
+                        <div *ngIf="f.aZip.errors.minlength">Zip Code should be minimum 5 numbers</div>
+                        <div *ngIf="f.aZip.errors.maxlength">Zip Code should be maximum 6 numbers</div>
+                      </div>                    
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="text-uppercase">NICKNAME</label>
+                      <input type="name" formControlName="aAddressName" class="form-control" placeholder="" />                    
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                      <label class="text-uppercase">Phone Number <span>*</span></label>
+                          <input type="text" formControlName="aContactNo" class="form-control" placeholder="" />
+                          <div *ngIf="submitted && f.aContactNo.errors" class="alert alert-danger">
+                              <div *ngIf="f.aContactNo.errors.required">Phone Number is required.</div>
+                              <div *ngIf="f.aContactNo.errors.minlength">Phone Number should be minimum 10 numbers</div>
+                        <div *ngIf="f.aContactNo.errors.maxlength">Phone Number should be maximum 10 numbers</div>
+                          </div>                      
+                  </div>
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="text-uppercase"><input type="checkbox" formControlName="aIsDefault"> SET AS FAVORITE
+                    </label>
+                  </div>
+                </div>
+                <!-- <div class="col-md-6">
+                    <div class="form-group"> 
+                    <label class="text-uppercase">Update Profile
+                      <label class="switch">
+                  <input type="checkbox" formControlName="aIsProfileUpdate">
+                  <span class="slider round"></span>
+                </label></label>
+                </div>
+                </div> -->
+              </div>
+                <div class="col-md-12 text-right">
+                  <div class="form-group">
+                    <div class="btn_right buttons-container">
+                      <button type="submit" class="common-btn">Save</button>
+                      <button type="cancel" routerLink="../manage-addresses"  class="common-btn-grey">Cancel</button>
+                      
+                    </div>
+                  </div>
+                </div>            
+            </form>
+         </div>   
+        </div>   
+   </div>
+  </div>
+</div>

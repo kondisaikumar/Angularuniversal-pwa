@@ -1,0 +1,4 @@
+<app-captchapayment *ngIf="captcha"
+(captcharesulttrue)="onCapthaValidatetrue()"
+(captcharesultfalse)="onCapthaValidatefalse()"></app-captchapayment>
+<app-add-new-payment *ngIf="!captcha"></app-add-new-payment>
