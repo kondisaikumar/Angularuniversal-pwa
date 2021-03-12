@@ -376,7 +376,7 @@ if (res.IsProfileUpdate === true) {
         "DeviceId": this.customerSession.DeviceId,
         "DeviceType": this.customerSession.DeviceType,
         "CaptchaToken": token,
-        "AppVersion": '11',
+        "AppVersion": this.appConfig.appVersion,
         "StoreCaptchaKey": cat,
         "PaymentTypeId":x.PaymentTypeId
         }
