@@ -1,0 +1,28 @@
+{
+    "reCaptchaStoreList": [
+        {
+            "storeCat": "A",
+            "storeName": "localhost",
+            "domain": "localhost",
+            "clientKey": "6Lfe2XIaAAAAAAHKMRCHwA7UpQ8u9mNabVT_OaCA",
+            "backendKey": "6Lfe2XIaAAAAACpGiASHJM2k_TKUf7MpnVKzLoLc-"
+        },
+        {
+            "storeCat": "A",
+            "storeName": "castaging",
+            "domain": "castaging.bottlecapps.com",
+            "clientKey": "6Lfe2XIaAAAAAAHKMRCHwA7UpQ8u9mNabVT_OaCA",
+            "backendKey": "6Lfe2XIaAAAAACpGiASHJM2k_TKUf7MpnVKzLoLc-"
+        },
+        {
+            "storeCat": "A",
+            "storeName": "brewerycreek",
+            "domain": "brewerycreek.bottlecapps.com",
+            "clientKey": "6Lfe2XIaAAAAAAHKMRCHwA7UpQ8u9mNabVT_OaCA",
+            "backendKey": "6Lfe2XIaAAAAACpGiASHJM2k_TKUf7MpnVKzLoLc-"
+        }
+        
+        
+
+    ]
+}
