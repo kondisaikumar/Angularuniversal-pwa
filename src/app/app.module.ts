@@ -16,7 +16,6 @@ import { ProductStoreActions } from './state/product-store/product-store.action'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-import { MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule, MatExpansionModule, MatButtonModule } from '@angular/material';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { RouterModule, UrlSerializer } from '@angular/router';
 import { CustomUrlSerializer } from './CustomUrlSerializer';
@@ -99,8 +98,12 @@ import { LandingstaffTopPicksComponent } from './pages/home/landingstaff-top-pic
 import { CookieService } from 'ngx-cookie-service';
 import { RatingComponent } from './shared/components/rating/rating.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
-
-
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatButtonModule} from '@angular/material/button';
 // Configs
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
@@ -192,7 +195,13 @@ export function getAuthServiceConfigs() {
     AppRoutingModule,
     AppRoutingModule ,
     CommonModule,
-    MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatExpansionModule, MatButtonModule,
+    MatDatepickerModule,
+     MatNativeDateModule,
+      MatFormFieldModule,
+       MatInputModule,
+        MatAutocompleteModule,
+         MatExpansionModule,
+          MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
