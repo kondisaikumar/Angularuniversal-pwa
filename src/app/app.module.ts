@@ -4,7 +4,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { MyAccountModule } from './pages/myaccount/myaccount.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from 'angularx-social-login';
 import { SharedModule } from './shared/shared.module';
 import { AgmCoreModule } from '@agm/core';
 import { customerReducer } from './state/customer/customer.reducer';
@@ -103,6 +102,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
+import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
+import { FacebookLoginProvider } from "angularx-social-login";
 // Configs
 export function getAuthServiceConfigs() {
   const config = new AuthServiceConfig(
