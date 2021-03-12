@@ -13,7 +13,8 @@
  *
  * Learn more in https://angular.io/guide/browser-support
  */
-
+ import 'globalthis/auto';
+ import 'core-js/es7/reflect';
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */
