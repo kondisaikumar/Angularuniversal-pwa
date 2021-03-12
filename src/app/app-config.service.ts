@@ -35,7 +35,7 @@ export class AppConfigService {
   downloadapp = 'true';
   partners = 'false';
   showEventsInCaurosel = false;
-
+appVersion = '11';
   deviceID = '';
   storeID = 0;
   appID = 10002;
@@ -66,7 +66,7 @@ export class AppConfigService {
     // }
     return {
       AppId: this.appID, // 10275,
-      AppVersion: '',
+      AppVersion: this.appVersion,
       DeviceId: this.deviceID,
       DeviceType: 'W',
       EmailId: email || '',
