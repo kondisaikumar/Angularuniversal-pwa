@@ -22,7 +22,7 @@ import { CustomerService } from '../../../services/customer.service';
 export class SigninComponent implements OnInit {
   formSignIn: FormGroup;
   formForgotPwd: FormGroup;
-  // customerSession: CustomerLoginSession; 
+  // customerSession: CustomerLoginSession;
   submitted = false;
   fpSubmitted = false;
   returnUrl: string;
