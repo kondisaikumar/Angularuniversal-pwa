@@ -16,6 +16,7 @@ ngOnInit(){
   this.productflow.getfilters().subscribe((res:any) =>{
  this.filters = res.MasterFilters;
  this.titlemeta.setTitle(this.filters[0].CategoryName);
+  this.meta.updateTag({ name: 'description', content: this.filters[2].CategoryName })
   });
 }
 
