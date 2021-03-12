@@ -96,7 +96,6 @@ import { ToppicksComponent } from './pages/toppicks/toppicks.component';
 import { StaffpicksComponent } from './pages/staffpicks/staffpicks.component';
 import { LandingstaffTopPicksComponent } from './pages/home/landingstaff-top-picks/landingstaff-top-picks.component';
 import { CookieService } from 'ngx-cookie-service';
-import { RatingComponent } from './shared/components/rating/rating.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -182,7 +181,6 @@ export function getAuthServiceConfigs() {
     ToppicksComponent,
     StaffpicksComponent,
     LandingstaffTopPicksComponent,
-    RatingComponent,
 
   ],
   imports: [
