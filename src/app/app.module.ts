@@ -7,7 +7,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from 'angularx-social-login';
 import { SharedModule } from './shared/shared.module';
-import { DeviceDetectorModule } from 'ngx-device-detector';
 import { AgmCoreModule } from '@agm/core';
 import { customerReducer } from './state/customer/customer.reducer';
 import { CustomerEffects } from './state/customer/customer.effects';
@@ -99,7 +98,6 @@ import { ToppicksComponent } from './pages/toppicks/toppicks.component';
 import { StaffpicksComponent } from './pages/staffpicks/staffpicks.component';
 import { LandingstaffTopPicksComponent } from './pages/home/landingstaff-top-picks/landingstaff-top-picks.component';
 import { CookieService } from 'ngx-cookie-service';
-import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 // Configs
@@ -121,6 +119,7 @@ export function getAuthServiceConfigs() {
     HeaderComponent,
     FooterComponent,
     HomepageComponent,
+    DownloadappComponent,
     AboutusComponent,
     LoginComponent,
     SigninComponent,
@@ -181,13 +180,11 @@ export function getAuthServiceConfigs() {
     LandingstaffTopPicksComponent
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
-    HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    BrowserModule,
     CarouselModule,
     BrowserAnimationsModule,
     AppRoutingModule,
+    AppRoutingModule ,
     MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatExpansionModule, MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -200,7 +197,6 @@ export function getAuthServiceConfigs() {
     EffectsModule.forRoot([CustomerEffects, ProductStoreEffects]),
     Ng4LoadingSpinnerModule.forRoot(),
     SocialLoginModule,
-    DeviceDetectorModule.forRoot(),
     NgbPaginationModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAa97lor1SkpYf-AAsp7EJBHNccO0ox1wI',

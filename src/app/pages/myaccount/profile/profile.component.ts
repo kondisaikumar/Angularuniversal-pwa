@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../../services/customer.service';
-import { AppGlobalConfigService } from "../../../app-global-config.service";
+import { AppConfigService } from "../../../app-config.service";
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -10,7 +10,7 @@ export class ProfileComponent implements OnInit {
  profile: any;
  profileFirstLetter = '';
  profilePic = 'assets/Images/profile.png';
-  constructor(private customerService: CustomerService, public appconfig: AppGlobalConfigService) { }
+  constructor(private customerService: CustomerService, public appconfig: AppConfigService) { }
 
   ngOnInit() {
     this.customerService.getProfileDetails().subscribe(

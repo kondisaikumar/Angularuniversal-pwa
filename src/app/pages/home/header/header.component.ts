@@ -1,6 +1,5 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { DeviceDetectorService } from 'ngx-device-detector';
 
 import { CustomerLogin } from '../../../state/customer/customer.action';
 import { CustomerLoginSession } from '../../../models/customer-login-session';
@@ -50,7 +49,6 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private storeService: ProductStoreService,
     private progressBarService: ProgressBarService,
-    private deviceService: DeviceDetectorService,
     private appConfig: AppConfigService, private banerService: BannerService
     ) {
 
@@ -137,8 +135,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.isMobile = this.deviceService.isMobile();
-
     $('.m-menu').click(function (e) {
       e.stopPropagation();
       $('#hide-menu').toggleClass('show-menu');

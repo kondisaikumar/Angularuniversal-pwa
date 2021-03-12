@@ -11,7 +11,7 @@ import { ProductStoreSelectors } from '../../state/product-store/product-store.s
 import { CustomerLoginSession } from '../../models/customer-login-session';
 import { ProgressBarService } from '../../shared/services/progress-bar.service';
 import { CommonService } from 'src/app/shared/services/common.service';
-import { AppGlobalConfigService } from 'src/app/app-global-config.service';
+import { AppConfigService } from 'src/app/app-config.service';
 
 @Component({
   selector: 'app-cart',
@@ -36,7 +36,7 @@ export class CartComponent implements OnInit,OnDestroy{
     private commonService: CommonService,
     private router: Router,
     private route: ActivatedRoute,
-    public appConfig: AppGlobalConfigService,
+    public appConfig: AppConfigService,
     private decimalPipe: DecimalPipe,
     private toastr: ToastrService,
     private storeService: ProductStoreService,

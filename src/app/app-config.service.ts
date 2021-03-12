@@ -28,6 +28,7 @@ export enum ValidationsModes {
   providedIn: 'root'
 })
 export class AppConfigService {
+  canada = false;
   offer = 'false';
   liquorWorldJobs = 'false';
   fireside = 'false';

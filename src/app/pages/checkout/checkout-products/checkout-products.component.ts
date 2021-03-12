@@ -23,7 +23,6 @@ import { ProductStoreService } from "../../../services/product-store.service";
 import { Ng4LoadingSpinnerService } from "ng4-loading-spinner";
 import { ProductStoreSelectors } from "src/app/state/product-store/product-store.selector";
 import { AppConfigService } from "src/app/app-config.service";
-import { AppGlobalConfigService } from "src/app/app-global-config.service";
 
 @Component({
   selector: "app-checkout-products",
@@ -73,7 +72,7 @@ export class CheckoutProductsComponent implements OnInit {
     private storeService: ProductStoreService,
     private spinnerService: Ng4LoadingSpinnerService,
     private commonService: CommonService,
-    private appconfigService: AppGlobalConfigService
+    private appconfigService: AppConfigService
   ) {
     this.cartService.cartUpdated.subscribe(() => {
       this.cartDetails = this.cartService.cartdetails;

@@ -4,7 +4,7 @@ import { withLatestFrom, switchMap, map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 import { Store } from '@ngrx/store';
-import { Actions, Effect } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { RootStateModel } from '../../app.state';
 import * as fromCustomer from '../customer/customer.action';
 import { CustomerService } from '../../services/customer.service';
@@ -19,11 +19,10 @@ export class CustomerEffects {
     }
 
     @Effect()
-    loginCustomer$ = this.actions$
-        .ofType(fromCustomer.CustomerActionTypes.CustomerLogin)
-        .pipe(
+    loginCustomer$ = this.actions$.pipe(
+        ofType(fromCustomer.CustomerActionTypes.CustomerLogin),
             withLatestFrom<fromCustomer.CustomerLogin, RootStateModel>(this.store),
-            switchMap(([action, state]) => {
+            switchMap((action:any) => {
                 return this.customerService.loginCustomer(action.payload).pipe(
                     map(p => {
                         return new fromCustomer.CustomerActions.CustomerLoginSuccess(p);

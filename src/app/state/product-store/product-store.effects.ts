@@ -4,7 +4,7 @@ import { withLatestFrom, switchMap, map, catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 import { Store } from '@ngrx/store';
-import { Actions, Effect } from '@ngrx/effects';
+import { Actions, Effect, ofType } from '@ngrx/effects';
 import { RootStateModel } from '../../app.state';
 import * as fromProductStore from '../product-store/product-store.action';
 import { ProductStoreService } from '../../services/product-store.service';
@@ -18,11 +18,10 @@ export class ProductStoreEffects {
     }
 
     @Effect()
-    getStoreHome$ = this.actions$
-        .ofType(fromProductStore.ProductStoreActionTypes.StoreGetHome)
-        .pipe(
+    getStoreHome$ = this.actions$.pipe(
+        ofType(fromProductStore.ProductStoreActionTypes.StoreGetHome),
             withLatestFrom<fromProductStore.StoreGetHome, RootStateModel>(this.store),
-            switchMap(([action, state]) => {
+            switchMap((action:any) => {
                 return this.productStoreService.getStoreHome().pipe(
                     map(p => {
                         return new fromProductStore.ProductStoreActions.StoreGetHomeSuccess(p);
@@ -34,11 +33,10 @@ export class ProductStoreEffects {
             })
         );
     @Effect()
-    productGetList$ = this.actions$
-        .ofType(fromProductStore.ProductStoreActionTypes.ProductGetList)
-        .pipe(
+    productGetList$ = this.actions$.pipe(
+        ofType(fromProductStore.ProductStoreActionTypes.ProductGetList),
             withLatestFrom<fromProductStore.ProductGetList, RootStateModel>(this.store),
-            switchMap(([action, state]) => {
+            switchMap((action:any) => {
                 return this.productStoreService.productGetList(action.payload).pipe(
                     map(p => {
                         return new fromProductStore.ProductStoreActions.ProductGetListSuccess(p);
@@ -50,11 +48,10 @@ export class ProductStoreEffects {
             })
         );
     @Effect()
-    productGetDetails$ = this.actions$
-        .ofType(fromProductStore.ProductStoreActionTypes.ProductGetDetails)
-        .pipe(
+    productGetDetails$ = this.actions$.pipe(
+        ofType(fromProductStore.ProductStoreActionTypes.ProductGetDetails),
             withLatestFrom<fromProductStore.ProductGetDetails, RootStateModel>(this.store),
-            switchMap(([action, state]) => {
+            switchMap((action:any) => {
                 return this.productStoreService.productGetDetails(action.payload).pipe(
                     map(p => {
                         return new fromProductStore.ProductStoreActions.ProductGetDetailsSuccess(p);
@@ -66,11 +63,10 @@ export class ProductStoreEffects {
             })
         );
     @Effect()
-    eventGetDetails$ = this.actions$
-        .ofType(fromProductStore.ProductStoreActionTypes.EventGetDetails)
-        .pipe(
+    eventGetDetails$ = this.actions$.pipe(
+        ofType(fromProductStore.ProductStoreActionTypes.EventGetDetails),
             withLatestFrom<fromProductStore.EventGetDetails, RootStateModel>(this.store),
-            switchMap(([action, state]) => {
+            switchMap((action:any) => {
                 return this.productStoreService.eventGetDetails(action.payload).pipe(
                     map(p => {
                         return new fromProductStore.ProductStoreActions.EventGetDetailsSuccess(p);
