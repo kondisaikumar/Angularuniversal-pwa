@@ -102,20 +102,11 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatButtonModule} from '@angular/material/button';
-import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
-import { FacebookLoginProvider } from "angularx-social-login";
-// Configs
-export function getAuthServiceConfigs() {
-  const config = new AuthServiceConfig(
-    [
-      {
-        id: FacebookLoginProvider.PROVIDER_ID,
-        provider: new FacebookLoginProvider(facebookProviderID) // 2187506571532619')
-      }
-    ]
-  );
-  return config;
-}
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import {
+  GoogleLoginProvider,
+  FacebookLoginProvider
+} from 'angularx-social-login';
 
 @NgModule({
   declarations: [
@@ -193,6 +184,7 @@ export function getAuthServiceConfigs() {
     BrowserAnimationsModule,
     AppRoutingModule,
     AppRoutingModule ,
+    SocialLoginModule,
     CommonModule,
     MatDatepickerModule,
      MatNativeDateModule,
@@ -220,11 +212,19 @@ export function getAuthServiceConfigs() {
   ],
   exports: [PhoneMaskDirective],
   providers: [CustomerService,CookieService, ProductStoreService, DataService, DataFilterAllService, DecimalPipe, AuthService, Title, // HomePageResolver,
+    { provide: UrlSerializer, useClass: CustomUrlSerializer },
     {
-      provide: AuthServiceConfig,
-      useFactory: getAuthServiceConfigs
-    },
-    { provide: UrlSerializer, useClass: CustomUrlSerializer }],
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider(facebookProviderID)
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }],
   // HttpCacheService, { provide: HTTP_INTERCEPTORS, useClass: CacheInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
