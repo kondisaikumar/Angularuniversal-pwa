@@ -1,6 +1,6 @@
 import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/core';
 import { CustomerService } from '../../../services/customer.service';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { PaymentService } from '../../../services/payment.service';
 import { ToastrService } from 'ngx-toastr';
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
@@ -17,7 +17,7 @@ export class PaymentMethodsComponent implements OnInit {
   userProfileId: string;
   selectedCardId: any="";
   constructor(private customerService: CustomerService, private paymentService: PaymentService,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private toastr: ToastrService,
     private renderer: Renderer2,
     private progressBarService: ProgressBarService) {
@@ -42,7 +42,7 @@ export class PaymentMethodsComponent implements OnInit {
       this.paymentMethodList = this.customerService.customerPaymentMethodGetList.ListPaymentItem;
       this.getPaymentList();
     } else {
-      // this.spinnerService.show();
+      
       this.progressBarService.show();
       this.customerService.getCustomerPaymentMethodGetList().subscribe(
         data => {
@@ -58,7 +58,7 @@ export class PaymentMethodsComponent implements OnInit {
       this.userProfileId = this.paymentMethodList[0].UserProfileId;
       this.getExistingCardDetails(this.paymentMethodList[0].UserProfileId);
     } else {
-      // this.spinnerService.hide();
+      
       this.progressBarService.hide();
     }
   }
@@ -75,11 +75,11 @@ export class PaymentMethodsComponent implements OnInit {
             const cardData = JSON.parse(existingCards);
             this.paymentProfiles = cardData.profile.paymentProfiles;
           }
-          // this.spinnerService.hide();
+          
           this.progressBarService.hide();
         });
     } else {
-      // this.spinnerService.hide();
+      
       this.progressBarService.hide();
     }
   }

@@ -20,7 +20,6 @@ import { VantivPaymentServerSideApiService } from "../../../services/vantiv-paym
 import { CommonService } from "../../../shared/services/common.service";
 import { ProgressBarService } from "../../../shared/services/progress-bar.service";
 import { ProductStoreService } from "../../../services/product-store.service";
-import { Ng4LoadingSpinnerService } from "ng4-loading-spinner";
 import { ProductStoreSelectors } from "src/app/state/product-store/product-store.selector";
 import { AppConfigService } from "src/app/app-config.service";
 
@@ -70,7 +69,7 @@ export class CheckoutProductsComponent implements OnInit {
     private vantivPaymentService: VantivPaymentServerSideApiService,
     private store: Store<CustomerLoginSession>,
     private storeService: ProductStoreService,
-    private spinnerService: Ng4LoadingSpinnerService,
+     
     private commonService: CommonService,
     private appconfigService: AppConfigService
   ) {
@@ -301,7 +300,7 @@ export class CheckoutProductsComponent implements OnInit {
         (this.cartDetails.DoPDate === "" || this.cartDetails.DoPTimeSlot === "")
       ) {
         this.toastr.error("Please Setect Pickup Date and Time Slot");
-        this.spinnerService.hide();
+         
         this.checkoutButtonEnable = true
         return;
       }
@@ -328,7 +327,7 @@ export class CheckoutProductsComponent implements OnInit {
       ) {
         this.toastr.error("Please complete your profile");
         this.commonService.openProfileModal.next(true);
-        this.spinnerService.hide();
+         
         this.checkoutButtonEnable = true
         return;
       }
@@ -418,7 +417,6 @@ export class CheckoutProductsComponent implements OnInit {
     }
   }
   afterDoCheck() {
-    this.spinnerService.show();
     const data = {
       amount: this.creditevent
         ? this.cartDetails.OrderTotalWithCredit

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
 import { CustomerService } from '../../../services/customer.service';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { CartService } from '../../../services/cart.service';
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 import { ToastrService } from 'ngx-toastr';
@@ -28,7 +28,7 @@ export class CheckoutDeliveryComponent implements OnInit {
   clickedAddressId: any="";
   newAddressAdded: boolean=false;
   constructor(private customerService: CustomerService,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private cartService: CartService,
     private progressBarService: ProgressBarService,
     private storeService: ProductStoreService,
@@ -157,7 +157,7 @@ if (this.cartDetails) {
         this.cartService.cartdetails.AddressId = this.addressList[0].AddressId;
       }
     } else {
-      // this.spinnerService.show();
+      
       this.progressBarService.show();
       this.customerService.getCustomerAddressList().subscribe(
         data => {
@@ -168,7 +168,7 @@ if (this.cartDetails) {
           } else if (this.addressList.length === 1 && this.cartService.cartdetails.AddressId === 0) {
             this.cartService.cartdetails.AddressId = this.addressList[0].AddressId;
           }
-          // this.spinnerService.hide();
+          
           this.progressBarService.hide();
         });
     }

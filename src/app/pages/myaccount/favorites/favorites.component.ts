@@ -6,7 +6,7 @@ import { ProductGetList } from '../../../state/product-store/product-store.actio
 import { ProductStoreService } from '../../../services/product-store.service';
 import { ProductStoreSelectors } from '../../../state/product-store/product-store.selector';
 import { CartService } from '../../../services/cart.service';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { ToastrService } from 'ngx-toastr';
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 @Component({
@@ -26,7 +26,7 @@ export class FavoritesComponent implements OnInit {
   constructor(private store: Store<ProductGetListRequestPayload>,
     private productStoreService: ProductStoreService,
     private cartService: CartService,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private toastr: ToastrService,
     private progressBarService: ProgressBarService) {
     this.store.select(ProductStoreSelectors.productGetListData)
@@ -48,7 +48,7 @@ export class FavoritesComponent implements OnInit {
             this.isPrevious = false;
           }
           this.progressBarService.hide();
-          // this.spinnerService.hide();
+          
         }
       });
   }
@@ -56,7 +56,7 @@ export class FavoritesComponent implements OnInit {
   ngOnInit() {
     this.storeid = localStorage.getItem('storeId');
     this.productsList = [];
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     this.getFavoriteProducts();
   }
@@ -67,13 +67,13 @@ export class FavoritesComponent implements OnInit {
     })));
   }
   favoriteProductUpdate(item: any, status: boolean) {
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     this.productStoreService.favoriteProductUpdate(item.PID, status).subscribe(
       (data: any) => {
         this.productStoreService.isFavoritesUpdated = true;
         item.IsFavorite = data.IsFavorite;
-        // this.spinnerService.hide();
+        
         this.progressBarService.hide();
         this.toastr.success(data.SuccessMessage);
         if ((this.totalCount - 1) === this.pageSize) {
@@ -84,24 +84,24 @@ export class FavoritesComponent implements OnInit {
   }
 
   addToCart(item: any) {
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     this.cartService.addToCard(item.PID, 1).subscribe(
       (data: any) => {
         item.InCart = 1;
-        // this.spinnerService.hide();
+        
         this.progressBarService.hide();
         this.toastr.success(data.SuccessMessage);
       });
   }
 
   removeFromCart(item: any) {
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     this.cartService.removeFromCart(item).subscribe(
       (data: any) => {
         item.InCart = 0;
-        // this.spinnerService.hide();
+        
         this.progressBarService.hide();
         this.toastr.success(data.SuccessMessage);
       });

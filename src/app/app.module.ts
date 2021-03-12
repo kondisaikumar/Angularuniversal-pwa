@@ -4,7 +4,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { MyAccountModule } from './pages/myaccount/myaccount.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Ng4LoadingSpinnerModule } from 'ng4-loading-spinner';
 import { SocialLoginModule, AuthServiceConfig, FacebookLoginProvider } from 'angularx-social-login';
 import { SharedModule } from './shared/shared.module';
 import { AgmCoreModule } from '@agm/core';
@@ -19,7 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule, MatExpansionModule, MatButtonModule } from '@angular/material';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { UrlSerializer } from '@angular/router';
+import { RouterModule, UrlSerializer } from '@angular/router';
 import { CustomUrlSerializer } from './CustomUrlSerializer';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
@@ -55,7 +54,7 @@ import { CustomerService } from './services/customer.service';
 import { ProductStoreService } from './services/product-store.service';
 import { DataService } from './services/data.service';
 import { DataFilterAllService } from './services/data-filter-all.service';
-import { DecimalPipe } from '@angular/common';
+import { CommonModule, DecimalPipe } from '@angular/common';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { CheckoutDeliveryComponent } from './pages/checkout/checkout-delivery/checkout-delivery.component';
 import { CheckoutPaymentMethodComponent } from './pages/checkout/checkout-payment-method/checkout-payment-method.component';
@@ -98,6 +97,7 @@ import { ToppicksComponent } from './pages/toppicks/toppicks.component';
 import { StaffpicksComponent } from './pages/staffpicks/staffpicks.component';
 import { LandingstaffTopPicksComponent } from './pages/home/landingstaff-top-picks/landingstaff-top-picks.component';
 import { CookieService } from 'ngx-cookie-service';
+import { RatingComponent } from './shared/components/rating/rating.component';
 
 
 // Configs
@@ -177,7 +177,9 @@ export function getAuthServiceConfigs() {
     ChildauthorizecardComponent,
     ToppicksComponent,
     StaffpicksComponent,
-    LandingstaffTopPicksComponent
+    LandingstaffTopPicksComponent,
+    RatingComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -185,6 +187,7 @@ export function getAuthServiceConfigs() {
     BrowserAnimationsModule,
     AppRoutingModule,
     AppRoutingModule ,
+    CommonModule,
     MatDatepickerModule, MatNativeDateModule, MatFormFieldModule, MatInputModule, MatAutocompleteModule, MatExpansionModule, MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -195,9 +198,9 @@ export function getAuthServiceConfigs() {
     AngularFireModule.initializeApp(environment.firebase),
     StoreModule.forRoot({ customer: customerReducer, productStore: productStoreReducer }),
     EffectsModule.forRoot([CustomerEffects, ProductStoreEffects]),
-    Ng4LoadingSpinnerModule.forRoot(),
     SocialLoginModule,
     NgbPaginationModule,
+    RouterModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAa97lor1SkpYf-AAsp7EJBHNccO0ox1wI',
       libraries: ['places', 'geometry']

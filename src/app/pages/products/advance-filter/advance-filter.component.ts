@@ -10,7 +10,7 @@ import { ProductGetListRequestPayload } from '../../../models/product-get-list-r
 import { ProductGetList } from '../../../state/product-store/product-store.action';
 import { ProductStoreService } from '../../../services/product-store.service';
 import { ProductStoreSelectors } from '../../../state/product-store/product-store.selector';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 import { CommonService } from '../../../shared/services/common.service';
@@ -70,7 +70,7 @@ export class AdvanceFilterComponent implements OnInit {
     private _meta:Meta,
     private store: Store<ProductGetListRequestPayload>, private banerService: BannerService,
     private productStoreService: ProductStoreService, private commonService: CommonService,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private router: Router, private route: ActivatedRoute, private appConfig: AppConfigService,
     private progressBarService: ProgressBarService, private sessionService: SessionService) {
 
@@ -115,7 +115,7 @@ export class AdvanceFilterComponent implements OnInit {
         }
         this.totalProducts = pgld ? pgld.TotalCount : 0;
         this.fromProductNo = ((this.page - 1) * this.selectedPageSize) + 1;
-        // this.spinnerService.hide();
+        
         this.progressBarService.hide();
         if(!this.router.url.includes('/product-details')){
         switch (this.routerUrl) {
@@ -544,7 +544,6 @@ export class AdvanceFilterComponent implements OnInit {
   }
 
   /* getFeatureProducts() {
-    this.spinnerService.show();
     this.store.dispatch(new ProductGetList(
       this.productStoreService.getProductGetListParams(
         {
@@ -554,7 +553,7 @@ export class AdvanceFilterComponent implements OnInit {
   } */
 
   getProductsByKeyword() {
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     this.store.dispatch(new ProductGetList(
       this.productStoreService.getProductGetListParams(
@@ -593,7 +592,7 @@ export class AdvanceFilterComponent implements OnInit {
     if (this.selectedRegions && this.selectedRegions.length > 0) {
       regions = this.selectedRegions.map((res: Item) => res.id).join(',');
     }
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     const obj = {
       cat: this.route.snapshot.queryParams['cat'], pageNumber: this.page, pageSize: this.selectedPageSize, typeId: types,

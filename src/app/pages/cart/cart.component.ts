@@ -3,7 +3,7 @@ import { CartService } from '../../services/cart.service';
 import { CustomerService } from '../../services/customer.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DecimalPipe } from '@angular/common';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+ 
 import { ToastrService } from 'ngx-toastr';
 import { ProductStoreService } from '../../services/product-store.service';
 import { Store } from '@ngrx/store';
@@ -75,7 +75,7 @@ export class CartComponent implements OnInit,OnDestroy{
         }
         
         this.doStockAvailabilityCheck();
-        // this.spinnerService.hide();
+        
         
         if(this.storeService.orderType){
         if(this.storeService.orderType==="Pickup"){
@@ -125,7 +125,7 @@ export class CartComponent implements OnInit,OnDestroy{
   }
 
   removeFromCart(item: any) {
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     this.cartService.removeFromCart(item).subscribe(
       (data: any) => {
@@ -134,7 +134,7 @@ export class CartComponent implements OnInit,OnDestroy{
           const index = this.cartDetails.ListCartItem.indexOf(item);
           this.cartDetails.ListCartItem.splice(index, 1);
         }
-        // this.spinnerService.hide();
+        
         this.progressBarService.hide();
         this.toastr.success(data.SuccessMessage);
         this.getCartDetails();

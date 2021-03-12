@@ -8,7 +8,7 @@ import { CustomerLogin } from '../../../state/customer/customer.action';
 import { CustomerSelectors } from '../../../state/customer/customer.selector';
 import { ProductStoreSelectors } from '../../../state/product-store/product-store.selector';
 import { CartService } from '../../../services/cart.service';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 import * as CryptoJS from 'crypto-js';
 import { baseUrl } from '../../../services/url-provider';
@@ -29,7 +29,7 @@ export class HomepageComponent implements OnInit {
     private router: Router,
     private store: Store<CustomerLoginSession>,
     private cartService: CartService,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private titleService: Title,
     private progressBarService: ProgressBarService,
     private appConfig: AppConfigService) {
@@ -88,7 +88,7 @@ export class HomepageComponent implements OnInit {
 
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     if (!(this.customerSession && this.customerSession.SessionId) && (isSignIn === '1' || isSignIn === null)) {
-      // this.spinnerService.show();
+      
 
       let demail = sessionStorage.getItem('email');
       let dpass = sessionStorage.getItem('password');

@@ -59,7 +59,7 @@ export class VantivPaymentMethodsComponent implements OnInit {
           } else if (data && data.ExpressResponseCode === 101) {
             this.toastr.error(data.ExpressResponseMessage);
           }
-          // this.spinnerService.hide();
+          
           this.progressBarService.hide();
         });
 

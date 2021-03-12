@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ProductStoreService } from '../../../../services/product-store.service';
 import { FormControl, FormGroup } from '@angular/forms';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../../../auth.service';
 import { Router } from '@angular/router';
@@ -20,7 +20,7 @@ export class ProductAddReviewComponent implements OnInit {
   rating = 0;
 
   constructor(private productService: ProductStoreService,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private toastr: ToastrService,
     private authService: AuthService,
     private router: Router,
@@ -49,7 +49,7 @@ export class ProductAddReviewComponent implements OnInit {
       return;
     }
 
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     const title = this.formAddProductReview.get('rTitle').value;
     const description = this.formAddProductReview.get('rDescription').value;
@@ -62,7 +62,7 @@ export class ProductAddReviewComponent implements OnInit {
         } else {
           this.toastr.error(data.SuccessMessage);
         }
-        // this.spinnerService.hide();
+        
         this.progressBarService.hide();
       });
   }

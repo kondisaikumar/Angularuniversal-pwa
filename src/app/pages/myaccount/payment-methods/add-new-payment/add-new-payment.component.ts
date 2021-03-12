@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { PaymentProfile } from "../../../../models/payment-profile";
 import { PaymentService } from "../../../../services/payment.service";
 import { ProductStoreService } from "../../../../services/product-store.service";
@@ -64,7 +64,7 @@ export class AddNewPaymentComponent implements OnInit {
   CardValidProfile: CardValidProfile;
   constructor(
     private formBuilder: FormBuilder,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     private route: ActivatedRoute,
@@ -236,7 +236,7 @@ export class AddNewPaymentComponent implements OnInit {
         this.initializeAddress(this.addressList[0]);
       }
     } else {
-      // this.spinnerService.show();
+      
       this.progressBarService.show();
       this.customerService.getCustomerAddressList().subscribe((data) => {
         this.addressList = data
@@ -247,7 +247,7 @@ export class AddNewPaymentComponent implements OnInit {
         this.addressList = this.addressList.sort((x, y) =>
           x.IsDefault > y.IsDefault ? -1 : 1
         );
-        // this.spinnerService.hide();
+        
         this.progressBarService.hide();
 
         if (this.addressList && this.addressList.length > 0) {
@@ -373,7 +373,7 @@ export class AddNewPaymentComponent implements OnInit {
       return;
     } */
 
-    // this.spinnerService.show();
+    
     this.cardProfile = new PaymentProfile();
 
     this.cardProfile.firstName = this.formAddNewPayment.get("firstName").value;

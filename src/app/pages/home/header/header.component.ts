@@ -277,7 +277,7 @@ setTimeout(() => {
     }
 
     /* if (this.customerSession && this.customerSession.SessionId) {
-      // this.spinnerService.show();
+      
 
       let demail = localStorage.getItem('email');
       let dpass = localStorage.getItem('password');

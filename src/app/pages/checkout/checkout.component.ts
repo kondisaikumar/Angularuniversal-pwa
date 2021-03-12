@@ -2,7 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CommonService } from '../../shared/services/common.service';
 import { OrdersService } from '../../services/orders.service';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+ 
 import { ProductStoreService } from 'src/app/services/product-store.service';
 import { PaymentService } from 'src/app/services/payment.service';
 
@@ -20,7 +20,7 @@ export class CheckoutComponent implements OnInit,OnDestroy {
   ListOrder: any;
   myOrdersList: any;
   constructor(private cartService: CartService,
-    private spinnerService: Ng4LoadingSpinnerService,
+     
     private storeService: ProductStoreService,
     private commonService: CommonService, private paymentService: PaymentService, private ordersService: OrdersService) {
     this.commonService.orderPlaced.subscribe(data => {
@@ -49,7 +49,7 @@ this.cartService.cartItemCount.next(0);
           this.orderNumber = cartDetails.OrderNo;
           this.ListOrder =  this.myOrdersList.ListOrder.filter(item => item.OrderNo === this.orderNumber);
           this.orderDetails = this.ListOrder[0];
-          this.spinnerService.hide();
+           
           this.isOrderPlaced = true;
           if(this.commonService.eventsProductAddedToCart===true){
             (<any>window).ga('eventTracking.send', 'event','Event&PromotionsPurchase',localStorage.getItem('storeId'),localStorage.getItem('PromotionTitle'));

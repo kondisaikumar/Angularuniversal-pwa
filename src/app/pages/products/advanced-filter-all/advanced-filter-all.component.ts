@@ -10,7 +10,7 @@ import { ProductGetListRequestPayload } from '../../../models/product-get-list-r
 import { ProductGetList } from '../../../state/product-store/product-store.action';
 import { ProductStoreService } from '../../../services/product-store.service';
 import { ProductStoreSelectors } from '../../../state/product-store/product-store.selector';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 import { SessionService } from '../../../shared/services/session.service';
@@ -528,7 +528,6 @@ if (this.route.snapshot.queryParams['keyword']) {
   }
 
   /* getFeatureProducts() {
-    this.spinnerService.show();
     this.store.dispatch(new ProductGetList(
       this.productStoreService.getProductGetListParams(
         {
@@ -538,7 +537,7 @@ if (this.route.snapshot.queryParams['keyword']) {
   } */
 
   getProductsByKeyword() {
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     this.store.dispatch(new ProductGetList(
       this.productStoreService.getProductGetListParams(
@@ -585,7 +584,7 @@ if (this.route.snapshot.queryParams['keyword']) {
     if (this.selectedRegions && this.selectedRegions.length > 0) {
       regions = this.selectedRegions.map((res: Item) => res.id).join(',');
     }
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
  const obj = {
       cat: categories, pageNumber: this.page, pageSize: this.selectedPageSize, typeId: types,

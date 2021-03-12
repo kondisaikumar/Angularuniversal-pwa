@@ -7,7 +7,7 @@ import { ProductGetDetails } from '../../../state/product-store/product-store.ac
 import { ProductGetDetailsRequestPayload } from '../../../models/product-get-details-request-payload';
 import { ProductStoreService } from '../../../services/product-store.service';
 import { ProductStoreSelectors } from '../../../state/product-store/product-store.selector';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { CartService } from '../../../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from '../../../services/data.service';
@@ -62,7 +62,7 @@ export class ProductDetailsComponent implements OnInit {
     private _title:Title,
     private store: Store<ProductGetDetailsRequestPayload>,
     private productStoreService: ProductStoreService, private commonService: CommonService,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private cartService: CartService,
     private toastr: ToastrService,
     public dataservice: DataService, private appConfig: AppConfigService,
@@ -112,7 +112,7 @@ export class ProductDetailsComponent implements OnInit {
           this.rating = +this.productDetails.RatingAverage;
         }
         this.getRelatedProducts();
-        // this.spinnerService.hide();
+        
         this.progressBarService.hide();
       });
 
@@ -191,7 +191,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   getProductDetails() {
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     const productId = +this.route.snapshot.paramMap.get('id');
     if (productId) {
@@ -338,12 +338,12 @@ onPopupClose() {
   }
 
   favoriteProductUpdate(status: boolean) {
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     this.productStoreService.favoriteProductUpdate(this.productDetails.Product.PID, status).subscribe(
       (data: any) => {
         this.productDetails.Product.IsFavorite = data.IsFavorite;
-        // this.spinnerService.hide();
+        
         this.progressBarService.hide();
         this.toastr.success(data.SuccessMessage);
       });

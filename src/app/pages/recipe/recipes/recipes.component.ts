@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RecipeService } from '../../../services/recipe.service';
 import { Router } from '@angular/router';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 import { CommonService } from 'src/app/shared/services/common.service';
 
@@ -16,7 +16,7 @@ export class RecipesComponent implements OnInit {
 
   constructor(private router: Router,
     private recipeService: RecipeService,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private progressBarService: ProgressBarService,
     private commonService:CommonService) { }
 
@@ -29,12 +29,12 @@ export class RecipesComponent implements OnInit {
     /* if (this.recipeService.recipesList && this.recipeService.recipesList.ListRecipe) {
       this.recipeList = this.recipeService.recipesList;
     } else { */
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     this.recipeService.getRecipeList(this.page).subscribe(
       (data: any) => {
         this.recipeList = data ? (data.ListRecipe ? data : []) : [];
-        // this.spinnerService.hide();
+        
         this.progressBarService.hide();
       });
   }

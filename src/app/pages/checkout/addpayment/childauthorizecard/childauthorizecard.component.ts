@@ -50,7 +50,7 @@ export class ChildauthorizecardComponent implements OnInit {
   stateList: any;
   constructor(private formBuilder: FormBuilder,
     private store: Store<CustomerLoginSession>,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
     private route: ActivatedRoute,
@@ -192,13 +192,13 @@ export class ChildauthorizecardComponent implements OnInit {
       }
 
     } else {
-      // this.spinnerService.show();
+      
       this.progressBarService.show();
       this.customerService.getCustomerAddressList().subscribe(
         data => {
           this.addressList = data ? (data.ListAddress ? data.ListAddress : []) : [];
           this.addressList = this.addressList.sort((x, y) => x.IsDefault > y.IsDefault ? -1 : 1);
-          // this.spinnerService.hide();
+          
           this.progressBarService.hide();
 
           if (this.addressList && this.addressList.length > 0) {
@@ -313,7 +313,7 @@ clearFields() {
       return;
     } */
 
-    // this.spinnerService.show();
+    
     this.cardProfile = new PaymentProfile();
 
     this.cardProfile.firstName = this.formAddNewPayment.get('firstName').value;

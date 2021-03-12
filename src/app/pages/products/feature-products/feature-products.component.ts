@@ -6,7 +6,7 @@ import { ProductGetListRequestPayload } from '../../../models/product-get-list-r
 import { ProductGetList } from '../../../state/product-store/product-store.action';
 import { ProductStoreService } from '../../../services/product-store.service';
 import { ProductStoreSelectors } from '../../../state/product-store/product-store.selector';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 import { CartService } from '../../../services/cart.service';
 
@@ -60,7 +60,7 @@ export class FeatureProductsComponent implements OnInit {
   topWineListProduct: any;
   constructor(private store: Store<ProductGetListRequestPayload>,
     private productStoreService: ProductStoreService,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private router: Router,
     private progressBarService: ProgressBarService,
     private cartService: CartService) {
@@ -75,7 +75,7 @@ export class FeatureProductsComponent implements OnInit {
           }
           this.currentPageNo = 1;
           this.getProductsList();
-          // this.spinnerService.hide();
+          
           this.progressBarService.hide();
         }
       });
@@ -86,7 +86,7 @@ export class FeatureProductsComponent implements OnInit {
             this.oldProductsList = [...this.oldProductsList, ...pgld.ListProduct];
             this.productsList = this.oldProductsList.sort((x, y) => x.SortNumber < y.SortNumber ? -1 : 1);
             this.totalCount = pgld.TotalCount;
-            // this.spinnerService.hide();
+            
             this.progressBarService.hide();
             if (this.productsList.length > 8 && this.totalCount > (this.currentPageNo * this.pageSize)) {
               this.readMore = true;

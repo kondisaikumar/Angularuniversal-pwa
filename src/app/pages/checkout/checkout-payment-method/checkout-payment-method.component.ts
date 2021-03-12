@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../../services/customer.service';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { PaymentService } from '../../../services/payment.service';
 import { ToastrService } from 'ngx-toastr';
 import { CartService } from '../../../services/cart.service';
@@ -37,7 +37,7 @@ export class CheckoutPaymentMethodComponent implements OnInit {
   constructor(private store: Store<CustomerLoginSession>,
     private customerService: CustomerService,private commonService: CommonService,
     private paymentService: PaymentService,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private toastr: ToastrService,
     private cartService: CartService,
     private storeService: ProductStoreService,
@@ -73,7 +73,7 @@ export class CheckoutPaymentMethodComponent implements OnInit {
       this.paymentMethodList = this.customerService.customerPaymentMethodGetList.ListPaymentItem;
       this.getPaymentList();
     } else {
-      // this.spinnerService.show();
+      
       this.progressBarService.show();
       this.customerService.getCustomerPaymentMethodGetList().subscribe(
         data => {
@@ -108,7 +108,7 @@ export class CheckoutPaymentMethodComponent implements OnInit {
       this.getExistingCardDetailsForVantiv();
       // }
     } else {
-      // this.spinnerService.hide();
+      
       this.progressBarService.hide();
     }
 
@@ -164,11 +164,11 @@ export class CheckoutPaymentMethodComponent implements OnInit {
               this.cartService.paymentProfiles = this.paymentProfiles
             }
           }
-          // this.spinnerService.hide();
+          
           this.progressBarService.hide();
         });
     } else {
-      // this.spinnerService.hide();
+      
       this.progressBarService.hide();
     }
   }
@@ -191,7 +191,7 @@ export class CheckoutPaymentMethodComponent implements OnInit {
                 this.updateSelectedPaymentForVantiv(this.paymentProfilesForVantiv[0]);
               }
           }
-          // this.spinnerService.hide();
+          
           this.progressBarService.hide();
         },
         error => {

@@ -6,7 +6,7 @@ import { EventGetDetails } from '../../../state/product-store/product-store.acti
 import { EventGetDetailsRequestPayload } from '../../../models/event-get-details-request-payload';
 import { ProductStoreService } from '../../../services/product-store.service';
 import { ProductStoreSelectors } from '../../../state/product-store/product-store.selector';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 import { CommonService } from 'src/app/shared/services/common.service';
 import { AppConfigService } from 'src/app/app-config.service';
@@ -28,13 +28,13 @@ export class EventDetailsComponent implements OnInit {
     private commonService:CommonService,
     private appConfig: AppConfigService,
     private sessionService:SessionService,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private progressBarService: ProgressBarService) {
 
     this.store.select(ProductStoreSelectors.eventGetDetailsData)
       .subscribe(egdd => {
         this.eventDetails = egdd;
-        // this.spinnerService.hide();
+        
         this.progressBarService.hide();
       });
   }
@@ -51,7 +51,7 @@ export class EventDetailsComponent implements OnInit {
   }
 
   getEventDetails() {
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     const eventId = +this.route.snapshot.paramMap.get('id');
     if ( eventId ) {

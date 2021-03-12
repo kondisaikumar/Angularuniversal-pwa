@@ -7,7 +7,7 @@ import { CustomerLogin } from '../../../state/customer/customer.action';
 import { CustomerSelectors } from '../../../state/customer/customer.selector';
 import { CustomerLoginSession } from '../../../models/customer-login-session';
 // import { CustomerService } from '../../../services/customer.service';
-// import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+//  
 import { ToastrService } from 'ngx-toastr';
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 import { AppConfigService } from '../../../app-config.service';
@@ -15,7 +15,7 @@ import * as CryptoJS from 'crypto-js';
 import { baseUrl } from '../../../services/url-provider';
 import { ProductStoreService } from 'src/app/services/product-store.service';
 import { CommonService } from 'src/app/shared/services/common.service';
-import { Ng4LoadingSpinnerService } from 'ng4-loading-spinner';
+ 
 
 @Component({
   selector: 'app-signup',
@@ -33,11 +33,11 @@ export class SignupComponent implements OnInit {
     private storeService: ProductStoreService,
     private store: Store<CustomerLoginSession>,
     // private customerService: CustomerService,
-    // private spinnerService: Ng4LoadingSpinnerService,
+    //  
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
     private progressBarService: ProgressBarService,
-    private spinnerService: Ng4LoadingSpinnerService,
+     
     private appConfig: AppConfigService,
     private commonService:CommonService,
     private route: ActivatedRoute) {
@@ -51,7 +51,7 @@ export class SignupComponent implements OnInit {
         if (clsd) {
 
           this.customerSession = clsd;
-          // this.spinnerService.hide();
+          
           this.progressBarService.hide();
           if (this.customerSession.IsAccess === true && this.customerSession.UserId !== 0) {
             if (this.returnUrl === '/checkout'&& this.storeService.orderType!=="" ) {
@@ -84,7 +84,7 @@ export class SignupComponent implements OnInit {
     if (this.formSignUp.invalid) {
       return;
     }
-    // this.spinnerService.show();
+    
     this.progressBarService.show();
     let email = this.formSignUp.get('semail').value;
     let password = this.formSignUp.get('spassword').value;
