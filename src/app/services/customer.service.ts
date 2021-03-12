@@ -53,7 +53,6 @@ TransactionSetupID: any;
   }
 
   loginCustomer(reqParams: CustomerLoginRequestPayload): Observable<any> {
-    reqParams.AppVersion="11";
     return this.http.post<any>(baseUrl + UrlNames.LoginCustomer, reqParams, { headers: this.headers }).pipe(
       switchMap((res: any) => {
         this.profileDetails = null;
