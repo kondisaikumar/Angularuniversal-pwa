@@ -8,7 +8,7 @@ import { CommonService } from 'src/app/shared/services/common.service';
   selector: 'app-recipe-details',
   templateUrl: './recipe-details.component.html',
   styleUrls: ['./recipe-details.component.scss']
-})
+}) 
 export class RecipeDetailsComponent implements OnInit {
   recipe: any;
   constructor(private route: ActivatedRoute, private recipeService: RecipeService,private commonService:CommonService) { }

@@ -25,5 +25,5 @@ export class ProductReviewComponent implements OnInit {
   onEdit() {
     this.edit.emit(this.review);
   }
-
+ 
 }

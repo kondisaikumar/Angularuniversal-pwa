@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
 import { CommonService } from 'src/app/shared/services/common.service';
 
-@Component({
+@Component({ 
   selector: 'app-recipes',
   templateUrl: './recipes.component.html',
   styleUrls: ['./recipes.component.scss']

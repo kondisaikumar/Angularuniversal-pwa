@@ -7,7 +7,7 @@ describe('RecipesComponent', () => {
   let fixture: ComponentFixture<RecipesComponent>;
 
   beforeEach(async(() => {
-    TestBed.configureTestingModule({
+    TestBed.configureTestingModule({ 
       declarations: [ RecipesComponent ]
     })
     .compileComponents();
