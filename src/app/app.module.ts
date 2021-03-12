@@ -98,6 +98,7 @@ import { StaffpicksComponent } from './pages/staffpicks/staffpicks.component';
 import { LandingstaffTopPicksComponent } from './pages/home/landingstaff-top-picks/landingstaff-top-picks.component';
 import { CookieService } from 'ngx-cookie-service';
 import { RatingComponent } from './shared/components/rating/rating.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 // Configs
@@ -182,7 +183,10 @@ export function getAuthServiceConfigs() {
 
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    AppRoutingModule,
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     CarouselModule,
     BrowserAnimationsModule,
     AppRoutingModule,
