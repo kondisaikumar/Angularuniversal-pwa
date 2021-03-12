@@ -11,7 +11,7 @@ import { ProgressBarService } from '../../../shared/services/progress-bar.servic
 })
 export class ProfileEditComponent implements OnInit {
   profile: any;
-  profileImage: string;
+  profileImage: any;
   submitted = false;
 
   formEditProfile: FormGroup;
