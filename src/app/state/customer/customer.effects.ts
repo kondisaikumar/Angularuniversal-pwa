@@ -23,7 +23,7 @@ export class CustomerEffects {
         ofType(fromCustomer.CustomerActionTypes.CustomerLogin),
             withLatestFrom<fromCustomer.CustomerLogin, RootStateModel>(this.store),
             switchMap((action:any) => {
-                return this.customerService.loginCustomer(action.payload).pipe(
+                return this.customerService.loginCustomer(action[0].payload).pipe(
                     map(p => {
                         return new fromCustomer.CustomerActions.CustomerLoginSuccess(p);
                     }),

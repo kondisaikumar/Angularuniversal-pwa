@@ -37,7 +37,7 @@ export class ProductStoreEffects {
         ofType(fromProductStore.ProductStoreActionTypes.ProductGetList),
             withLatestFrom<fromProductStore.ProductGetList, RootStateModel>(this.store),
             switchMap((action:any) => {
-                return this.productStoreService.productGetList(action.payload).pipe(
+                return this.productStoreService.productGetList(action[0].payload).pipe(
                     map(p => {
                         return new fromProductStore.ProductStoreActions.ProductGetListSuccess(p);
                     }),
@@ -52,7 +52,7 @@ export class ProductStoreEffects {
         ofType(fromProductStore.ProductStoreActionTypes.ProductGetDetails),
             withLatestFrom<fromProductStore.ProductGetDetails, RootStateModel>(this.store),
             switchMap((action:any) => {
-                return this.productStoreService.productGetDetails(action.payload).pipe(
+                return this.productStoreService.productGetDetails(action[0].payload).pipe(
                     map(p => {
                         return new fromProductStore.ProductStoreActions.ProductGetDetailsSuccess(p);
                     }),
@@ -67,7 +67,7 @@ export class ProductStoreEffects {
         ofType(fromProductStore.ProductStoreActionTypes.EventGetDetails),
             withLatestFrom<fromProductStore.EventGetDetails, RootStateModel>(this.store),
             switchMap((action:any) => {
-                return this.productStoreService.eventGetDetails(action.payload).pipe(
+                return this.productStoreService.eventGetDetails(action[0].payload).pipe(
                     map(p => {
                         return new fromProductStore.ProductStoreActions.EventGetDetailsSuccess(p);
                     }),
