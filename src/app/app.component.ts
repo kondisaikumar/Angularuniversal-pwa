@@ -14,6 +14,7 @@ import { MapsAPILoader } from '@agm/core';
 import * as CryptoJS from 'crypto-js';
 import { baseUrl } from './services/url-provider';
 import { isPlatformBrowser } from '@angular/common';
+import { Title, Meta } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -43,17 +44,21 @@ export class AppComponent implements OnInit, AfterViewInit {
     @Inject(PLATFORM_ID) private platformId: object,
     private progressBarService: ProgressBarService,
     private router: Router,
+    private _title:Title,
+    private _meta:Meta,
     private sessionService: SessionService,
     private route: ActivatedRoute,
     private storeService: ProductStoreService,
     private store: Store<CustomerLoginSession>,
     private commonService: CommonService) {
+
    this.commonService.multistoreclicked.subscribe(res=>this.storeChangeClicked=res);
       this.store.select(CustomerSelectors.customerLoginSessionData)
       .subscribe(clsd => {
         // this.commonService.agePopUp.subscribe((res: any) => {
         //   this.openModal.nativeElement.click();
         // });
+        if (isPlatformBrowser(this.platformId)) {
         if (clsd) {
           this.customerSession = clsd;
           if (!localStorage.getItem('storeId') && clsd.StoreId !== 0) {
@@ -65,6 +70,7 @@ export class AppComponent implements OnInit, AfterViewInit {
           }
           this.getStoreList();
         }
+      }
       });
     new SmartBanner({
       daysHidden: 0,   // days to hide banner after close button is clicked (defaults to 15)
@@ -89,6 +95,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.sorryPopup = true;
   }
   ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
    if(this.storeChangeClicked!=='clicked'){
     const storeId = this.route.snapshot.queryParams['storeID'];
     if (storeId) {
@@ -164,16 +171,21 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     this.verifyCache();
   }
+  }
   onAgeVarify() {
     this.commonService.ageverify.next(true);
+    if (isPlatformBrowser(this.platformId)) {
     localStorage.setItem('isAgeVerified', 'true');
+    }
   }
   onStoreSelectConfirm(storeId: number) {
+    if (isPlatformBrowser(this.platformId)) {
     this.currentStoreId = storeId;
     localStorage.setItem('storeId', this.currentStoreId.toString());
     this.appConfig.storeID = this.currentStoreId;
     this.sessionService.createNewSession();
     this.commonService.onCacheUpdated();
+    }
   }
   ngAfterViewInit(): void {
     this.router.events.subscribe(event => {
@@ -182,11 +194,13 @@ export class AppComponent implements OnInit, AfterViewInit {
         (<any>window).ga('send', 'pageview');
       }
     });
+    if (isPlatformBrowser(this.platformId)) {
     if (!localStorage.getItem('isAgeVerified')) {
       setTimeout(() => {
         this.openModal.nativeElement.click();
       }, 7000);
     }
+  }
   }
   getStoreList() {
     this.progressBarService.show();
@@ -219,11 +233,13 @@ export class AppComponent implements OnInit, AfterViewInit {
             }
           }
         }else if(this.storeList.length === 1){
+          if (isPlatformBrowser(this.platformId)) {
           if(!localStorage.getItem('singlestore')){
           localStorage.setItem('singlestore', 'yes');
           this.currentStoreId = this.storeList[0].StoreId;
           this.onStoreSelectConfirm(this.storeList[0].StoreId);
           }
+        }
           
           }
         this.progressBarService.hide();
@@ -233,6 +249,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
 
   verifyCache() {
+    if (isPlatformBrowser(this.platformId)) {
     if (localStorage.getItem('storeId')) {
       this.storeId = +localStorage.getItem('storeId');
     }
@@ -266,7 +283,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         this.store.dispatch(new CustomerLogin(this.appConfig.getLoginCustomerParams()));
       }
     }
-
+  }
     }
     calculateDistance(latlng: any) {
       const searchLocation = new google.maps.LatLng(latlng.lat, latlng.lng);
