@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, NgZone } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit, NgZone, Inject, PLATFORM_ID } from '@angular/core';
 import SmartBanner from 'smart-app-banner';
 import { SmartBannerInfo, AppConfigService } from './app-config.service';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
@@ -39,6 +39,7 @@ export class AppComponent implements OnInit, AfterViewInit {
      private appConfig: AppConfigService,
      private mapsAPILoader: MapsAPILoader,
     private ngZone: NgZone,
+    @Inject(PLATFORM_ID) private platformId: object,
     private progressBarService: ProgressBarService,
     private router: Router,
     private sessionService: SessionService,

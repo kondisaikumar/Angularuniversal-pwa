@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild, OnInit, NgZone } from '@angular/core';
+import { Component, ElementRef, ViewChild, OnInit, NgZone, Inject, PLATFORM_ID } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { CustomerLoginSession } from '../../../models/customer-login-session';
@@ -37,6 +37,7 @@ export class PopupComponent implements OnInit {
     private ngZone: NgZone,
     private store: Store<CustomerLoginSession>,
     private appConfig: AppConfigService,
+    @Inject(PLATFORM_ID) private platformId: object,
     private route: ActivatedRoute,
     private progressBarService: ProgressBarService,
     private storeService: ProductStoreService,

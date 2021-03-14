@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output, Inject, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import * as CryptoJS from 'crypto-js';
@@ -62,7 +62,7 @@ export class ProductDetailsComponent implements OnInit {
     private _title:Title,
     private store: Store<ProductGetDetailsRequestPayload>,
     private productStoreService: ProductStoreService, private commonService: CommonService,
-    //  
+    @Inject(PLATFORM_ID) private platformId: object,
     private cartService: CartService,
     private toastr: ToastrService,
     public dataservice: DataService, private appConfig: AppConfigService,

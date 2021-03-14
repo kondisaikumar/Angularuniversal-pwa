@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import * as CryptoJS from 'crypto-js';
 import { baseUrl } from '../../services/url-provider';
 import { ProgressBarService } from '../../shared/services/progress-bar.service';
@@ -24,6 +24,7 @@ export class SessionService {
     private store: Store<CustomerLoginSession>,
     private progressBarService: ProgressBarService,
     private route: Router,
+    @Inject(PLATFORM_ID) private platformId: object,
     private appConfig: AppConfigService,
     private commonService: CommonService,
     private toastr: ToastrService

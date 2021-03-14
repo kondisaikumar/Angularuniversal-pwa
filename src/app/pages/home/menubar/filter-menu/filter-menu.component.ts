@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnChanges, Inject } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, Inject, PLATFORM_ID } from '@angular/core';
 import { DataService } from '../../../../services/data.service';
 import { ProductFilters } from '../../../../models/product-filters';
 import { Router } from '@angular/router';
@@ -34,7 +34,7 @@ export class FilterMenuComponent implements OnChanges {
   isVarietalSelected: any;
   isTypeSelected: any;
   
-  constructor(public dataservice: DataService, private router: Router) {
+  constructor(public dataservice: DataService, private router: Router,@Inject(PLATFORM_ID) private platformId: object) {
     this.allFilters = {
       size: [],
       type: [],

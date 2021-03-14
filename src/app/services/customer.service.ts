@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Observable, of, throwError, EMPTY, Subject } from 'rxjs';
 import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { switchMap, catchError } from 'rxjs/operators';
@@ -42,6 +42,7 @@ TransactionSetupID: any;
     private errorHandler: ErrorHandlerService,
     private store: Store<CustomerLoginSession>,
     private toastr: ToastrService,
+    @Inject(PLATFORM_ID) private platformId: object,
     private cartService: CartService,
     private progressBarService: ProgressBarService,
     private appConfig: AppConfigService,

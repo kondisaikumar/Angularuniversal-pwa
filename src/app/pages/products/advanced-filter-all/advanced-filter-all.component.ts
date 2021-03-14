@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { DataFilterAllService } from '../../../services/data-filter-all.service';
 import { ProductFilters } from '../../../models/product-filters';
 import { Item } from '../../../models/item';
@@ -68,6 +68,7 @@ typeIds: any;
   Review = 0;
   SortProductsBy: any;
   constructor(public dataservice: DataFilterAllService,
+    @Inject(PLATFORM_ID) private platformId: object,
     private store: Store<ProductGetListRequestPayload>, private router: Router, private commonService: CommonService,
     private productStoreService: ProductStoreService, private sessionService: SessionService, private route: ActivatedRoute,
     private appConfig: AppConfigService, private progressBarService: ProgressBarService) {

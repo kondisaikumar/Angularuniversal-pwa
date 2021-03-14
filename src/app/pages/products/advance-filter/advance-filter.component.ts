@@ -18,6 +18,7 @@ import { AppConfigService } from '../../../app-config.service';
 import { SessionService } from '../../../shared/services/session.service';
 import { Title, Meta } from '@angular/platform-browser';
 import { BannerService } from 'src/app/services/banner.service';
+import { PLATFORM_ID } from '@angular/core';
 
 @Component({
   selector: 'app-advance-filter',
@@ -70,7 +71,7 @@ export class AdvanceFilterComponent implements OnInit {
     private _meta:Meta,
     private store: Store<ProductGetListRequestPayload>, private banerService: BannerService,
     private productStoreService: ProductStoreService, private commonService: CommonService,
-    //  
+    @Inject(PLATFORM_ID) private platformId: object,
     private router: Router, private route: ActivatedRoute, private appConfig: AppConfigService,
     private progressBarService: ProgressBarService, private sessionService: SessionService) {
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CommonService } from '../../shared/services/common.service';
 import { OrdersService } from '../../services/orders.service';
@@ -20,7 +20,7 @@ export class CheckoutComponent implements OnInit,OnDestroy {
   ListOrder: any;
   myOrdersList: any;
   constructor(private cartService: CartService,
-     
+    @Inject(PLATFORM_ID) private platformId: object,
     private storeService: ProductStoreService,
     private commonService: CommonService, private paymentService: PaymentService, private ordersService: OrdersService) {
     this.commonService.orderPlaced.subscribe(data => {

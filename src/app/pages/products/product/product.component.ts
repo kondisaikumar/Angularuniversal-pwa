@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject, PLATFORM_ID } from '@angular/core';
 import { ProductStoreService } from '../../../services/product-store.service';
 import { CartService } from '../../../services/cart.service';
 //  
@@ -16,7 +16,7 @@ export class ProductComponent implements OnInit {
   storeid: string;
   constructor(private productService: ProductStoreService,
     private cartService: CartService, public router: Router,
-    //  
+    @Inject(PLATFORM_ID) private platformId: object,
     private toastr: ToastrService,
     private progressBarService: ProgressBarService) { }
 

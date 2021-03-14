@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -29,7 +29,7 @@ export class HomepageComponent implements OnInit {
     private router: Router,
     private store: Store<CustomerLoginSession>,
     private cartService: CartService,
-    //  
+    @Inject(PLATFORM_ID) private platformId: object,
     private titleService: Title,
     private progressBarService: ProgressBarService,
     private appConfig: AppConfigService) {

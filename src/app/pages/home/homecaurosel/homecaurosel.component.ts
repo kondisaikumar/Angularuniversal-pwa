@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject, PLATFORM_ID } from '@angular/core';
 import { DataService } from '../../../services/data.service';
 import { Router } from '@angular/router';
 import { AppConfigService } from '../../../app-config.service';
@@ -37,6 +37,7 @@ defaultpromotionList=[{
   constructor(private router: Router,
     private store: Store<CustomerLoginSession>,
      public dataservice: DataService,
+     @Inject(PLATFORM_ID) private platformId: object,
       public appConfigService: AppConfigService, 
       private commonService:CommonService,
        private banerService: BannerService) {

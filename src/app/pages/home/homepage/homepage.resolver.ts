@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Resolve } from '@angular/router';
 import { Observable, of, EMPTY } from 'rxjs';
 import { mergeMap, take, catchError } from 'rxjs/operators';
@@ -6,7 +6,7 @@ import { AngularFireMessaging } from '@angular/fire/messaging';
 
 @Injectable()
 export class HomePageResolver implements Resolve<string> {
-    constructor(private angularFireMessaging: AngularFireMessaging) {
+    constructor(private angularFireMessaging: AngularFireMessaging,@Inject(PLATFORM_ID) private platformId: object) {
     }
 
     resolve(): Observable<string> {

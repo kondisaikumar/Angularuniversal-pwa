@@ -1,4 +1,4 @@
-import { Injectable, Output, EventEmitter } from '@angular/core';
+import { Injectable, Output, EventEmitter, PLATFORM_ID, Inject } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 // import { truncateSync } from 'fs';
 
@@ -47,7 +47,7 @@ appVersion = '11';
   };
   validationMode = '';
 
-  constructor(private angularFireMessaging: AngularFireMessaging) {
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {
     if (localStorage.getItem('storeId') && localStorage.getItem('storeId') !== '0') {
       this.storeID = +localStorage.getItem('storeId');
     }

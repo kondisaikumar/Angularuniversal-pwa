@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { CustomerLogin } from '../../../state/customer/customer.action';
@@ -46,6 +46,7 @@ export class HeaderComponent implements OnInit {
     private customerService: CustomerService,
     private cartService: CartService,
     private dataservice: DataService,
+    @Inject(PLATFORM_ID) private platformId: object,
     private router: Router,
     private storeService: ProductStoreService,
     private progressBarService: ProgressBarService,

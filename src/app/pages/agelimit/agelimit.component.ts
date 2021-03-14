@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonService } from 'src/app/shared/services/common.service';
 
 @Component({
@@ -10,7 +10,8 @@ export class AgelimitComponent implements OnInit {
   @Output() ageVerified = new EventEmitter<boolean>();
   sorryPopup = false;
   legalDate: Date;
-  constructor(private commonService: CommonService) {
+  constructor(private commonService: CommonService,
+    @Inject(PLATFORM_ID) private platformId: object) {
     this.commonService.agePopUp.subscribe((res: any) => {
 
     });

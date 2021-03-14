@@ -9,6 +9,7 @@ import { CartService } from '../../../services/cart.service';
 //  
 import { ToastrService } from 'ngx-toastr';
 import { ProgressBarService } from '../../../shared/services/progress-bar.service';
+import { PLATFORM_ID } from '@angular/core';
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
@@ -26,7 +27,7 @@ export class FavoritesComponent implements OnInit {
   constructor(private store: Store<ProductGetListRequestPayload>,
     private productStoreService: ProductStoreService,
     private cartService: CartService,
-    //  
+    @Inject(PLATFORM_ID) private platformId: object,
     private toastr: ToastrService,
     private progressBarService: ProgressBarService) {
     this.store.select(ProductStoreSelectors.productGetListData)

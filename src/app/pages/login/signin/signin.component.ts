@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -39,6 +39,7 @@ export class SigninComponent implements OnInit {
     private socialAuthService: SocialAuthService,
     private formBuilder: FormBuilder,
     private toastr: ToastrService,
+    @Inject(PLATFORM_ID) private platformId: object,
     private progressBarService: ProgressBarService,
     private appConfig: AppConfigService,
     private customerService: CustomerService) {

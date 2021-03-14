@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { CustomerLoginSession } from '../../../models/customer-login-session';
 import { ProductStoreSelectors } from '../../../state/product-store/product-store.selector';
 import { Store } from '@ngrx/store';
@@ -14,7 +14,7 @@ import { BannerService } from 'src/app/services/banner.service';
 })
 export class EventsComponent implements OnInit {
   storeGetHomeData: any;
-  constructor(private store: Store<CustomerLoginSession>, private banerService: BannerService, private router: Router, private dataservice: DataService,private commonService:CommonService) {
+  constructor(private store: Store<CustomerLoginSession>,   @Inject(PLATFORM_ID) private platformId: object, private banerService: BannerService, private router: Router, private dataservice: DataService,private commonService:CommonService) {
     this.store.select(ProductStoreSelectors.productStoreStateData)
       .subscribe(pssd => {
         if (pssd) {

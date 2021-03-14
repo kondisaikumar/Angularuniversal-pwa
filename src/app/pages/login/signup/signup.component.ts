@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -34,6 +34,7 @@ export class SignupComponent implements OnInit {
     private progressBarService: ProgressBarService,
     private appConfig: AppConfigService,
     private commonService:CommonService,
+    @Inject(PLATFORM_ID) private platformId: object,
     private route: ActivatedRoute) {
       this.returnUrl = this.route.snapshot.queryParams['returnUrl'];
       this.commonService.multistoreclicked.subscribe((res)=>{

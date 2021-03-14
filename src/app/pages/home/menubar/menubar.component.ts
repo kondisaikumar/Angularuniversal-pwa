@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject, PLATFORM_ID } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
 import { ProductStoreSelectors } from '../../../state/product-store/product-store.selector';
@@ -30,7 +30,7 @@ export class MenubarComponent implements OnInit {
   menuOptions = [];
   staffpicksTitle='';
 
-  constructor(private store: Store<any>, private router: Router, public dataservice: DataService, private commonService: CommonService,
+  constructor(private store: Store<any>, private router: Router,@Inject(PLATFORM_ID) private platformId: object, public dataservice: DataService, private commonService: CommonService,
      private productStoreService: ProductStoreService) {
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.productStoreService.couponAvailable.subscribe(data => {

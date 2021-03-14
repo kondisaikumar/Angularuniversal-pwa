@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 
@@ -25,6 +25,7 @@ export class EventDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private store: Store<EventGetDetailsRequestPayload>,
     private productStoreService: ProductStoreService,
+    @Inject(PLATFORM_ID) private platformId: object,
     private commonService:CommonService,
     private appConfig: AppConfigService,
     private sessionService:SessionService,

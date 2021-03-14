@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output, Inject, PLATFORM_ID } from '@angular/core';
 import { DataFilterAllService } from '../../../../services/data-filter-all.service';
 import { Router } from '@angular/router';
 import { ProductStoreService } from '../../../../services/product-store.service';
@@ -21,7 +21,7 @@ export class SearchBarComponent implements OnInit {
   routePath: string;
   isFocus: boolean;
 
-  constructor(public dataservice: DataFilterAllService, private router: Router, private productStoreService: ProductStoreService) { }
+  constructor(public dataservice: DataFilterAllService,@Inject(PLATFORM_ID) private platformId: object, private router: Router, private productStoreService: ProductStoreService) { }
   @Output() focus = new EventEmitter();
   ngOnInit() { }
   arrayEmpty() {

@@ -1,4 +1,4 @@
-import { Component, OnChanges, Input, Output, EventEmitter, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnChanges, Input, Output, EventEmitter, ElementRef, ViewChild, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonService } from 'src/app/shared/services/common.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductStoreService } from 'src/app/services/product-store.service';
@@ -17,7 +17,7 @@ export class MultiStoreComponent implements OnChanges {
   searchText: string;
   tempStores: any;
 
-  constructor(private commonService: CommonService, private storeService: ProductStoreService,
+  constructor(private commonService: CommonService,@Inject(PLATFORM_ID) private platformId: object, private storeService: ProductStoreService,
      private router: Router) {
     this.commonService.currentStoreid.subscribe((res: any) => {
       this.onStoreSelectConfirm(res, 'unclicked');

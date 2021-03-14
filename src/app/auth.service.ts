@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,   @Inject(PLATFORM_ID) private platformId: object,) { }
 
   // Set User Secure Token
   setSessionToken(secure_token: string) {
