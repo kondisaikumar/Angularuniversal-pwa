@@ -1,3 +1,4 @@
+import { isPlatformBrowser } from '@angular/common';
 import { Injectable, Output, EventEmitter, PLATFORM_ID, Inject } from '@angular/core';
 import { AngularFireMessaging } from '@angular/fire/messaging';
 // import { truncateSync } from 'fs';
@@ -48,13 +49,15 @@ appVersion = '11';
   validationMode = '';
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) {
+    if (isPlatformBrowser(this.platformId)) {
     if (localStorage.getItem('storeId') && localStorage.getItem('storeId') !== '0') {
       this.storeID = +localStorage.getItem('storeId');
     }
   }
+  }
 
   getLoginCustomerParams(email?: string, pwd?: string, loginType?: string, sourceId?: string) {
-
+    if (isPlatformBrowser(this.platformId)) {
     this.deviceID = localStorage.getItem('deviceId');
     if (this.deviceID === null) {
       this.deviceID = Math.random().toString(36).substring(2);
@@ -79,16 +82,7 @@ appVersion = '11';
       UserIp: ''
     };
   }
-
-  // getFirebaseDeviceID() {
-  //   this.angularFireMessaging.requestToken.subscribe(
-  //     (token) => {
-  //       if (token) {
-  //         // console.log(token);
-  //         localStorage.setItem('deviceId', token);
-  //       }
-  //     });
-  // }
+  }
 
   decryptionKeyandTransaction(Credential1, Credential2, Credential3, StoreID) {
     if (Credential3 === 'T') {
