@@ -51,7 +51,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     private storeService: ProductStoreService,
     private store: Store<CustomerLoginSession>,
     private commonService: CommonService) {
-
+this._title.setTitle('Home');
    this.commonService.multistoreclicked.subscribe(res=>this.storeChangeClicked=res);
       this.store.select(CustomerSelectors.customerLoginSessionData)
       .subscribe(clsd => {
@@ -188,13 +188,14 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
   ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         (<any>window).ga('set', 'page', event.urlAfterRedirects);
         (<any>window).ga('send', 'pageview');
       }
     });
-    if (isPlatformBrowser(this.platformId)) {
+
     if (!localStorage.getItem('isAgeVerified')) {
       setTimeout(() => {
         this.openModal.nativeElement.click();
