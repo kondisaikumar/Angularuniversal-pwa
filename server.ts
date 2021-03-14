@@ -7,7 +7,41 @@ import { join } from 'path';
 import { AppServerModule } from './src/main.server';
 import { APP_BASE_HREF } from '@angular/common';
 import { existsSync } from 'fs';
+const domino = require('domino');
 
+const fs = require('fs');
+
+const path = require('path');
+
+const template = fs.readFileSync(path.join('.', 'dist/my-hilarious-app/browser', 'index.html')).toString();
+
+const win = domino.createWindow(template);
+// tslint:disable-next-line:no-string-literal
+
+global['window'] = win;
+
+// tslint:disable-next-line:no-string-literal
+
+global['document'] = win.document;
+
+// tslint:disable-next-line:no-string-literal
+
+global['DOMTokenList'] = win.DOMTokenList;
+
+// tslint:disable-next-line:no-string-literal
+global['Node'] = win.Node;
+
+// tslint:disable-next-line:no-string-literal
+
+global['Text'] = win.Text;
+
+// tslint:disable-next-line:no-string-literal
+
+global['HTMLElement'] = win.HTMLElement;
+
+// tslint:disable-next-line:no-string-literal
+
+global['navigator'] = win.navigator;
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
