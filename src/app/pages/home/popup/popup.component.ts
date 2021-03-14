@@ -12,6 +12,7 @@ import { SessionService } from '../../../shared/services/session.service';
 import { CommonService } from '../../../shared/services/common.service';
 import { MapsAPILoader } from '@agm/core';
 import { Subject } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-popup',
@@ -143,6 +144,7 @@ export class PopupComponent implements OnInit {
         this.storeList = sList;
         if(sList.length > 1 && this.getlocation){
           this.getlocation=false;
+          if (isPlatformBrowser(this.platformId)) {
           if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition((position) => {
               const latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
@@ -151,6 +153,7 @@ export class PopupComponent implements OnInit {
                 this.calculateDistance(latlng);
               }});
             }
+          }
         }
         this.progressBarService.hide();
       }

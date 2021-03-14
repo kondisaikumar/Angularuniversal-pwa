@@ -13,6 +13,7 @@ import { CustomerLogin } from './state/customer/customer.action';
 import { MapsAPILoader } from '@agm/core';
 import * as CryptoJS from 'crypto-js';
 import { baseUrl } from './services/url-provider';
+import { isPlatformBrowser } from '@angular/common';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -205,7 +206,8 @@ export class AppComponent implements OnInit, AfterViewInit {
 
         this.storeList = sList;
         if(this.storeList.length > 1){
-          localStorage.setItem('singlestore', 'no')
+          if (isPlatformBrowser(this.platformId)) {
+          localStorage.setItem('singlestore', 'no');
           if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition((position) => {
               const latlng = {lat: position.coords.latitude, lng: position.coords.longitude};
@@ -215,6 +217,7 @@ export class AppComponent implements OnInit, AfterViewInit {
                 this.calculateDistance(latlng);
               }});
             }
+          }
         }else if(this.storeList.length === 1){
           if(!localStorage.getItem('singlestore')){
           localStorage.setItem('singlestore', 'yes');
